@@ -1,0 +1,146 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { company, phoneHref, buildMailto } from '../data/company';
+
+const title = 'Anfrage senden — Beratungstermin & Angebot anfordern | Tor-Kaiser';
+const description = `Schreiben Sie uns Ihre Anfrage rund um Hörmann Garagentore, Industrietore, Haustüren oder Antriebe. Wir melden uns binnen eines Werktags — direkt aus Gladbeck.`;
+
+const bodyTemplate = (productHint: string) =>
+  `Guten Tag,\n\nich interessiere mich für ${productHint}.\n\nProjekt-Eckdaten (bitte ergänzen):\n- Adresse / Ort:\n- Maße (B × H) ungefähr:\n- Vorhandenes Tor / Vorhandene Tür: ja / nein, falls ja Modell:\n- Wunschtermin Aufmaß:\n- Sonstiges:\n\nVielen Dank und beste Grüße`;
+
+const options = [
+  {
+    title: 'Garagentor (privat)',
+    subject: 'Anfrage Garagentor',
+    body: bodyTemplate('ein Hörmann Garagentor (Sectional-, Schwing- oder Rolltor) für den Privatbereich'),
+  },
+  {
+    title: 'Industrietor (gewerblich)',
+    subject: 'Anfrage Industrietor',
+    body: bodyTemplate('ein Hörmann Industrietor (Sectional-, Roll- oder Schnelllauftor) für den gewerblichen Einsatz'),
+  },
+  {
+    title: 'Haustür',
+    subject: 'Anfrage Haustür',
+    body: bodyTemplate('eine Hörmann Haustür (z. B. ThermoSafe, ThermoCarbon)'),
+  },
+  {
+    title: 'Tor-Antrieb / Nachrüstung',
+    subject: 'Anfrage Antrieb',
+    body: bodyTemplate('einen Hörmann Antrieb (SupraMatic / ProMatic) — neu oder zur Nachrüstung'),
+  },
+  {
+    title: 'Wartung / UVV-Prüfung',
+    subject: 'Anfrage Wartung / UVV-Prüfung',
+    body: bodyTemplate('einen Wartungs- oder UVV-Prüftermin für ein bestehendes Hörmann-Tor'),
+  },
+  {
+    title: 'Reparatur / Ersatzteil',
+    subject: 'Anfrage Reparatur',
+    body: bodyTemplate('eine Reparatur oder ein Ersatzteil für ein Hörmann-Tor'),
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Breadcrumbs items={[{ label: 'Anfrage' }]} />
+
+  <section class="section">
+    <div class="container-narrow">
+      <span class="eyebrow">Anfrage</span>
+      <h1>Schreiben Sie uns — wir kümmern uns.</h1>
+      <p class="lead">
+        Wählen Sie ein Thema, dann öffnet sich Ihre E-Mail-Anwendung mit einer vorbereiteten
+        Anfrage. Sie können den Text natürlich frei ergänzen oder anpassen. Falls Sie lieber
+        anrufen: <a href={phoneHref}>{company.contact.phone}</a>.
+      </p>
+
+      <div class="anfrage-grid">
+        {
+          options.map((opt) => (
+            <a class="card card-interactive anfrage-card" href={buildMailto(opt.subject, opt.body)}>
+              <h2>{opt.title}</h2>
+              <p>E-Mail mit Vorlage vorbereiten</p>
+              <span class="anfrage-link">Vorlage öffnen →</span>
+            </a>
+          ))
+        }
+      </div>
+
+      <div class="alt-channels">
+        <h2>Andere Kontaktwege</h2>
+        <ul>
+          <li>
+            <strong>Telefon:</strong> <a href={phoneHref}>{company.contact.phone}</a> ·
+            {company.openingHours.text}
+          </li>
+          <li>
+            <strong>Allgemeine E-Mail:</strong> <a href={`mailto:${company.contact.email}`}>{company.contact.email}</a>
+          </li>
+          <li>
+            <strong>Vor Ort:</strong> {company.address.street}, {company.address.postalCode} {company.address.city}
+          </li>
+          <li>
+            <strong>Notdienst:</strong> {company.emergency.daytimePhone} ({company.emergency.daytimeHours}) ·
+            {company.emergency.nightPhone} ({company.emergency.nightHours.toLowerCase()})
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .anfrage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+    margin-block: 2rem;
+  }
+
+  .anfrage-card {
+    text-decoration: none;
+    color: var(--color-ink);
+  }
+
+  .anfrage-card h2 {
+    font-size: 1.15rem;
+    margin: 0 0 0.4rem;
+    color: var(--color-brand);
+  }
+
+  .anfrage-card p {
+    margin: 0 0 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .anfrage-link {
+    color: var(--color-brand);
+    font-weight: 700;
+    font-size: 0.92rem;
+  }
+
+  .alt-channels {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .alt-channels h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+  }
+
+  .alt-channels ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: var(--color-ink-soft);
+  }
+
+  .alt-channels li {
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+  }
+</style>

@@ -1,0 +1,143 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+import FAQ from '../../components/FAQ.astro';
+
+const title = 'Garagentor-Wartung Checkliste — was prüfen, wie oft? | Tor-Kaiser';
+const description =
+  'Praxis-Checkliste zur Wartung Ihres Garagentors: Was Sie selbst prüfen können, was der Fachmann macht, wann eine Inspektion fällig ist.';
+
+const faqs = [
+  {
+    question: 'Wie oft sollte ich mein Garagentor warten lassen?',
+    answer:
+      'Ein Privattor mindestens alle 2 Jahre, gewerbliche Anlagen (Industrietore, Schnelllauftore) mindestens 1× jährlich (UVV-Pflicht).',
+  },
+  {
+    question: 'Was darf ich selbst tun, was nicht?',
+    answer:
+      'Bewegliche Teile reinigen, Laufrollen ölen, Lichtschranke abwischen, Funktion testen — kein Problem. Federn, Seilzüge und Antriebsmechanik dagegen sind unter Hochspannung und gefährlich. Diese Arbeiten gehören in Fachhände.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Breadcrumbs items={[
+    { label: 'Ratgeber', href: '/ratgeber/' },
+    { label: 'Garagentor-Wartung Checkliste' },
+  ]} />
+
+  <article class="section">
+    <div class="container-narrow prose-content">
+      <span class="eyebrow">Ratgeber · Wartung</span>
+      <h1>Garagentor-Wartung — die jährliche Checkliste</h1>
+      <p class="lead">
+        Ein Hörmann Garagentor läuft bei richtiger Pflege locker 20–30 Jahre. Mit einer
+        regelmäßigen Sichtkontrolle und einer Fachwartung im Zwei-Jahres-Rhythmus sparen Sie
+        Reparaturkosten und vermeiden plötzliche Ausfälle.
+      </p>
+
+      <h2>Was Sie selbst prüfen können (4× pro Jahr)</h2>
+      <ol>
+        <li>
+          <strong>Sicht- und Hörprüfung:</strong> Bewegt sich das Tor ruhig und gleichmäßig?
+          Hören Sie Knirschen, Quietschen oder ungleichmäßiges Laufen — das deutet auf Lager
+          oder Laufrollen hin.
+        </li>
+        <li>
+          <strong>Sauberkeit:</strong> Bodenschiene und Seitenführungen mit Besen oder
+          Druckluft von Schmutz befreien. Streusalz, Sand und Laub erhöhen den Verschleiß.
+        </li>
+        <li>
+          <strong>Dichtungen:</strong> Boden-, Seiten- und Sturzdichtungen auf Beschädigungen
+          prüfen — Risse lassen Zugluft und Feuchtigkeit ein.
+        </li>
+        <li>
+          <strong>Notentriegelung testen:</strong> Bei Stromausfall müssen Sie das Tor manuell
+          öffnen können. Mindestens 1× pro Jahr testen — den Bowdenzug ziehen, Tor von Hand
+          bewegen, wieder einkuppeln.
+        </li>
+        <li>
+          <strong>Sicherheitseinrichtungen:</strong> Lichtschranke abwischen und Funktion
+          prüfen (Hand zwischen die Sensoren halten — das Tor muss reversieren).
+        </li>
+        <li>
+          <strong>Handsender:</strong> Reichweite und Batterien checken. Bei nachlassender
+          Reichweite oft nur eine neue Batterie nötig.
+        </li>
+      </ol>
+
+      <h2>Was der Fachmann macht (alle 2 Jahre)</h2>
+      <ol>
+        <li>
+          <strong>Federpaket-Inspektion:</strong> Federvorspannung messen, auf Risse und
+          Materialermüdung prüfen. Federn sind das mit Abstand häufigste Verschleißteil.
+        </li>
+        <li>
+          <strong>Seile prüfen:</strong> Aufrollkonus, Drahtseile und Klemmen — Risse oder
+          Korrosion können zum Seilbruch führen.
+        </li>
+        <li>
+          <strong>Schmierung:</strong> Schmiermittel mit Hörmann-Freigabe an Laufrollen,
+          Gelenken, Schienen. Falsches Schmiermittel kann Dichtungen angreifen oder Lager
+          verkleben.
+        </li>
+        <li>
+          <strong>Antriebs-Diagnose:</strong> Mit Hörmann Service-Diagnose-Tool auslesen —
+          Kraftbegrenzung, Zykluszahl, Fehler-Speicher.
+        </li>
+        <li>
+          <strong>Schraub- und Lagerverbindungen:</strong> Mit Drehmomentschlüssel auf
+          Festsitz prüfen.
+        </li>
+        <li>
+          <strong>Sicherheits-Check:</strong> Kraftbegrenzung mit Messgerät prüfen (max.
+          150 N), Lichtschranke nachjustieren, Notentriegelung kontrollieren.
+        </li>
+        <li>
+          <strong>Prüfprotokoll:</strong> Sie bekommen eine Dokumentation mit allen Werten
+          und Empfehlungen.
+        </li>
+      </ol>
+
+      <h2>Warnsignale — wann sofort einen Fachbetrieb rufen?</h2>
+      <ul>
+        <li>Tor läuft schief oder klemmt seitlich → vermutlich Laufrolle oder Schiene</li>
+        <li>Antrieb stoppt mitten in der Bewegung → Kraftbegrenzung greift, Ursache klären</li>
+        <li>Lautes Knacken oder Pfeifen → Federspannung verändert</li>
+        <li>Tor fällt von alleine nach unten → Seilbruch oder gerissene Feder — <strong>Lebensgefahr!</strong> Nicht mehr betätigen.</li>
+        <li>Antrieb reagiert nicht auf Handsender → Funkstörung oder Empfangsmodul defekt</li>
+        <li>Tor schließt nicht komplett → Bodendichtung, Endschalter oder Lichtschranke prüfen</li>
+      </ul>
+
+      <h2>Wartungsvertrag — lohnt sich das?</h2>
+      <p>
+        Ein Wartungsvertrag macht in diesen Fällen Sinn:
+      </p>
+      <ul>
+        <li>Sie haben ein neueres Hörmann-Tor und möchten die Werksgarantie nicht riskieren</li>
+        <li>Das Tor ist täglich in Gebrauch (Familie mit zwei Autos)</li>
+        <li>Bei gewerblichen Anwendungen (UVV-Pflicht!)</li>
+        <li>Bei Industriebetrieben mit Folgeschäden bei Ausfall (Logistik, Produktion)</li>
+      </ul>
+      <p>
+        Für gelegentlich genutzte Garagen reicht oft eine Anlassinspektion alle 3–4 Jahre.
+      </p>
+
+      <h2>Sicherheits-Hinweise zur Selbstwartung</h2>
+      <ul>
+        <li>Federwellen nie ohne Spezialwerkzeug bearbeiten — Lebensgefahr durch hohe Spannung</li>
+        <li>Antrieb immer stromlos schalten, bevor Sie Hand anlegen</li>
+        <li>Bei Unsicherheit lieber Foto schicken und uns fragen — wir antworten schnell</li>
+      </ul>
+    </div>
+  </article>
+
+  <FAQ items={faqs} />
+
+  <CtaBlock
+    title="Wartungstermin anfragen"
+    subtitle="Wir bieten Wartung für alle Hörmann-Tore in Gladbeck und Umgebung — auch mit Dauer-Wartungsvertrag und Notdienst-Vorrang."
+  />
+</BaseLayout>

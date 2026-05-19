@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+import FAQ from '../../components/FAQ.astro';
+import ProductGallery from '../../components/ProductGallery.astro';
+import { productBySlug } from '../../data/products';
+
+const product = productBySlug('haustueren')!;
+
+const title = 'Hörmann Haustüren ThermoSafe, ThermoCarbon, Thermo65 | Tor-Kaiser Gladbeck';
+const description =
+  'Hörmann Aluminium-Haustüren mit RC 2 / RC 3 Sicherheit, flügelüberdeckendes Design, U-Werte bis 0,47 W/m²K. Verkauf und Montage in Gladbeck und im Ruhrgebiet.';
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Hörmann Aluminium-Haustür ThermoSafe',
+  brand: { '@type': 'Brand', name: 'Hörmann' },
+  category: 'Haustür',
+  description,
+};
+
+const faqs = [
+  {
+    question: 'Welche Hörmann Haustür ist die beste?',
+    answer:
+      'Die ThermoCarbon ist Hörmanns Premium-Modell (UD bis 0,47 W/m²K, RC 3 Einbruchschutz serienmäßig). Die ThermoSafe ist das meistverkaufte Modell und bietet RC 3 mit 5-fach Verriegelung. Die Thermo65 / Thermo46 sind die etwas schlanker gebauten Varianten.',
+  },
+  {
+    question: 'Was bedeutet RC 2 / RC 3?',
+    answer:
+      'RC steht für „Resistance Class“ — RC 2 hält Gelegenheitstätern bis 3 Minuten stand, RC 3 bis 5 Minuten. Polizei und KfW empfehlen RC 2 als Mindeststandard für Wohnhäuser, RC 3 für besonders schutzbedürftige Bereiche.',
+  },
+  {
+    question: 'Was kostet eine Hörmann ThermoSafe?',
+    answer:
+      'Eine ThermoSafe Haustür beginnt je nach Motiv und Ausstattung bei ca. 3.500 € inkl. Standardmontage. ThermoCarbon-Türen mit Sonderausstattung erreichen 8.000–12.000 € — je nach Motiv, Maßen und Verglasung.',
+  },
+  {
+    question: 'Wird die alte Tür entsorgt?',
+    answer:
+      'Ja. Wir bauen Ihre alte Haustür fachgerecht aus und führen sie der Wiederverwertung zu — auf Wunsch inklusive Anpassung des Türrahmens und der Laibung.',
+  },
+  {
+    question: 'Gibt es Zuschüsse von KfW oder BAFA?',
+    answer:
+      'Beim Einbau hochwärmegedämmter Haustüren im Rahmen einer energetischen Sanierung können Sie ggf. Förderungen über die KfW (Einzelmaßnahme „Sommerlicher Wärmeschutz / Türen und Tore“) oder BAFA in Anspruch nehmen. Wir liefern Ihnen die nötigen Unterlagen für Ihren Energieberater.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} schema={productSchema}>
+  <Breadcrumbs items={[
+    { label: 'Produkte', href: '/produkte/' },
+    { label: 'Haustüren' },
+  ]} />
+
+  <Hero
+    eyebrow="Hörmann Haustüren"
+    title="ThermoSafe, ThermoCarbon, Thermo65."
+    subtitle="Aluminium-Haustüren mit flügelüberdeckendem Design, RC 2/RC 3 Einbruchschutz serienmäßig und besten Wärmedämmwerten. Über 70 Motive zur Auswahl."
+    image={product.image}
+    imageAlt={product.imageAlt}
+  />
+
+  <TrustBar />
+
+  <section class="section">
+    <div class="container-wrap prose-content">
+      <h2>Modell-Übersicht</h2>
+      <table class="data-table">
+        <thead><tr><th>Modell</th><th>UD-Wert</th><th>Einbruchschutz</th><th>Stärke</th></tr></thead>
+        <tbody>
+          <tr><td><strong>ThermoCarbon</strong></td><td>bis 0,47 W/m²K</td><td>RC 3 serienmäßig</td><td>100 mm Türblatt — Hörmanns Premium-Tür</td></tr>
+          <tr><td><strong>ThermoSafe</strong></td><td>bis 0,8 W/m²K</td><td>RC 3 serienmäßig</td><td>73 mm Türblatt, meistverkauft</td></tr>
+          <tr><td><strong>ThermoSafe Hybrid</strong></td><td>bis 0,71 W/m²K</td><td>RC 2 / 3</td><td>Aluminium-Verbund mit PU-Kern</td></tr>
+          <tr><td><strong>Thermo65</strong></td><td>bis 0,8 W/m²K</td><td>RC 2</td><td>65 mm — der ausgewogene Allrounder</td></tr>
+          <tr><td><strong>Thermo46</strong></td><td>bis 1,1 W/m²K</td><td>—</td><td>Funktionstür / Eingang Nebengebäude</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Sicherheit serienmäßig</h2>
+      <ul>
+        <li><strong>5-fach Verriegelung</strong> — Schwenkriegel und Bolzen automatisch beim Schließen</li>
+        <li><strong>Profilzylinder mit Bohrschutz</strong> und Anti-Pick-Funktion</li>
+        <li><strong>Bandsicherungen</strong> — schützen die Bandseite gegen Aushebeln</li>
+        <li><strong>Sicherheits-Schließbleche</strong> in der Zarge</li>
+        <li><strong>RC 3 serienmäßig</strong> bei ThermoSafe und ThermoCarbon</li>
+        <li>Optional: Fingerprint, Code-Tastatur, motorisches Schloss, Smart-Lock</li>
+      </ul>
+
+      <h2>Design & Motive</h2>
+      <p>
+        Hörmann bietet über 70 Motive — von schlichten, modernen Designs bis zu klassischen
+        Varianten mit Glaseinsätzen und Verzierungen. Oberflächen wahlweise:
+      </p>
+      <ul>
+        <li>Pulverbeschichtung in allen RAL-Farben</li>
+        <li>Decograin-Oberflächen (Holzdekor wie Night Oak, Golden Oak)</li>
+        <li>Glas-/Stahl-Kombinationen mit LED-Beleuchtung</li>
+        <li>Asymmetrische Designs mit Seitenteilen und Oberlichtern</li>
+      </ul>
+
+      <h2>Komfort-Optionen</h2>
+      <ul>
+        <li>Fingerprint-Leser im Türblatt integriert</li>
+        <li>Motorschloss mit App-Steuerung (Hörmann Smart Door)</li>
+        <li>Video-Sprechanlage mit Touch-Display</li>
+        <li>Code-Tastatur (CTV / FCT 3-1 BS)</li>
+        <li>Beleuchtung im Griff oder Seitenteil</li>
+        <li>Sensoren für offene Tür / verriegelte Tür</li>
+      </ul>
+
+      <h2>Aufmaß und Einbau</h2>
+      <p>
+        Wir messen die Türöffnung exakt aus — inklusive Bestandstoleranzen und Aufbau der
+        Außenwand. Bei der Montage achten wir auf eine fachgerechte Abdichtung nach RAL —
+        innen luftdicht, außen schlagregendicht. Auf Wunsch übernehmen wir auch die Anpassung
+        der Laibung sowie die Reinigung nach der Montage.
+      </p>
+    </div>
+  </section>
+
+  <ProductGallery product={product} heading="Haustür-Modelle und Ausstattung" />
+
+  <FAQ items={faqs} />
+
+  <CtaBlock />
+</BaseLayout>

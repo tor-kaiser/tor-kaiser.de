@@ -1,0 +1,106 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import TrustBar from '../../../components/TrustBar.astro';
+import CtaBlock from '../../../components/CtaBlock.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ProductGallery from '../../../components/ProductGallery.astro';
+import { productBySlug } from '../../../data/products';
+
+const product = productBySlug('industrie-rolltore')!;
+
+const title = 'Hörmann Industrie-Rolltore HR 120 Aero, Decotherm | Tor-Kaiser Gladbeck';
+const description =
+  'Hörmann Industrie-Rolltore: HR 120 Aero (wärmegedämmt), Decotherm, Rollgitter HG-S. Für Lager, Werkstatt, Tiefgarage. Lieferung und Montage im Ruhrgebiet.';
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Hörmann Industrie-Rolltor',
+  brand: { '@type': 'Brand', name: 'Hörmann' },
+  category: 'Industrietor',
+  description,
+};
+
+const faqs = [
+  {
+    question: 'Wann ist ein Rolltor besser als ein Sectionaltor?',
+    answer:
+      'Rolltore brauchen weniger Deckenraum und sind besonders bei knappem Sturz oder hohen Toren wirtschaftlicher. Die Wärmedämmung ist beim Decotherm-Behang gut, erreicht aber nicht die Werte des SPU 67 Sectionaltors.',
+  },
+  {
+    question: 'Welche Größen sind möglich?',
+    answer:
+      'Industrie-Rolltore von Hörmann sind je nach Modell bis ca. 25 m² Torfläche bzw. bis 8 m Breite verfügbar — darüber hinaus durch Sonderkonstruktion.',
+  },
+  {
+    question: 'Was ist ein Rollgitter?',
+    answer:
+      'Rollgitter wie das HG-S bestehen aus Stahl-Gittermaschen (statt geschlossenem Behang) — sie sichern Eingänge in Einkaufszentren, Tiefgaragen oder Werkstätten und ermöglichen Belüftung sowie Durchsicht im geschlossenen Zustand.',
+  },
+  {
+    question: 'Sind Rolltore für den Außenbereich geeignet?',
+    answer:
+      'Ja. Alle Hörmann Industrie-Rolltore sind für den Außenbereich konzipiert und korrosionsgeschützt. Bei stark windbelasteten Standorten prüfen wir die Windlastklasse.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} schema={productSchema}>
+  <Breadcrumbs items={[
+    { label: 'Produkte', href: '/produkte/' },
+    { label: 'Industrietore', href: '/produkte/industrietore/' },
+    { label: 'Rolltore' },
+  ]} />
+
+  <Hero
+    eyebrow="Hörmann Industrie-Rolltor"
+    title="HR 120 Aero, Decotherm & Rollgitter."
+    subtitle="Industrie-Rolltore wickeln sich kompakt in eine Welle. Sie sparen Deckenraum, ermöglichen große Öffnungen und sind für gewerbliche Zykluszahlen ausgelegt."
+    image={product.image}
+    imageAlt={product.imageAlt}
+  />
+
+  <TrustBar />
+
+  <section class="section">
+    <div class="container-wrap prose-content">
+      <h2>Baureihen-Übersicht</h2>
+      <table class="data-table">
+        <thead><tr><th>Modell</th><th>Behang</th><th>Anwendung</th></tr></thead>
+        <tbody>
+          <tr><td><strong>HR 120 Aero</strong></td><td>120 mm wärmegedämmtes Aluminium-Profil</td><td>Beheizte Hallen, Logistik mit Energieanforderungen</td></tr>
+          <tr><td><strong>Decotherm</strong></td><td>Kompakter, wärmegedämmter Stahl-Behang</td><td>Werkstatt, kleinere Industrie-Hallen</td></tr>
+          <tr><td><strong>RollMatic Pro</strong></td><td>Aluminium-Behang doppelwandig</td><td>Mittelgroße gewerbliche Öffnungen</td></tr>
+          <tr><td><strong>HG-S Rollgitter</strong></td><td>Stahl-Gittermaschen</td><td>Eingänge in Einkaufszentren, Garagen, Werkstätten</td></tr>
+          <tr><td><strong>HR 116/120</strong></td><td>Aluminium-Profile</td><td>Industrieanwendungen ohne Wärmedämm-Pflicht</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Vorteile</h2>
+      <ul>
+        <li>Kompakter Aufwicklungsraum oberhalb des Sturzes</li>
+        <li>Volle Durchfahrtshöhe — wichtig für LKW, Stapler, Hochregale</li>
+        <li>Geringe Bautiefe — auch nachträglich in bestehende Hallen integrierbar</li>
+        <li>Wartungsarm — wenige bewegte Teile</li>
+        <li>Windlast-Stabilität bis Klasse 5 (je nach Modell)</li>
+      </ul>
+
+      <h2>Antriebe und Sicherheit</h2>
+      <ul>
+        <li>Antrieb WA 300 R, WA 500 oder GfA Elektromaten (je nach Größe)</li>
+        <li>Steuerung mit Totmann-Funktion oder Sicherheitsleiste</li>
+        <li>Lichtgitter / Lichtschranken für berührungslose Sicherung</li>
+        <li>Notentriegelung von außen</li>
+        <li>UVV-konform und jährlich prüfbar</li>
+      </ul>
+    </div>
+  </section>
+
+  <ProductGallery product={product} heading="Industrie-Rolltore im Einsatz" />
+
+  <FAQ items={faqs} />
+
+  <CtaBlock />
+</BaseLayout>

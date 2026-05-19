@@ -1,0 +1,137 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+import FAQ from '../../components/FAQ.astro';
+
+const title = 'Haustür-Sicherheit: RC 2, RC 3 und Smart-Lock — was lohnt sich? | Tor-Kaiser';
+const description =
+  'RC 2 vs. RC 3 Haustüren, Smart-Lock, Fingerprint, KfW-Förderung: Was bringt mehr Sicherheit, was reicht — und was wird vom Staat gefördert?';
+
+const faqs = [
+  {
+    question: 'Welche RC-Klasse empfiehlt die Polizei?',
+    answer:
+      'Die polizeiliche Beratung empfiehlt für Wohnhäuser mindestens RC 2 — das ist auch die Mindestanforderung für KfW-Förderungen. Für besonders gefährdete Lagen (Erdgeschoss, freistehende Häuser, abgelegene Lagen) wird RC 3 empfohlen.',
+  },
+  {
+    question: 'Kann ich eine Haustür nachträglich auf RC 2 aufrüsten?',
+    answer:
+      'Häufig nein — die RC-Klasse ist eine geprüfte Gesamtsystem-Eigenschaft (Türblatt, Zarge, Schloss, Beschläge, Glas). Einzelne Komponenten lassen sich verbessern, aber nicht auf RC 2 zertifizieren. Sicherer ist der Komplett-Austausch.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Breadcrumbs items={[
+    { label: 'Ratgeber', href: '/ratgeber/' },
+    { label: 'Haustür-Sicherheit' },
+  ]} />
+
+  <article class="section">
+    <div class="container-narrow prose-content">
+      <span class="eyebrow">Ratgeber · Sicherheit</span>
+      <h1>Haustür-Sicherheit: RC 2, RC 3 und Smart-Lock</h1>
+      <p class="lead">
+        Eine moderne Haustür ist Sicherheits-Element Nummer eins für Ihr Zuhause. Welche
+        Sicherheitsklasse Sie wirklich brauchen, was Smart-Lock-Systeme bringen und welche
+        Förderungen es gibt — alles in diesem Ratgeber.
+      </p>
+
+      <h2>Was bedeuten die RC-Klassen?</h2>
+      <p>
+        RC steht für „Resistance Class“ — die Widerstandsklasse einer einbruchhemmenden Tür
+        nach der europäischen Norm EN 1627. Die Klassen RC 1 N bis RC 6 geben an, wie lange
+        eine Tür einem Einbruchsversuch standhält:
+      </p>
+      <table class="data-table">
+        <thead>
+          <tr><th>Klasse</th><th>Widerstand</th><th>Geeignet für</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>RC 1 N</td><td>~ 1 Min. (Tritt, Schulter)</td><td>Innentüren, nicht für Wohnungseingänge</td></tr>
+          <tr><td>RC 2 N / RC 2</td><td>~ 3 Min. mit Werkzeug</td><td>Wohnungseingangstüren — Polizei-Standard</td></tr>
+          <tr><td>RC 3</td><td>~ 5 Min. mit mehr Werkzeug</td><td>Einfamilienhäuser, Erdgeschoss</td></tr>
+          <tr><td>RC 4–6</td><td>≥ 10 Min. (Profi-Werkzeuge)</td><td>Banken, Tresor, Hochsicherheit</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Polizei-Empfehlung und KfW-Förderung</h2>
+      <p>
+        Die polizeiliche Beratung (z. B. KK40 / Kommissariate Vorbeugung) empfiehlt:
+      </p>
+      <ul>
+        <li><strong>RC 2 als Mindeststandard</strong> für Wohnungseingangstüren</li>
+        <li><strong>RC 3</strong> für freistehende Einfamilienhäuser im Erdgeschoss</li>
+        <li><strong>RC 2 + Sicherungsanlage</strong> (Alarm, Smart-Lock) gilt als ausreichend in den meisten Lagen</li>
+      </ul>
+      <p>
+        Die KfW (Bank für Wiederaufbau) fördert Einbruchhemmung im Rahmen des Programms
+        „Altersgerecht Umbauen — Einbruchschutz“ (Programm 159/455-E). Voraussetzungen sind
+        u. a. mindestens RC 2 und ein Fachbetrieb, der die Maßnahme bescheinigt — das machen
+        wir gerne für Sie.
+      </p>
+
+      <h2>Hörmann Haustüren — RC-Klassen serienmäßig</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Modell</th><th>Standardausstattung</th><th>Aufpreis-Option</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>ThermoSafe</strong></td><td>RC 3</td><td>—</td></tr>
+          <tr><td><strong>ThermoCarbon</strong></td><td>RC 3</td><td>—</td></tr>
+          <tr><td><strong>Thermo65</strong></td><td>RC 2</td><td>RC 3</td></tr>
+          <tr><td><strong>Thermo46</strong></td><td>—</td><td>RC 2 (eingeschränkt)</td></tr>
+        </tbody>
+      </table>
+
+      <h2>5-fach Verriegelung — die Basis</h2>
+      <p>
+        Hörmann RC-Türen haben serienmäßig eine 5-fach Verriegelung: oben Bolzen, mittig
+        Schwenkriegel und Falle, unten Bolzen. Beim Schließen verriegelt die Tür automatisch —
+        Sie müssen nicht extra abschließen.
+      </p>
+
+      <h2>Smart-Lock und elektrische Komfort-Features</h2>
+      <ul>
+        <li><strong>Fingerprint</strong> (eFP-Modul): Tür öffnen per Fingerabdruck — bis 99 Personen speicherbar</li>
+        <li><strong>Code-Tastatur</strong> (FCT 3-1 BS): PIN-Code-Eingabe — beleuchtet, witterungsfest</li>
+        <li><strong>Motorschloss</strong>: Tür verriegelt motorisch, lässt sich per App / Schalter öffnen</li>
+        <li><strong>Hörmann Smart Door</strong>: App-Steuerung, Statusabfrage, Berechtigungen</li>
+        <li><strong>Video-Sprechanlage</strong>: Sehen wer klingelt, von überall</li>
+      </ul>
+
+      <h2>Schwachstellen alter Türen</h2>
+      <ol>
+        <li>Profilzylinder ohne Bohr-/Anti-Pick-Schutz — austauschbar</li>
+        <li>Einfaches Schließblech ohne Sicherheits-Schließwinkel</li>
+        <li>Türband ohne Bandsicherung — von außen aushebelbar</li>
+        <li>Schwacher Glasanteil ohne ESG/VSG</li>
+        <li>Briefkasten-Einwurf direkt neben dem Schloss</li>
+      </ol>
+
+      <h2>Was kosten RC-Türen?</h2>
+      <ul>
+        <li><strong>RC 2 Thermo65</strong> — ca. 3.500–5.500 € inkl. Standardmontage</li>
+        <li><strong>RC 3 ThermoSafe</strong> — ca. 4.500–8.500 €</li>
+        <li><strong>RC 3 ThermoCarbon</strong> — ca. 8.000–14.000 € (Premium-Linie)</li>
+        <li>Smart-Lock-Aufpreis: 600–1.800 €</li>
+        <li>Glasaufpreis (großflächige Verglasung, ESG/VSG): 500–2.500 €</li>
+      </ul>
+
+      <h2>Förderung</h2>
+      <p>
+        Über die KfW können Sie pro Wohneinheit bis zu 1.600 € Zuschuss erhalten (Stand 2025/26),
+        wenn Sie nachweislich einbruchhemmende Maßnahmen durchführen. Wir liefern Ihnen die
+        nötigen Bescheinigungen, die Sie zusammen mit Ihrem Energieberater einreichen.
+      </p>
+    </div>
+  </article>
+
+  <FAQ items={faqs} />
+
+  <CtaBlock
+    title="Haustür-Beratung anfragen"
+    subtitle="Wir kommen mit Mustern (Beschläge, Farbproben, Glasvarianten) zu Ihnen — beim kostenlosen Aufmaß sprechen wir alle Sicherheits- und Komfort-Optionen durch."
+  />
+</BaseLayout>

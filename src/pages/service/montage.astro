@@ -1,0 +1,119 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+import FAQ from '../../components/FAQ.astro';
+
+const title = 'Montage von Hörmann Toren & Türen | Tor-Kaiser Gladbeck';
+const description =
+  'Fachgerechte Montage von Hörmann Garagentoren, Industrietoren, Haustüren und Antrieben — durch das eigene Team von Bauprojekt Kaiser GmbH. Im gesamten Ruhrgebiet.';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Tor- und Tür-Montage',
+  provider: { '@id': 'https://tor-kaiser.de/#organization' },
+  areaServed: 'Nördliches Ruhrgebiet',
+  serviceType: 'Montage von Hörmann Toren und Türen',
+};
+
+const faqs = [
+  {
+    question: 'Wie lange dauert die Montage?',
+    answer:
+      'Ein Standard-Garagentor mit Antrieb ist in etwa 4–6 Stunden montiert. Eine Haustür je nach Anschluss und Putzarbeit 3–8 Stunden. Industrietore je nach Größe und Aufbau 1–3 Werktage.',
+  },
+  {
+    question: 'Wird das alte Tor abgebaut und entsorgt?',
+    answer:
+      'Ja — Demontage des Bestandstores, fachgerechte Entsorgung und Anpassung der Anschlüsse sind in unseren Festpreis-Angeboten enthalten.',
+  },
+  {
+    question: 'Müssen wir vor der Montage etwas vorbereiten?',
+    answer:
+      'Wir geben Ihnen rechtzeitig eine kurze Checkliste. In der Regel: Stromanschluss in der Garage prüfen, Bereich frei räumen, Auto aus der Garage. Mehr ist meist nicht nötig.',
+  },
+  {
+    question: 'Brauche ich einen Elektriker?',
+    answer:
+      'Den Anschluss des Antriebs an den vorhandenen Strom übernehmen wir. Wenn kein Strom in der Garage vorhanden ist, organisieren wir auf Wunsch einen Elektriker — oder Sie nutzen den ProMatic Akku Antrieb.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} schema={serviceSchema}>
+  <Breadcrumbs items={[
+    { label: 'Service', href: '/service/montage/' },
+    { label: 'Montage' },
+  ]} />
+
+  <Hero
+    eyebrow="Service"
+    title="Montage — durch das eigene Hörmann-Team."
+    subtitle="Vom Aufmaß über die Demontage des Bestands­tores bis zur sauberen Übergabe: Wir montieren mit festangestellten, Hörmann-geschulten Monteuren — keine Subunternehmer."
+    image="/img/montage.png"
+    imageAlt="Hörmann Montage durch Tor-Kaiser"
+  />
+
+  <TrustBar />
+
+  <section class="section">
+    <div class="container-wrap prose-content">
+      <h2>Was uns ausmacht</h2>
+      <ul>
+        <li><strong>Eigenes Team.</strong> Festangestellte Monteure mit langjähriger Hörmann-Erfahrung</li>
+        <li><strong>Werkzeug auf dem neuesten Stand.</strong> Spezialwerkzeug für Federpakete, Aufmaß-Lasertechnik, vollausgestattete Service-Fahrzeuge</li>
+        <li><strong>Sauberkeit am Arbeitsplatz.</strong> Schutzfolien, Abdeckungen, Reinigung nach der Montage</li>
+        <li><strong>Gewährleistung.</strong> Auf unsere Montage gewähren wir die gesetzliche Gewährleistung — zusätzlich zur Hörmann-Werksgarantie</li>
+        <li><strong>Eingespielter Ablauf.</strong> Beratung, Aufmaß, Anlieferung und Montage aus einer Hand</li>
+      </ul>
+
+      <h2>Privatkunden — typische Projekte</h2>
+      <ul>
+        <li>Erstmontage neuer Garagentore im Neubau</li>
+        <li>Austausch alter Schwing-, Sectional- oder Rolltore</li>
+        <li>Nachrüstung von Antrieben an Bestandstoren</li>
+        <li>Modernisierung von Hörmann-Antrieben auf BiSecur-Standard</li>
+        <li>Austausch von Haustüren — inkl. Anpassung des Sturz- und Bodenanschlusses</li>
+        <li>Montage von Nebentüren in Werkstatt, Keller, Hobbyraum</li>
+      </ul>
+
+      <h2>Gewerbe und Industrie</h2>
+      <ul>
+        <li>Industrie-Sectionaltore und Schnelllauftore an Verladerampen</li>
+        <li>Rolltore und Rollgitter an Werkstatt-Eingängen und Tiefgaragen</li>
+        <li>Brand- und Rauchschutztüren in Bestandsobjekten und Neubauten</li>
+        <li>Großprojekte: Logistikzentren, öffentliche Verwaltung, Behörden</li>
+      </ul>
+
+      <h2>Ablauf</h2>
+      <ol>
+        <li><strong>Erstkontakt</strong> — telefonisch oder per E-Mail</li>
+        <li><strong>Kostenloses Aufmaß</strong> bei Ihnen vor Ort (Gladbeck und Umgebung)</li>
+        <li><strong>Verbindliches Angebot</strong> mit Festpreis und Lieferzeit</li>
+        <li><strong>Anlieferung</strong> des Tor- bzw. Türmaterials in der vereinbarten Woche</li>
+        <li><strong>Montage</strong> durch unser Team — meist an einem Werktag</li>
+        <li><strong>Übergabe & Einweisung</strong> — wir erklären die Bedienung und übergeben alle Unterlagen</li>
+        <li><strong>Service-Empfehlung</strong> — wir bieten Ihnen einen Wartungsvertrag an</li>
+      </ol>
+
+      <h2>Referenzen unseres Montage-Teams</h2>
+      <ul>
+        <li>IKEA Einrichtungshaus Dortmund</li>
+        <li>Sparkasse Wuppertal</li>
+        <li>Oberlandesgericht (OLG) Essen</li>
+        <li>Wohnungsbaugenossenschaften Vest Recklinghausen</li>
+        <li>Tausende Privatkunden zwischen Gladbeck, Bottrop, Gelsenkirchen, Essen und Marl</li>
+      </ul>
+    </div>
+  </section>
+
+  <FAQ items={faqs} />
+
+  <CtaBlock
+    title="Wann dürfen wir bei Ihnen Maß nehmen?"
+    subtitle="Vereinbaren Sie einen kostenlosen Aufmaßtermin in Gladbeck oder Umgebung. Wir kommen, messen, und stellen Ihnen ein konkretes Angebot zusammen."
+  />
+</BaseLayout>

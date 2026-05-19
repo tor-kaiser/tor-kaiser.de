@@ -1,0 +1,80 @@
+---
+import { company } from '../data/company';
+---
+
+<section class="trustbar">
+  <div class="container-wrap trustbar-inner">
+    <div class="trust-item">
+      <strong>Hörmann</strong>
+      <span>Fachhändler</span>
+    </div>
+    <div class="trust-item">
+      <strong>{company.yearsLabel} Jahre</strong>
+      <span>Erfahrung</span>
+    </div>
+    <div class="trust-item">
+      <strong>{company.generation}. Generation</strong>
+      <span>Familienbetrieb</span>
+    </div>
+    <div class="trust-item">
+      <strong>24/7</strong>
+      <span>Notdienst</span>
+    </div>
+    <div class="trust-item">
+      <strong>Eigenes</strong>
+      <span>Montage-Team</span>
+    </div>
+    <div class="trust-item">
+      <strong>Original</strong>
+      <span>Ersatzteile</span>
+    </div>
+  </div>
+</section>
+
+<style>
+  .trustbar {
+    background: var(--color-surface);
+    border-block: 1px solid var(--color-border);
+    padding-block: 1.25rem;
+  }
+
+  .trustbar-inner {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 1rem;
+    text-align: center;
+  }
+
+  @media (max-width: 768px) {
+    .trustbar-inner {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem 0.75rem;
+    }
+  }
+
+  @media (max-width: 420px) {
+    .trustbar-inner {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  .trust-item {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+
+  .trust-item strong {
+    font-size: 1rem;
+    color: var(--color-brand);
+    font-weight: 800;
+  }
+
+  .trust-item span {
+    color: var(--color-ink-muted);
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 2px;
+  }
+</style>

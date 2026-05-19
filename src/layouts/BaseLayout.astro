@@ -1,0 +1,180 @@
+---
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileActionBar from '../components/MobileActionBar.astro';
+import CookieBanner from '../components/CookieBanner.astro';
+import { company, socialSameAs } from '../data/company';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  image?: string;
+  noindex?: boolean;
+  schema?: object | object[];
+  pageType?: 'WebPage' | 'Service' | 'AboutPage' | 'ContactPage' | 'FAQPage';
+}
+
+const {
+  title,
+  description,
+  canonical,
+  image = '/img/start.png',
+  noindex = false,
+  schema,
+} = Astro.props;
+
+const siteUrl = 'https://tor-kaiser.de';
+const canonicalUrl = canonical ?? new URL(Astro.url.pathname, siteUrl).toString();
+const ogImage = new URL(image, siteUrl).toString();
+
+const localBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `${siteUrl}/#organization`,
+  name: company.legalName,
+  alternateName: 'Tor-Kaiser',
+  url: siteUrl,
+  logo: `${siteUrl}/img/logo.svg`,
+  image: ogImage,
+  description:
+    'Bauprojekt Kaiser GmbH — Hörmann Fachhändler in Gladbeck. Verkauf, Montage, Wartung und Notdienst für Garagentore, Industrietore, Haustüren und Antriebe in Gladbeck, Bottrop, Gelsenkirchen, Essen, Recklinghausen, Dorsten, Herten und Marl.',
+  telephone: company.contact.phoneE164,
+  email: company.contact.email,
+  faxNumber: company.contact.fax,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: company.address.street,
+    addressLocality: company.address.city,
+    postalCode: company.address.postalCode,
+    addressRegion: company.address.region,
+    addressCountry: company.address.country,
+  },
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: company.address.latitude,
+    longitude: company.address.longitude,
+  },
+  openingHoursSpecification: [
+    {
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
+      opens: '09:00',
+      closes: '14:00',
+    },
+  ],
+  foundingDate: String(company.founded),
+  founder: {
+    '@type': 'Person',
+    name: 'Familie Kaiser',
+  },
+  areaServed: [
+    { '@type': 'City', name: 'Gladbeck' },
+    { '@type': 'City', name: 'Bottrop' },
+    { '@type': 'City', name: 'Gelsenkirchen' },
+    { '@type': 'City', name: 'Essen' },
+    { '@type': 'City', name: 'Recklinghausen' },
+    { '@type': 'City', name: 'Dorsten' },
+    { '@type': 'City', name: 'Herten' },
+    { '@type': 'City', name: 'Marl' },
+  ],
+  brand: {
+    '@type': 'Brand',
+    name: 'Hörmann',
+  },
+  ...(socialSameAs.length > 0 ? { sameAs: socialSameAs } : {}),
+  keywords:
+    'Hörmann, Garagentor, Industrietor, Haustür, Antrieb, Gladbeck, Bottrop, Gelsenkirchen, Essen, Notdienst',
+};
+
+const allSchemas = schema
+  ? Array.isArray(schema)
+    ? [localBusinessSchema, ...schema]
+    : [localBusinessSchema, schema]
+  : [localBusinessSchema];
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#003a7d" />
+    <meta name="format-detection" content="telephone=yes" />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalUrl} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
+    {!noindex && <meta name="robots" content="index, follow, max-image-preview:large" />}
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/img/logo.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="de_DE" />
+    <meta property="og:site_name" content="Tor-Kaiser — Bauprojekt Kaiser GmbH" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonicalUrl} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <meta name="author" content={company.legalName} />
+    <meta name="geo.region" content="DE-NW" />
+    <meta name="geo.placename" content="Gladbeck" />
+    <meta name="geo.position" content={`${company.address.latitude};${company.address.longitude}`} />
+    <meta name="ICBM" content={`${company.address.latitude}, ${company.address.longitude}`} />
+
+    {
+      allSchemas.map((s) => (
+        <script type="application/ld+json" set:html={JSON.stringify(s)} />
+      ))
+    }
+
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Direkt zum Inhalt</a>
+
+    <Header />
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <Footer />
+
+    <MobileActionBar />
+
+    <CookieBanner />
+
+    <script is:inline>
+      // GA4 init nur nach Cookie-Consent
+      (function () {
+        const KEY = 'tk-consent';
+        const consent = window.localStorage.getItem(KEY);
+        if (consent !== 'accepted') return;
+
+        const GA_ID = 'G-P3NE5MCQ8D'; // TODO: durch echte GA4 Measurement-ID ersetzen
+        if (GA_ID === 'G-PLACEHOLDER') return;
+
+        const s = document.createElement('script');
+        s.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+        s.async = true;
+        document.head.appendChild(s);
+
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { window.dataLayer.push(arguments); }
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', GA_ID, { anonymize_ip: true });
+      })();
+    </script>
+  </body>
+</html>

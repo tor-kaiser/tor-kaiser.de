@@ -1,0 +1,59 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import { products, productCategories } from '../../data/products';
+
+const title = 'Hörmann Produkte | Garagentore, Industrietore, Haustüren & Antriebe — Tor-Kaiser';
+const description =
+  'Das komplette Hörmann-Sortiment vom Fachhändler aus Gladbeck: Garagentore, Industrietore, Haustüren, Antriebe und Original-Ersatzteile. Beratung, Lieferung, Montage.';
+
+const grouped = productCategories.map((cat) => ({
+  ...cat,
+  items: products.filter((p) => p.category === cat.slug),
+}));
+---
+
+<BaseLayout title={title} description={description}>
+  <Breadcrumbs items={[{ label: 'Produkte' }]} />
+
+  <section class="section">
+    <div class="container-wrap">
+      <span class="eyebrow">Hörmann-Sortiment</span>
+      <h1>Alle Hörmann-Produkte aus einer Hand</h1>
+      <p class="lead">
+        Vom klassischen Schwingtor bis zum Schnelllauftor, von der Haustür ThermoSafe bis zum
+        SupraMatic Antrieb — wir liefern und montieren das vollständige Hörmann-Programm im
+        nördlichen Ruhrgebiet.
+      </p>
+    </div>
+  </section>
+
+  <TrustBar />
+
+  {
+    grouped.map((cat) => (
+      <section class="section">
+        <div class="container-wrap">
+          <h2>{cat.label}</h2>
+          <div class="grid">
+            {cat.items.map((p) => <ProductCard product={p} />)}
+          </div>
+        </div>
+      </section>
+    ))
+  }
+
+  <CtaBlock />
+</BaseLayout>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+</style>

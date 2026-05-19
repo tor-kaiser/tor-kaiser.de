@@ -1,0 +1,272 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import CityServiceArea from '../../components/CityServiceArea.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+import FAQ from '../../components/FAQ.astro';
+import { cities, type City } from '../../data/cities';
+import { company } from '../../data/company';
+
+export function getStaticPaths() {
+  return cities.map((city) => ({
+    params: { city: city.slug },
+    props: { city },
+  }));
+}
+
+interface Props {
+  city: City;
+}
+
+const { city } = Astro.props;
+
+const isPrimary = city.distanceKm === 0;
+
+const title = isPrimary
+  ? `Hörmann in ${city.name} — Garagentore, Industrietore, Service | Tor-Kaiser`
+  : `Hörmann ${city.name} — Garagentore, Industrietore, Notdienst | Tor-Kaiser`;
+
+const description = isPrimary
+  ? `Bauprojekt Kaiser GmbH ist Ihr Hörmann Fachhändler in ${city.name}. Verkauf, Montage, Wartung und 24/7 Notdienst für Garagentore, Industrietore, Haustüren und Antriebe.`
+  : `Hörmann Fachhändler für ${city.name}: Garagentore, Industrietore und Haustüren mit Lieferung und Montage. Notdienst in ${city.driveMinutes} Minuten aus Gladbeck.`;
+
+const cityLocalBusinessSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  '@id': `https://tor-kaiser.de/standorte/${city.slug}/#localbusiness`,
+  name: `${company.legalName} — Hörmann in ${city.name}`,
+  url: `https://tor-kaiser.de/standorte/${city.slug}/`,
+  telephone: company.contact.phoneE164,
+  email: company.contact.email,
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: company.address.street,
+    addressLocality: company.address.city,
+    postalCode: company.address.postalCode,
+    addressRegion: company.address.region,
+    addressCountry: company.address.country,
+  },
+  areaServed: { '@type': 'City', name: city.name },
+};
+
+const faqs = [
+  {
+    question: `Wie schnell ist der Notdienst in ${city.name}?`,
+    answer: isPrimary
+      ? `In ${city.name} (unserem Hauptstandort) sind wir innerhalb von 30–60 Minuten beim Kunden — abhängig von Tageszeit und Anzahl gleichzeitiger Einsätze.`
+      : `Aus Gladbeck erreichen wir ${city.name} in rund ${city.driveMinutes} Minuten. Im Notfall liegt unsere typische Reaktionszeit bei 60–90 Minuten ab Anruf.`,
+  },
+  {
+    question: `Welche Hörmann-Produkte liefert Tor-Kaiser nach ${city.name}?`,
+    answer: `Wir liefern das komplette Hörmann-Programm nach ${city.name}: Garagen-Sectionaltore (LPU 67, RenoMatic), Schwingtore Berry N 80, Rolltore RollMatic, Industrie-Sectionaltore SPU 67, Industrie-Rolltore HR 120, Schnelllauftore V-Serie, Haustüren ThermoSafe/ThermoCarbon, Nebentüren und alle Antriebe (SupraMatic, ProMatic).`,
+  },
+  {
+    question: `Beraten Sie auch vor Ort in ${city.name}?`,
+    answer: `Ja. Wir kommen zur kostenlosen Aufmaß-Beratung zu Ihnen nach ${city.name} — selbstverständlich auch in den Stadtteilen ${city.districts.slice(0, 3).join(', ')}.`,
+  },
+  {
+    question: `Gibt es in ${city.name} Referenzprojekte von Tor-Kaiser?`,
+    answer: `Ja, wir haben über die Jahre viele Projekte in ${city.name} und Umgebung umgesetzt — vom Privatkunden mit Einzelgarage bis zum Gewerbekunden im Industriegebiet. Auf Anfrage nennen wir Ihnen gerne Referenzobjekte in Ihrer Nähe.`,
+  },
+  {
+    question: `Wartung von älteren Hörmann-Toren in ${city.name}?`,
+    answer: `Selbstverständlich. Wir warten und reparieren Hörmann-Tore in ${city.name} unabhängig vom Baujahr — viele Anlagen aus den 90er- und 2000er-Jahren laufen mit unserer Wartung weiterhin zuverlässig.`,
+  },
+];
+---
+
+<BaseLayout title={title} description={description} schema={cityLocalBusinessSchema}>
+  <Breadcrumbs items={[
+    { label: 'Standorte', href: '/standorte/gladbeck/' },
+    { label: city.name },
+  ]} />
+
+  <Hero
+    eyebrow={`Servicegebiet · ${city.postalCodes[0]}${city.postalCodes.length > 1 ? ' u. a.' : ''}`}
+    title={`Hörmann Fachhändler für ${city.name}`}
+    subtitle={`${city.description} Wir liefern und montieren das gesamte Hörmann-Sortiment in ${city.name} — privat und gewerblich, mit Wartung und 24/7 Notdienst.`}
+    image={city.heroImage}
+    imageAlt={city.heroImageAlt}
+  />
+
+  <TrustBar />
+
+  <section class="section">
+    <div class="container-wrap city-grid">
+      <article class="prose-content">
+        <h2>Hörmann in {city.name} — was wir hier machen</h2>
+        <p>{city.localContext}</p>
+
+        <h2>Anfahrt und Reaktionszeit</h2>
+        <p>{city.serviceNote}</p>
+        {!isPrimary && (
+          <ul>
+            <li><strong>Entfernung zu unserem Sitz Gladbeck:</strong> {city.distanceKm} km</li>
+            <li><strong>Typische Anfahrtszeit:</strong> ca. {city.driveMinutes} Minuten</li>
+            <li><strong>Notdienst-Reaktion:</strong> in der Regel 60–90 Minuten ab Anruf</li>
+          </ul>
+        )}
+
+        <h2>Stadtteile, in denen wir besonders häufig montieren</h2>
+        <p>
+          Wir liefern und montieren in ganz {city.name} — besonders häufig in:
+          {city.districts.map((d, i) => (
+            <span><strong>{d}</strong>{i < city.districts.length - 1 ? ', ' : ''}</span>
+          ))}.
+        </p>
+
+        <h2>Gewerbe und Industrie in {city.name}</h2>
+        <p>
+          Für gewerbliche Kunden in {city.name} liefern wir Industrie-Sectionaltore, Rolltore,
+          Schnelllauftore und Brand- bzw. Rauchschutztüren. Bekannte Industrie- und
+          Gewerbegebiete in {city.name}, in denen wir aktiv sind:
+        </p>
+        <ul>
+          {city.industrialAreas.map((a) => <li>{a}</li>)}
+        </ul>
+
+        <h2>Unsere Hörmann-Produktpalette für {city.name}</h2>
+        <ul>
+          <li>
+            <a href="/produkte/garagentore/sectionaltore/">Garagen-Sectionaltore</a> (LPU 67 Thermo, RenoMatic)
+          </li>
+          <li>
+            <a href="/produkte/garagentore/schwingtore/">Garagen-Schwingtore</a> (Berry N 80) für klassische Garagen
+          </li>
+          <li>
+            <a href="/produkte/garagentore/rolltore/">Garagen-Rolltore</a> (RollMatic) bei knappem Deckenraum
+          </li>
+          <li>
+            <a href="/produkte/industrietore/sectionaltore/">Industrie-Sectionaltore</a> (SPU 67 Thermo)
+          </li>
+          <li>
+            <a href="/produkte/industrietore/rolltore/">Industrie-Rolltore</a> (HR 120 Aero, Decotherm)
+          </li>
+          <li>
+            <a href="/produkte/industrietore/schnelllauftore/">Schnelllauftore</a> (V-Serie, HS Speed)
+          </li>
+          <li>
+            <a href="/produkte/haustueren/">Haustüren</a> (ThermoSafe, ThermoCarbon)
+          </li>
+          <li>
+            <a href="/produkte/antriebe/">Tor-Antriebe</a> (SupraMatic, ProMatic) — auch zur Nachrüstung
+          </li>
+        </ul>
+
+        <h2>Service in {city.name}</h2>
+        <ul>
+          <li><a href="/service/montage/">Montage</a> durch eigenes Hörmann-geschultes Team</li>
+          <li><a href="/service/wartung/">Wartung &amp; UVV-Prüfung</a> mit Prüfprotokoll</li>
+          <li><a href="/service/reparatur/">Reparatur</a> nach Sturmschäden, Auffahrunfällen, Federbruch</li>
+          <li><a href="/service/notdienst/">24/7 Notdienst</a> mit kurzen Reaktionszeiten in {city.name}</li>
+        </ul>
+      </article>
+
+      <aside class="city-aside">
+        <div class="aside-card">
+          <h3>Eckdaten {city.name}</h3>
+          <table class="data-table">
+            <tbody>
+              <tr><th>Einwohner</th><td>{city.population.toLocaleString('de-DE')}</td></tr>
+              <tr><th>Postleitzahlen</th><td>{city.postalCodes.join(', ')}</td></tr>
+              <tr><th>Entfernung Gladbeck</th><td>{city.distanceKm === 0 ? 'Hauptsitz' : `${city.distanceKm} km`}</td></tr>
+              <tr><th>Anfahrtszeit</th><td>{city.driveMinutes === 0 ? 'sofort vor Ort' : `~${city.driveMinutes} Min.`}</td></tr>
+              <tr><th>Region</th><td>{isPrimary ? 'Vest Recklinghausen' : 'Ruhrgebiet / NRW'}</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="aside-card aside-cta">
+          <h3>Kostenloses Aufmaß</h3>
+          <p>
+            Wir kommen unverbindlich zu Ihnen nach {city.name} und nehmen Maß. Telefonisch erreichen Sie uns Mo–Fr 9–14 Uhr.
+          </p>
+          <a href={`tel:${company.contact.phoneE164}`} class="btn btn-primary">
+            📞 {company.contact.phone}
+          </a>
+          <a href="/anfrage/" class="btn btn-outline">Anfrage schreiben</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <CityServiceArea current={city.slug} />
+
+  <FAQ
+    title={`Fragen rund um Hörmann in ${city.name}`}
+    items={faqs}
+  />
+
+  <CtaBlock
+    title={`Termin in ${city.name} vereinbaren`}
+    subtitle={`Schreiben Sie uns Ihr Anliegen — wir melden uns binnen eines Werktags zurück und vereinbaren bei Bedarf ein kostenloses Aufmaß bei Ihnen in ${city.name}.`}
+    emailSubject={`Anfrage Tor-Kaiser — ${city.name}`}
+  />
+</BaseLayout>
+
+<style>
+  .city-grid {
+    display: grid;
+    grid-template-columns: 1.6fr 1fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (max-width: 960px) {
+    .city-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  .aside-card {
+    background: var(--color-surface-alt);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .aside-card h3 {
+    margin: 0 0 0.75rem;
+    font-size: 1.1rem;
+    color: var(--color-brand);
+  }
+
+  .aside-card .data-table {
+    margin: 0;
+    background: var(--color-surface);
+  }
+
+  .aside-cta {
+    background: linear-gradient(135deg, var(--color-brand) 0%, var(--color-brand-dark) 100%);
+    color: #fff;
+    border-color: transparent;
+  }
+
+  .aside-cta h3 {
+    color: #fff;
+  }
+
+  .aside-cta p {
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1rem;
+  }
+
+  .aside-cta .btn {
+    width: 100%;
+    margin-bottom: 0.6rem;
+  }
+
+  .aside-cta .btn-outline {
+    border-color: #fff;
+    color: #fff;
+  }
+
+  .aside-cta .btn-outline:hover {
+    background: #fff;
+    color: var(--color-brand);
+  }
+</style>

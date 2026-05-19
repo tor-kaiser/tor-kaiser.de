@@ -1,0 +1,186 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+import FAQ from '../../components/FAQ.astro';
+
+const title = 'Welches Garagentor passt zu mir? Sectional, Schwing, Roll | Tor-Kaiser';
+const description =
+  'Entscheidungshilfe: Welches Hörmann Garagentor passt zu Ihrer Garage? Vor- und Nachteile von Sectional-, Schwing-, Roll- und Seiten-Sectionaltoren im Überblick.';
+
+const faqs = [
+  {
+    question: 'Welches ist das meistverkaufte Garagentor?',
+    answer:
+      'Das Sectionaltor (LPU 42, LPU 67 Thermo, RenoMatic) — über 70 % aller Neuinstallationen in Deutschland sind heute Sectionaltore.',
+  },
+  {
+    question: 'Lohnt sich ein wärmegedämmtes Tor in einer unbeheizten Garage?',
+    answer:
+      'In den meisten Fällen ja — Wärmedämmung reduziert Kondenswasser und schützt vor Reif und Korrosion. Außerdem läuft der Antrieb leiser. Bei reinen Carports mit Wettereinfluss reicht meist ein einfacheres Tor.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Breadcrumbs items={[
+    { label: 'Ratgeber', href: '/ratgeber/' },
+    { label: 'Welches Garagentor passt' },
+  ]} />
+
+  <article class="section">
+    <div class="container-narrow prose-content">
+      <span class="eyebrow">Ratgeber · Kaufberatung</span>
+      <h1>Welches Garagentor passt zu mir?</h1>
+      <p class="lead">
+        Bei Hörmann gibt es vier Garagentor-Bauarten: Sectional, Schwing, Roll und
+        Seiten-Sectional. Welche Variante richtig ist, hängt vor allem von Platz,
+        Wärmedämmung und Designwünschen ab. Dieser Ratgeber hilft Ihnen, eine begründete
+        Vorauswahl zu treffen.
+      </p>
+
+      <h2>Die vier Bauarten im Überblick</h2>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Bauart</th>
+            <th>Platzbedarf vorne</th>
+            <th>Deckenbedarf</th>
+            <th>Wärmedämmung</th>
+            <th>Preis-Range</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Sectional</strong></td>
+            <td>0 m</td>
+            <td>~ 25 cm Sturz + Decke</td>
+            <td>Sehr gut (bis U 0,9)</td>
+            <td>★★★</td>
+          </tr>
+          <tr>
+            <td><strong>Schwing</strong></td>
+            <td>1 m Schwenkbereich</td>
+            <td>Niedrig</td>
+            <td>Mäßig</td>
+            <td>★</td>
+          </tr>
+          <tr>
+            <td><strong>Roll</strong></td>
+            <td>0 m</td>
+            <td>~ 25–35 cm Aufwicklungsraum</td>
+            <td>Gut</td>
+            <td>★★★</td>
+          </tr>
+          <tr>
+            <td><strong>Seiten-Sectional</strong></td>
+            <td>0 m</td>
+            <td>Keine</td>
+            <td>Sehr gut</td>
+            <td>★★★★</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>1. Wann passt ein Sectionaltor?</h2>
+      <p>
+        Das Sectionaltor ist der All-rounder und in den meisten Fällen die richtige Wahl. Es
+        öffnet senkrecht nach oben und legt sich anschließend platzsparend unter die Decke.
+        Sie können bis dicht an das Tor heranfahren — auch in engen Auffahrten.
+      </p>
+      <p>
+        <strong>Wählen Sie Sectional, wenn:</strong>
+      </p>
+      <ul>
+        <li>Sie ein neues Tor in einer normalen Garage benötigen</li>
+        <li>Vor der Garage wenig Schwenkraum vorhanden ist (z. B. enge Auffahrt)</li>
+        <li>Sie Wert auf Wärmedämmung legen (beheizte Garage, Hobbyraum)</li>
+        <li>Designvielfalt wichtig ist (200+ Farben/Oberflächen)</li>
+      </ul>
+
+      <h2>2. Wann passt ein Schwingtor?</h2>
+      <p>
+        Das Hörmann Berry N 80 Schwingtor ist die klassische und besonders preisgünstige
+        Lösung. Es eignet sich vor allem für unbeheizte Garagen mit ausreichendem
+        Schwenkbereich vor dem Tor.
+      </p>
+      <p>
+        <strong>Wählen Sie Schwing, wenn:</strong>
+      </p>
+      <ul>
+        <li>Vor der Garage mindestens 1 m freier Schwenkbereich vorhanden ist</li>
+        <li>Wärmedämmung keine Rolle spielt</li>
+        <li>Das Tor selten benutzt wird (z. B. Wochenend-Garage)</li>
+        <li>Sie das günstigste Hörmann-Tor möchten</li>
+      </ul>
+
+      <h2>3. Wann passt ein Rolltor?</h2>
+      <p>
+        Das RollMatic Rolltor ist die Lösung, wenn Deckenraum knapp ist oder die volle
+        Garagenhöhe genutzt werden soll.
+      </p>
+      <p>
+        <strong>Wählen Sie Roll, wenn:</strong>
+      </p>
+      <ul>
+        <li>Der Bereich oberhalb der Tor-Öffnung weniger als 30 cm beträgt</li>
+        <li>Sie die volle Garagenhöhe nutzen wollen (z. B. SUV mit Dachgepäck)</li>
+        <li>Die Garage Dachschrägen hat, die ein Sectionaltor blockieren würden</li>
+        <li>Sie eine sehr kompakte Bauweise bevorzugen</li>
+      </ul>
+
+      <h2>4. Wann passt ein Seiten-Sectionaltor?</h2>
+      <p>
+        Das HST seitlich öffnende Sectionaltor ist die elegante Variante, wenn Sie die Decke
+        komplett frei behalten oder eine integrierte Schlupftür ohne Stolperschwelle haben
+        möchten.
+      </p>
+      <p>
+        <strong>Wählen Sie Seiten-Sectional, wenn:</strong>
+      </p>
+      <ul>
+        <li>Die Garage gleichzeitig Werkstatt / Hobbyraum ist</li>
+        <li>Sie Stauraum an der Decke benötigen</li>
+        <li>Eine Schlupftür ohne Stolperschwelle wichtig ist</li>
+        <li>Sie die Teilöffnung (z. B. nur 1 m) regelmäßig nutzen wollen</li>
+        <li>Sie auch optisch ein „besonderes“ Tor wollen</li>
+      </ul>
+
+      <h2>Designs und Farben</h2>
+      <p>
+        Bei Hörmann gibt es über 200 Kombinationen aus Farben, Sicken und Oberflächen. Beliebt
+        sind:
+      </p>
+      <ul>
+        <li><strong>RAL 9016 Verkehrsweiß</strong> — Standard, neutral, hell</li>
+        <li><strong>RAL 7016 Anthrazit</strong> — modern, passt zu vielen Fassaden</li>
+        <li><strong>Decograin Night Oak</strong> — dunkles Holzdekor, sehr beliebt</li>
+        <li><strong>Decograin Golden Oak</strong> — helles Eiche-Dekor</li>
+        <li><strong>RAL 8022 Schwarzbraun</strong> — passt zu klassischen Häusern</li>
+      </ul>
+
+      <h2>Antrieb — welcher passt?</h2>
+      <p>
+        Für 95 % der Privatkunden ist der Hörmann <strong>ProMatic 4</strong> ausreichend. Wer
+        Wert auf hohe Geschwindigkeit (22 cm/s statt 14 cm/s) und Smart-Home-Anbindung legt,
+        wählt den <strong>SupraMatic E 4</strong>. Bei sehr großen Toren ggf.
+        <strong>SupraMatic P 4</strong> mit 1.000 N Zugkraft.
+      </p>
+
+      <h2>Bevor Sie kaufen</h2>
+      <p>
+        Lassen Sie unbedingt ein <strong>Aufmaß vor Ort</strong> machen. Maße aus Bauplänen
+        stimmen häufig nicht mit der gebauten Realität überein. Wir kommen in Gladbeck und
+        Umgebung kostenlos und unverbindlich vorbei — gerne mit Materialmustern und
+        Farbfächern.
+      </p>
+    </div>
+  </article>
+
+  <FAQ items={faqs} />
+
+  <CtaBlock
+    title="Lassen Sie sich beraten"
+    subtitle="Ein 15-minütiger Anruf reicht oft, um die Bauart einzugrenzen — danach folgt das kostenlose Aufmaß bei Ihnen vor Ort."
+  />
+</BaseLayout>

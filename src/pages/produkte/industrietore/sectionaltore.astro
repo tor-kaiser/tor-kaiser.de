@@ -1,0 +1,135 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import TrustBar from '../../../components/TrustBar.astro';
+import CtaBlock from '../../../components/CtaBlock.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ProductGallery from '../../../components/ProductGallery.astro';
+import { productBySlug } from '../../../data/products';
+
+const product = productBySlug('industrie-sectionaltore')!;
+
+const title = 'Hörmann Industrie-Sectionaltore SPU 67, ALR Vitraplan | Tor-Kaiser Gladbeck';
+const description =
+  'Hörmann Industrie-Sectionaltore SPU 67 Thermo (67 mm Wärmedämmung), ALR Vitraplan, APU 67. Lieferung & Montage im Ruhrgebiet, mit UVV-Prüfung und Wartung.';
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Hörmann Industrie-Sectionaltor',
+  brand: { '@type': 'Brand', name: 'Hörmann' },
+  category: 'Industrietor',
+  description,
+};
+
+const faqs = [
+  {
+    question: 'Welche Industrie-Sectionaltor-Baureihen gibt es?',
+    answer:
+      'Hauptbaureihen sind SPU 67 / SPU 40 (Stahl-Panel), APU 67 / APU 40 (Stahl-Panel mit Verglasung), ALR F42/F67 (Aluminium-Rahmen) und ALR Vitraplan (vollflächige Verglasung). Je nach Anwendung (Logistik, Werkstatt, Showroom, Reinraum) wählen wir die passende Variante.',
+  },
+  {
+    question: 'Was bedeutet 67 mm Lamellendicke?',
+    answer:
+      'Mit 67 mm dicken, wärmegedämmten Doppelwand-Sandwich-Lamellen erreicht das SPU 67 Thermo aktuell die beste Wärmedämmung im Industrie-Sectionaltor-Segment (U-Wert bis 0,33 W/m²K im Großformat).',
+  },
+  {
+    question: 'Was kostet ein Industrie-Sectionaltor?',
+    answer:
+      'Industrie-Sectionaltore liegen je nach Größe, Wärmedämmung, Ausstattung und Antrieb typischerweise zwischen 4.500 und 25.000 €. Wir kalkulieren nach Aufmaß und Anforderungsspezifikation (Zykluszahl, Sicherheits-Features).',
+  },
+  {
+    question: 'Gibt es eine UVV-Prüfung?',
+    answer:
+      'Ja — wir bieten die jährlich vorgeschriebene UVV-Prüfung (ASR A1.7) durch zertifizierte Sachkundige inklusive Prüfprotokoll an. Mehr dazu auf der <a href="/service/wartung/">Wartungs-Seite</a>.',
+  },
+  {
+    question: 'Können Industrie-Sectionaltore Schlupftüren haben?',
+    answer:
+      'Ja. Hörmann bietet Schlupftüren — auch ohne Stolperschwelle. So sparen Sie Zugänge und Energie, weil das große Tor nicht für jeden Mitarbeiter geöffnet werden muss.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} schema={productSchema}>
+  <Breadcrumbs items={[
+    { label: 'Produkte', href: '/produkte/' },
+    { label: 'Industrietore', href: '/produkte/industrietore/' },
+    { label: 'Sectionaltore' },
+  ]} />
+
+  <Hero
+    eyebrow="Hörmann Industrie-Sectionaltor"
+    title="Wärmegedämmt, sicher, normgerecht."
+    subtitle="Industrie-Sectionaltore SPU 67 Thermo, APU 67 (Verglasung), ALR Vitraplan und mehr. Für Werkstätten, Lager, Logistik, Showrooms und Industrie."
+    image={product.image}
+    imageAlt={product.imageAlt}
+  />
+
+  <TrustBar />
+
+  <section class="section">
+    <div class="container-wrap prose-content">
+      <h2>Modell-Übersicht</h2>
+      <table class="data-table">
+        <thead>
+          <tr><th>Modell</th><th>Lamellen</th><th>Wärmedämmung</th><th>Hauptanwendung</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>SPU 67 Thermo</strong></td><td>67 mm Stahl-Sandwich</td><td>U bis 0,33 W/m²K</td><td>Beheizte Hallen, höchste Energie­einsparung</td></tr>
+          <tr><td><strong>SPU 40 / 42</strong></td><td>40 mm Stahl-Sandwich</td><td>U ca. 1,0 W/m²K</td><td>Standard für Werkstätten und Lager</td></tr>
+          <tr><td><strong>APU 67 / 40</strong></td><td>Stahl-Lamelle + Verglasung</td><td>—</td><td>Wenn Tageslicht oder Sichtkontakt nötig ist</td></tr>
+          <tr><td><strong>ALR F42 / F67</strong></td><td>Aluminium-Rahmen mit Acrylglas/DURATEC</td><td>U ca. 2,0 W/m²K</td><td>Showrooms, Autohäuser, Feuerwehren</td></tr>
+          <tr><td><strong>ALR Vitraplan</strong></td><td>Vollflächige Verglasung</td><td>—</td><td>Hochwertige Optik, Showroom-Glastor</td></tr>
+          <tr><td><strong>TAR 40 / TAP 40</strong></td><td>Spezial-Lamellen</td><td>—</td><td>Sondergrößen / spezielle Anwendungen</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Sicherheit und Normen</h2>
+      <ul>
+        <li>Erfüllt EN 13241 und ASR A1.7</li>
+        <li>Optische Lichtschranke / Sicherheits-Lichtgitter</li>
+        <li>Fingerklemmschutz innen und außen</li>
+        <li>Kraftbegrenzung am Antrieb</li>
+        <li>Aufhebelsicherung, optional Einbruchhemmung RC 2</li>
+        <li>Möglich: Brandschutz- und Rauchschutzausführungen (T30, T90, RS)</li>
+      </ul>
+
+      <h2>Antriebe und Steuerung</h2>
+      <p>
+        Hörmann bietet eine breite Auswahl an Antrieben und Steuerungen — vom WA&nbsp;300 für
+        Standardanwendungen über den ITO 400 mit Frequenzumrichter bis zur Steuerung
+        BS&nbsp;6 / BSI für komplexe Logistik-Setups (Ampelsteuerung, Verkehrsleitsysteme,
+        Sensorik). Wir konfigurieren die Steuerung passend zu Ihrem Anwendungsprofil.
+      </p>
+
+      <h2>Schnittstellen für die Industrie</h2>
+      <ul>
+        <li>Integration in Verladesteuerungen (Levellers, Sealings)</li>
+        <li>Anbindung an die Werkssteuerung (SPS) per potentialfreie Kontakte oder Bus</li>
+        <li>Sensorik für Schleifenmelder / Induktionsschleifen</li>
+        <li>Ampelsteuerung intern und extern</li>
+        <li>Personenschleusen-Logik mit zweitem Tor</li>
+      </ul>
+
+      <h2>Beratung & Ausführung</h2>
+      <p>
+        Industriebetriebe haben individuelle Anforderungen: Zykluszahlen, Größen,
+        Schnittstellen, Brandschutz, UVV. Wir nehmen uns für Ihren Anforderungs­katalog Zeit,
+        besichtigen die Anlage vor Ort und erstellen ein detailliertes Konzept — vom
+        Standard-Sectionaltor bis zur Sonderlösung mit Schlupftür, Verglasung und Logistik-
+        Anbindung.
+      </p>
+    </div>
+  </section>
+
+  <ProductGallery product={product} heading="Industrie-Sectionaltore in der Anwendung" />
+
+  <FAQ items={faqs} />
+
+  <CtaBlock
+    title="Industrieprojekt? Sprechen Sie uns an."
+    subtitle="Unsere Industrieprojekte reichen vom IKEA-Standort Dortmund bis zum mittelständischen Maschinenbau in Marl. Wir entwickeln gemeinsam die wirtschaftlichste Lösung."
+  />
+</BaseLayout>

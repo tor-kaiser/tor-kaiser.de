@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import { company } from '../data/company';
+
+const title = 'Datenschutzerklärung | Tor-Kaiser';
+const description =
+  'Datenschutzerklärung der Bauprojekt Kaiser GmbH. Welche Daten wir auf tor-kaiser.de verarbeiten, warum und wie lange.';
+---
+
+<BaseLayout title={title} description={description}>
+  <Breadcrumbs items={[{ label: 'Datenschutz' }]} />
+
+  <section class="section">
+    <div class="container-narrow prose-content">
+      <h1>Datenschutzerklärung</h1>
+
+      <p>
+        Wir freuen uns über Ihr Interesse an unserer Webseite. Der Schutz Ihrer
+        personenbezogenen Daten ist uns ein wichtiges Anliegen. Nachfolgend informieren wir Sie
+        ausführlich über den Umgang mit Ihren Daten.
+      </p>
+
+      <h2>1. Verantwortlicher</h2>
+      <p>
+        {company.legalName}<br />
+        {company.address.street}<br />
+        {company.address.postalCode} {company.address.city}<br />
+        Telefon: <a href={`tel:${company.contact.phoneE164}`}>{company.contact.phone}</a><br />
+        E-Mail: <a href={`mailto:${company.contact.email}`}>{company.contact.email}</a>
+      </p>
+
+      <h2>2. Erhebung allgemeiner Informationen beim Besuch unserer Webseite (Server-Logfiles)</h2>
+      <p>
+        Bei jedem Aufruf werden vom Host der Webseite (GitHub Pages) automatisch Informationen
+        in sogenannten Server-Logfiles erfasst, die Ihr Browser übermittelt. Dies sind:
+      </p>
+      <ul>
+        <li>verwendeter Browsertyp und -version</li>
+        <li>verwendetes Betriebssystem</li>
+        <li>Referrer-URL (die zuvor besuchte Seite)</li>
+        <li>IP-Adresse des zugreifenden Rechners (gekürzt / anonymisiert verarbeitet)</li>
+        <li>Datum und Uhrzeit des Aufrufs</li>
+      </ul>
+      <p>
+        Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der
+        technischen Bereitstellung und Sicherheit der Webseite). Eine Zusammenführung mit
+        anderen Daten findet nicht statt. Die Daten werden nach kurzer Zeit gelöscht.
+      </p>
+
+      <h2>3. Cookies</h2>
+      <p>
+        Diese Webseite verwendet ausschließlich technisch notwendige Speichermechanismen
+        (LocalStorage), um Ihre Cookie-Einwilligung lokal in Ihrem Browser zu speichern. Es
+        werden keine Cookies an Dritte übertragen, solange Sie keine Einwilligung erteilt
+        haben.
+      </p>
+
+      <h2>4. Google Analytics 4 (optional, nur nach Einwilligung)</h2>
+      <p>
+        Sofern Sie über unseren Cookie-Banner ausdrücklich zugestimmt haben, verwenden wir
+        Google Analytics 4, einen Webanalysedienst der Google Ireland Limited, Gordon House,
+        Barrow Street, Dublin 4, Irland.
+      </p>
+      <p>
+        Google Analytics setzt erst nach Ihrer Einwilligung Cookies und überträgt Daten — unter
+        anderem mit IP-Anonymisierung — an Server von Google. Rechtsgrundlage ist Art. 6 Abs.
+        1 lit. a DSGVO (Einwilligung). Sie können Ihre Einwilligung jederzeit widerrufen, indem
+        Sie den Cookie-Banner erneut aufrufen oder Ihren Browser-Speicher leeren.
+      </p>
+      <p>
+        Mehr Informationen zu Google Analytics finden Sie unter:
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">
+          policies.google.com/privacy
+        </a>.
+      </p>
+
+      <h2>5. Trustpilot-Widget (optional, nur nach Einwilligung)</h2>
+      <p>
+        Sofern wir auf unserer Seite Bewertungen über das Trustpilot-Widget einbinden, wird
+        dieses ebenfalls erst nach Ihrer Einwilligung geladen. Anbieter ist Trustpilot A/S,
+        Pilestræde 58, 5. sal, 1112 Kopenhagen, Dänemark. Beim Laden des Widgets können Daten
+        an Trustpilot übermittelt werden. Rechtsgrundlage ist Art. 6 Abs. 1 lit. a DSGVO
+        (Einwilligung).
+      </p>
+
+      <h2>6. Kontaktaufnahme per E-Mail oder Telefon</h2>
+      <p>
+        Wenn Sie uns per E-Mail oder Telefon kontaktieren, werden die von Ihnen mitgeteilten
+        Daten (Name, Kontaktdaten, Anliegen) zur Beantwortung Ihrer Anfrage verarbeitet. Eine
+        Weitergabe an Dritte findet nicht statt. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO
+        (Anbahnung / Erfüllung eines Vertrags) bzw. Art. 6 Abs. 1 lit. f DSGVO (berechtigtes
+        Interesse an effizienter Kommunikation).
+      </p>
+
+      <h2>7. Karten-Einbindung (OpenStreetMap)</h2>
+      <p>
+        Wir binden eine Karte unseres Standorts über OpenStreetMap ein. Anbieter ist die
+        OpenStreetMap Foundation. Beim Aufruf der Kartenansicht werden technische Daten (u. a.
+        IP-Adresse, Browsertyp) an die OpenStreetMap-Server übertragen. Rechtsgrundlage ist
+        Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer einfachen Anfahrt für
+        unsere Besucher).
+      </p>
+
+      <h2>8. Ihre Rechte</h2>
+      <p>
+        Sie haben uns gegenüber das Recht auf:
+      </p>
+      <ul>
+        <li>Auskunft (Art. 15 DSGVO)</li>
+        <li>Berichtigung (Art. 16 DSGVO)</li>
+        <li>Löschung (Art. 17 DSGVO)</li>
+        <li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+        <li>Datenübertragbarkeit (Art. 20 DSGVO)</li>
+        <li>Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)</li>
+        <li>Widerruf einer erteilten Einwilligung (Art. 7 Abs. 3 DSGVO)</li>
+      </ul>
+      <p>
+        Bitte wenden Sie sich an die oben genannte Kontaktadresse. Daneben haben Sie das Recht,
+        sich bei der zuständigen Aufsichtsbehörde zu beschweren — in unserem Fall die
+        Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen, Kavalleriestraße 2–4, 40213 Düsseldorf.
+      </p>
+
+      <h2>9. Aktualität dieser Datenschutzerklärung</h2>
+      <p>
+        Diese Datenschutzerklärung ist aktuell gültig und hat den Stand
+        {new Date().toLocaleDateString('de-DE', { month: 'long', year: 'numeric' })}. Aufgrund
+        gesetzlicher oder technischer Änderungen kann es notwendig werden, diese Erklärung
+        anzupassen.
+      </p>
+    </div>
+  </section>
+</BaseLayout>

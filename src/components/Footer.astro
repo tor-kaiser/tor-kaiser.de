@@ -1,0 +1,339 @@
+---
+import {
+  company,
+  phoneHref,
+  emailHref,
+  emergencyDaytimeHref,
+  socialLinks,
+} from '../data/company';
+---
+
+<footer class="site-footer">
+  <div class="container-wrap footer-grid">
+    <div class="footer-brand">
+      <a href="/" aria-label="Tor-Kaiser Startseite">
+        <img src="/img/logo.svg" alt="Tor-Kaiser Logo" width="64" height="64" />
+      </a>
+      <h3>{company.legalName}</h3>
+      <p class="footer-tagline">
+        Hörmann Fachhändler für Gladbeck und das Ruhrgebiet — seit
+        {company.yearsLabelLong} Jahren in {company.generation}. Generation.
+      </p>
+
+      {
+        socialLinks.length > 0 && (
+          <div class="footer-social">
+            <span class="footer-social-label">Folgen Sie uns</span>
+            <ul class="social-icons">
+              {socialLinks.map((s) => (
+                <li>
+                  <a
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener me"
+                    aria-label={s.label}
+                    title={s.label}
+                  >
+                    {s.icon === 'google' && (
+                      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z" fill="currentColor" />
+                      </svg>
+                    )}
+                    {s.icon === 'trustpilot' && (
+                      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M12 2l2.39 7.36H22l-6.18 4.49L18.21 22 12 17.27 5.79 22l2.39-8.15L2 9.36h7.61L12 2z" fill="currentColor" />
+                      </svg>
+                    )}
+                    {s.icon === 'instagram' && (
+                      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M12 2.2c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.7 3.7 0 0 1-1.38-.9 3.7 3.7 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23C2.21 15.58 2.2 15.2 2.2 12s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41C8.42 2.21 8.8 2.2 12 2.2zm0 1.8c-3.14 0-3.5.01-4.74.07-1.07.05-1.65.23-2.04.38-.51.2-.88.44-1.27.83-.39.39-.63.76-.83 1.27-.15.39-.33.97-.38 2.04C2.69 9.83 2.68 10.2 2.68 12s.01 2.17.07 3.41c.05 1.07.23 1.65.38 2.04.2.51.44.88.83 1.27.39.39.76.63 1.27.83.39.15.97.33 2.04.38C8.5 19.99 8.86 20 12 20s3.5-.01 4.74-.07c1.07-.05 1.65-.23 2.04-.38.51-.2.88-.44 1.27-.83.39-.39.63-.76.83-1.27.15-.39.33-.97.38-2.04.06-1.24.07-1.61.07-3.41s-.01-2.17-.07-3.41c-.05-1.07-.23-1.65-.38-2.04-.2-.51-.44-.88-.83-1.27a3.4 3.4 0 0 0-1.27-.83c-.39-.15-.97-.33-2.04-.38C15.5 4.01 15.14 4 12 4zm0 3.06A4.94 4.94 0 1 1 7.06 12 4.94 4.94 0 0 1 12 7.06zm0 8.13A3.19 3.19 0 1 0 8.81 12 3.19 3.19 0 0 0 12 15.19zm5.13-8.32a1.15 1.15 0 1 1-1.15-1.15 1.15 1.15 0 0 1 1.15 1.15z" fill="currentColor" />
+                      </svg>
+                    )}
+                    {s.icon === 'linkedin' && (
+                      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                        <path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.95v5.66H9.36V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43A2.06 2.06 0 1 1 5.34 3.3a2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45C23.2 24 24 23.23 24 22.28V1.72C24 .77 23.2 0 22.22 0z" fill="currentColor" />
+                      </svg>
+                    )}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+    </div>
+
+    <div>
+      <h4>Kontakt</h4>
+      <ul class="footer-list">
+        <li>
+          {company.address.street}<br />{company.address.postalCode} {company.address.city}
+        </li>
+        <li>📞 <a href={phoneHref}>{company.contact.phone}</a></li>
+        <li>✉ <a href={emailHref}>{company.contact.email}</a></li>
+        <li>📠 Fax: {company.contact.fax}</li>
+      </ul>
+      <p class="footer-hours">
+        <strong>Öffnungszeiten:</strong><br />
+        {company.openingHours.text}
+      </p>
+    </div>
+
+    <div>
+      <h4>Produkte</h4>
+      <ul class="footer-list">
+        <li><a href="/produkte/garagentore/sectionaltore/">Garagen-Sectionaltore</a></li>
+        <li><a href="/produkte/garagentore/schwingtore/">Garagen-Schwingtore</a></li>
+        <li><a href="/produkte/industrietore/sectionaltore/">Industrie-Sectionaltore</a></li>
+        <li><a href="/produkte/industrietore/rolltore/">Industrie-Rolltore</a></li>
+        <li><a href="/produkte/industrietore/schnelllauftore/">Schnelllauftore</a></li>
+        <li><a href="/produkte/haustueren/">Haustüren</a></li>
+        <li><a href="/produkte/antriebe/">Tor-Antriebe</a></li>
+        <li><a href="/produkte/ersatzteile/">Ersatzteile</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Service</h4>
+      <ul class="footer-list">
+        <li><a href="/service/montage/">Montage</a></li>
+        <li><a href="/service/wartung/">Wartung</a></li>
+        <li><a href="/service/reparatur/">Reparatur</a></li>
+        <li><a href="/service/notdienst/">Notdienst 24/7</a></li>
+        <li><a href="/referenzen/">Referenzen</a></li>
+        <li><a href="/ratgeber/">Ratgeber</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Standorte</h4>
+      <ul class="footer-list">
+        <li><a href="/standorte/gladbeck/">Gladbeck</a></li>
+        <li><a href="/standorte/bottrop/">Bottrop</a></li>
+        <li><a href="/standorte/gelsenkirchen/">Gelsenkirchen</a></li>
+        <li><a href="/standorte/essen/">Essen</a></li>
+        <li><a href="/standorte/recklinghausen/">Recklinghausen</a></li>
+        <li><a href="/standorte/dorsten/">Dorsten</a></li>
+        <li><a href="/standorte/herten/">Herten</a></li>
+        <li><a href="/standorte/marl/">Marl</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="emergency-strip">
+    <div class="container-wrap emergency-inner">
+      <div>
+        <strong>24/7 Notdienst:</strong>
+        Tag <a href={emergencyDaytimeHref}>{company.emergency.daytimePhone}</a> · Nacht/So
+        {company.emergency.nightPhone}
+      </div>
+      <a href="/service/notdienst/" class="btn btn-emergency">Notdienst-Info</a>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container-wrap footer-bottom-inner">
+      <small>
+        © {new Date().getFullYear()} {company.legalName} · {company.registration.hrb},
+        {company.registration.court}
+      </small>
+      <nav class="legal-links" aria-label="Rechtliches">
+        <a href="/impressum/">Impressum</a>
+        <a href="/datenschutz/">Datenschutz</a>
+        <a href="/kontakt/">Kontakt</a>
+      </nav>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--color-surface-deep);
+    color: #c8d2e0;
+    margin-top: 4rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr repeat(4, 1fr);
+    gap: 2.5rem;
+    padding-block: 3.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .footer-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .footer-grid {
+      grid-template-columns: 1fr;
+      padding-block: 2.5rem;
+    }
+  }
+
+  .site-footer h3 {
+    color: #fff;
+    margin: 0.75rem 0 0.4rem;
+    font-size: 1.2rem;
+  }
+
+  .site-footer h4 {
+    color: #fff;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin: 0 0 0.9rem;
+  }
+
+  .footer-brand img {
+    height: 64px;
+    width: auto;
+    border-radius: 6px;
+  }
+
+  .footer-tagline {
+    color: #97a4b8;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    max-width: 28ch;
+  }
+
+  .footer-social {
+    margin-top: 1.25rem;
+  }
+
+  .footer-social-label {
+    display: block;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #97a4b8;
+    margin-bottom: 0.55rem;
+  }
+
+  .social-icons {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .social-icons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.08);
+    color: #c8d2e0;
+    transition: background 0.18s ease, color 0.18s ease, transform 0.18s ease;
+  }
+
+  .social-icons a:hover,
+  .social-icons a:focus-visible {
+    background: var(--color-accent);
+    color: var(--color-ink);
+    transform: translateY(-2px);
+  }
+
+  .social-icons svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .footer-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    color: #c8d2e0;
+    font-size: 0.92rem;
+    line-height: 1.7;
+  }
+
+  .footer-list li {
+    margin-bottom: 0.35rem;
+  }
+
+  .footer-list a {
+    color: #c8d2e0;
+  }
+
+  .footer-list a:hover {
+    color: var(--color-accent);
+  }
+
+  .footer-hours {
+    margin-top: 1rem;
+    font-size: 0.88rem;
+    color: #97a4b8;
+  }
+  .footer-hours strong {
+    color: #fff;
+  }
+
+  .emergency-strip {
+    background: var(--color-danger);
+    color: #fff;
+    padding-block: 1rem;
+  }
+
+  .emergency-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .emergency-strip a {
+    color: #fff;
+    text-decoration: underline;
+    font-weight: 700;
+  }
+  .emergency-strip .btn-emergency {
+    background: #fff;
+    color: var(--color-danger);
+    border-color: #fff;
+  }
+  .emergency-strip .btn-emergency:hover {
+    background: var(--color-ink);
+    color: #fff;
+    border-color: var(--color-ink);
+  }
+
+  .footer-bottom {
+    background: #08111e;
+    padding-block: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.07);
+  }
+
+  .footer-bottom-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    color: #6c7a90;
+    font-size: 0.82rem;
+  }
+
+  .legal-links {
+    display: flex;
+    gap: 1.25rem;
+  }
+
+  .legal-links a {
+    color: #97a4b8;
+    font-size: 0.85rem;
+  }
+
+  .legal-links a:hover {
+    color: #fff;
+  }
+</style>

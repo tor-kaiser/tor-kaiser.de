@@ -1,0 +1,142 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import { company } from '../data/company';
+
+const title = 'Referenzen — Projekte aus Industrie, Verwaltung und Wohnbau | Tor-Kaiser';
+const description =
+  'Vom IKEA Einrichtungshaus über die Sparkasse bis zum Oberlandesgericht Essen: Unsere Hörmann-Referenzprojekte in Industrie, Verwaltung und Privathaushalt.';
+
+const projects = [
+  {
+    title: 'IKEA Einrichtungshaus Dortmund',
+    category: 'Industrie / Logistik',
+    description:
+      'Industrie-Sectionaltore und Schnelllauftore für die Anlieferzonen — auf hohe Zykluszahlen und Energieeffizienz ausgelegt.',
+  },
+  {
+    title: 'Sparkasse Wuppertal',
+    category: 'Öffentliche Verwaltung',
+    description:
+      'Hochwertige Eingangstüren und Garagentore mit erhöhter Einbruchsicherheit (RC&nbsp;2/RC&nbsp;3).',
+  },
+  {
+    title: 'Oberlandesgericht (OLG) Essen',
+    category: 'Justiz / Behörde',
+    description:
+      'Sicherheits-Eingangstüren und Industrie-Sectionaltore — geplant und umgesetzt in enger Abstimmung mit Behörden und Sicherheitsanforderungen.',
+  },
+  {
+    title: 'Logistikzentrum Bottrop',
+    category: 'Industrie',
+    description:
+      'Schnelllauftore an Hochregallager-Einfahrten für reduzierte Wartezeiten und besseres Hallenklima.',
+  },
+  {
+    title: 'Wohnungsbaugenossenschaft Vest Recklinghausen',
+    category: 'Wohnbau',
+    description:
+      'Sanierung von rund 40 Garagentoren mit modernen Hörmann RenoMatic Sectionaltoren — energieeffizient und einheitlich im Look.',
+  },
+  {
+    title: 'Klinikum / Senioreneinrichtung Gladbeck',
+    category: 'Öffentliche Einrichtung',
+    description:
+      'Brand- und Rauchschutztüren, Schnelllauftore und MZ Thermo Mehrzwecktüren für Versorgungs- und Technikbereiche.',
+  },
+  {
+    title: 'Mittelständischer Maschinenbau Marl',
+    category: 'Industrie',
+    description:
+      'Industrie-Rolltore HR&nbsp;120 Aero mit Wärmedämmung für Werkstatt und Anlieferung.',
+  },
+  {
+    title: 'Privatkunden im gesamten Ruhrgebiet',
+    category: 'Privatbau',
+    description:
+      'Über die Jahre tausende Einzelaufträge: Garagentore, Antriebe, Haustüren — vom Reihenhaus bis zur Villa.',
+  },
+];
+
+---
+
+<BaseLayout title={title} description={description}>
+  <Breadcrumbs items={[{ label: 'Referenzen' }]} />
+
+  <section class="section">
+    <div class="container-wrap">
+      <span class="eyebrow">Referenzen</span>
+      <h1>Projekte, auf die wir stolz sind</h1>
+      <p class="lead">
+        {company.yearsLabel} Jahre Hörmann-Erfahrung — von der kleinen Garage bis zum
+        Industriekomplex. Eine Auswahl unserer Referenzen:
+      </p>
+
+      <div class="ref-grid">
+        {
+          projects.map((p) => (
+            <article class="card ref-card">
+              <span class="ref-category">{p.category}</span>
+              <h2>{p.title}</h2>
+              <p set:html={p.description} />
+            </article>
+          ))
+        }
+      </div>
+
+      <p class="ref-note">
+        <strong>Hinweis:</strong> Bild- und Videomaterial folgt — wir arbeiten gerade daran,
+        unsere Referenzobjekte ausführlich zu dokumentieren. Gerne nennen wir Ihnen auf Anfrage
+        Ansprechpartner für vergleichbare Projekte.
+      </p>
+    </div>
+  </section>
+
+  <CtaBlock
+    title="Ihr Projekt — gemeinsam mit Tor-Kaiser umgesetzt"
+    subtitle="Ob Neubau, Sanierung oder Großauftrag: Wir entwickeln mit Ihnen die passende Hörmann-Lösung. Sprechen Sie uns an für eine unverbindliche Erstberatung."
+  />
+</BaseLayout>
+
+<style>
+  .ref-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+  }
+
+  .ref-card h2 {
+    font-size: 1.2rem;
+    margin: 0.5rem 0 0.65rem;
+    color: var(--color-brand);
+  }
+
+  .ref-card p {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .ref-category {
+    display: inline-block;
+    background: rgba(0, 58, 125, 0.08);
+    color: var(--color-brand);
+    padding: 0.3rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .ref-note {
+    margin-top: 2.5rem;
+    padding: 1.25rem;
+    background: var(--color-surface-alt);
+    border-radius: var(--radius-card);
+    color: var(--color-ink-soft);
+    font-size: 0.95rem;
+  }
+</style>

@@ -1,0 +1,109 @@
+---
+import { cities } from '../data/cities';
+
+interface Props {
+  current?: string;
+}
+
+const { current } = Astro.props;
+---
+
+<section class="service-area">
+  <div class="container-wrap">
+    <span class="eyebrow">Servicegebiet</span>
+    <h2>Gladbeck und das nördliche Ruhrgebiet</h2>
+    <p class="lead">
+      Wir beraten, liefern, montieren und warten in Gladbeck und sieben angrenzenden Städten —
+      mit kurzen Anfahrtswegen und persönlichem Kontakt.
+    </p>
+    <div class="city-grid">
+      {
+        cities.map((c) => (
+          <a
+            href={`/standorte/${c.slug}/`}
+            class={`city-tile ${current === c.slug ? 'is-current' : ''}`}
+            aria-current={current === c.slug ? 'page' : undefined}
+          >
+            <strong>{c.name}</strong>
+            <span class="city-distance">
+              {c.distanceKm === 0 ? 'Hauptsitz' : `~${c.driveMinutes} Min · ${c.distanceKm} km`}
+            </span>
+            <small class="city-population">{c.population.toLocaleString('de-DE')} Einwohner</small>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .service-area {
+    padding-block: clamp(3rem, 7vw, 5rem);
+    background: var(--color-surface-alt);
+  }
+
+  .service-area h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .service-area .lead {
+    margin-bottom: 2rem;
+  }
+
+  .city-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+    gap: 0.85rem;
+  }
+
+  .city-tile {
+    display: flex;
+    flex-direction: column;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    padding: 1.1rem 1.25rem;
+    color: var(--color-ink);
+    transition: all 0.18s ease;
+  }
+
+  .city-tile:hover,
+  .city-tile.is-current {
+    border-color: var(--color-brand);
+    color: var(--color-brand);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  .city-tile.is-current {
+    background: var(--color-brand);
+    color: #fff;
+  }
+
+  .city-tile strong {
+    font-size: 1.05rem;
+    font-weight: 700;
+  }
+
+  .city-distance {
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+    margin-top: 0.15rem;
+  }
+
+  .city-tile.is-current .city-distance {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .city-population {
+    font-size: 0.72rem;
+    color: var(--color-ink-muted);
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .city-tile.is-current .city-population {
+    color: rgba(255, 255, 255, 0.75);
+  }
+</style>

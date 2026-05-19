@@ -1,0 +1,49 @@
+---
+import { products, type Product } from '../data/products';
+import ProductCard from './ProductCard.astro';
+
+interface Props {
+  filter?: Product['category'];
+  title?: string;
+  intro?: string;
+  limit?: number;
+}
+
+const { filter, title = 'Unser Hörmann-Sortiment', intro, limit } = Astro.props;
+
+let list = filter ? products.filter((p) => p.category === filter) : products;
+if (limit) list = list.slice(0, limit);
+---
+
+<section class="product-grid-section">
+  <div class="container-wrap">
+    {title && <h2>{title}</h2>}
+    {intro && <p class="lead grid-intro">{intro}</p>}
+    <div class="product-grid">
+      {list.map((p) => <ProductCard product={p} />)}
+    </div>
+  </div>
+</section>
+
+<style>
+  .product-grid-section {
+    padding-block: clamp(3rem, 7vw, 5rem);
+  }
+
+  .product-grid-section h2 {
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .grid-intro {
+    text-align: center;
+    margin-inline: auto;
+    margin-bottom: 2rem;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+</style>

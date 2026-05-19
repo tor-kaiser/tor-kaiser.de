@@ -1,0 +1,118 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import CtaBlock from '../../../components/CtaBlock.astro';
+import FAQ from '../../../components/FAQ.astro';
+import TrustBar from '../../../components/TrustBar.astro';
+import { productsByCategory } from '../../../data/products';
+
+const items = productsByCategory('industrietore');
+
+const title = 'Hörmann Industrietore | Sectional-, Roll- & Schnelllauftore Gladbeck — Tor-Kaiser';
+const description =
+  'Hörmann Industrietore im nördlichen Ruhrgebiet: Sectionaltore SPU 67, Rolltore HR 120, Schnelllauftore V-Serie. Inkl. UVV-Prüfung, Wartung und Notdienst.';
+
+const faqs = [
+  {
+    question: 'Welche Norm muss ein gewerbliches Tor erfüllen?',
+    answer:
+      'Kraftbetätigte Tore in Arbeitsstätten unterliegen der EN 13241 und der ASR A1.7. Außerdem muss eine jährliche UVV-Prüfung durch einen Sachkundigen erfolgen — diese Leistung bieten wir Ihnen mit Prüfprotokoll an.',
+  },
+  {
+    question: 'Wie schnell sind Hörmann Schnelllauftore?',
+    answer:
+      'Die V-Serie öffnet mit bis zu 2,5 m/s, die HS Speed bis zu 4 m/s. Damit reduzieren sich Wartezeiten, Zugluft und Energieverlust deutlich — gerade bei hohen Zykluszahlen.',
+  },
+  {
+    question: 'Können bestehende Tore nachgerüstet werden?',
+    answer:
+      'Häufig ja. Hörmann bietet Modernisierungslösungen (z. B. neue Antriebe, Wärmedämmung, Steuerungen) für Bestandstore. Wir prüfen Ihre Anlage und schlagen die wirtschaftlichste Variante vor.',
+  },
+  {
+    question: 'Wie lange dauert die UVV-Prüfung?',
+    answer:
+      'Pro Tor in der Regel 30–60 Minuten, abhängig von Größe und Ausstattung. Wir koordinieren Termine flexibel, auch außerhalb der Betriebszeiten.',
+  },
+  {
+    question: 'Welche Brandschutz- und Sicherheitsoptionen gibt es?',
+    answer:
+      'Hörmann bietet Feststellanlagen, Brand- und Rauchschutztore (z. B. FST FlexTec, T30/T90), Schiebetore mit Sektionalmodul und integrierte Schlupftüren ohne Stolperschwelle. Auch Sondergrößen bis 25 m² Torfläche sind möglich.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Breadcrumbs items={[
+    { label: 'Produkte', href: '/produkte/' },
+    { label: 'Industrietore' },
+  ]} />
+
+  <section class="section">
+    <div class="container-wrap">
+      <span class="eyebrow">Industrietore</span>
+      <h1>Hörmann Industrietore — robust, sicher, energieeffizient</h1>
+      <p class="lead">
+        Vom Sectionaltor mit 67-mm-Wärmedämmung über das Rollgitter bis zum Schnelllauftor mit
+        4 m/s: Wir liefern und installieren Hörmann Industrietore im gesamten nördlichen
+        Ruhrgebiet — inklusive UVV-Prüfung, Wartung und Notdienst.
+      </p>
+    </div>
+  </section>
+
+  <TrustBar />
+
+  <section class="section">
+    <div class="container-wrap">
+      <h2>Welche Industrietor-Typen gibt es?</h2>
+      <div class="grid">
+        {items.map((p) => <ProductCard product={p} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container-wrap prose-content">
+      <h2>Typische Einsatzbereiche</h2>
+      <ul>
+        <li><strong>Logistik und Speditionen</strong> — Schnelllauftore zur Reduktion von Zugluft und Wartezeiten an Verladerampen.</li>
+        <li><strong>Produktion</strong> — Sectionaltore SPU&nbsp;67 für wärmegedämmte Werkshallen.</li>
+        <li><strong>Lager / Cold Logistics</strong> — Decotherm Rolltore und HR&nbsp;120 Aero mit Wärmedämmung.</li>
+        <li><strong>Werkstatt / Handwerk</strong> — Rolltore HR&nbsp;120 für kleine bis mittlere Öffnungen.</li>
+        <li><strong>Reinraum / Lebensmittel</strong> — HS&nbsp;5015 Schnelllauftore mit hygienischen Oberflächen.</li>
+        <li><strong>Tiefgarage und Parkhaus</strong> — Decotherm-Rolltore, Schiebetore und Aluminium-Rahmentore.</li>
+      </ul>
+
+      <h2>Wartung & UVV-Prüfung</h2>
+      <p>
+        Kraftbetätigte Tore sind gemäß ASR A1.7 jährlich durch einen Sachkundigen zu prüfen.
+        Wir bieten Wartungsverträge mit terminierten UVV-Prüfungen — inklusive Protokoll, das
+        bei Ihrem Versicherer und der Berufsgenossenschaft anerkannt wird. Mehr dazu auf der
+        <a href="/service/wartung/">Wartungs-Seite</a>.
+      </p>
+
+      <h2>Notdienst rund um die Uhr</h2>
+      <p>
+        Ein blockiertes Tor kann den gesamten Betrieb lahmlegen. Unser <a href="/service/notdienst/">24/7
+        Notdienst</a> erreicht Sie im nördlichen Ruhrgebiet typischerweise innerhalb von 60
+        Minuten — in vielen Fällen mit dem passenden Ersatzteil direkt im Service-Fahrzeug.
+      </p>
+    </div>
+  </section>
+
+  <FAQ items={faqs} />
+
+  <CtaBlock
+    title="Industrie- und Gewerbeprojekte umsetzen"
+    subtitle="Beschreiben Sie uns kurz Ihr Vorhaben — Anwendung, Tor-Maße, Zykluszahl. Wir kalkulieren ein passgenaues Angebot inkl. Anlieferung und Montage."
+  />
+</BaseLayout>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+</style>

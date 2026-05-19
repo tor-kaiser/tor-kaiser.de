@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import TrustBar from '../../../components/TrustBar.astro';
+import CtaBlock from '../../../components/CtaBlock.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ProductGallery from '../../../components/ProductGallery.astro';
+import { productBySlug } from '../../../data/products';
+
+const product = productBySlug('seitensectionaltore')!;
+
+const title = 'Hörmann HST Seiten-Sectionaltore Gladbeck | Tor-Kaiser';
+const description =
+  'Hörmann Seiten-Sectionaltore HST — öffnen seitwärts wie eine Schiebetür. Decke bleibt frei. Beratung, Lieferung und Montage in Gladbeck und Umgebung.';
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Hörmann HST Seiten-Sectionaltor',
+  brand: { '@type': 'Brand', name: 'Hörmann' },
+  category: 'Garagentor',
+  description,
+};
+
+const faqs = [
+  {
+    question: 'Was ist ein Seiten-Sectionaltor?',
+    answer:
+      'Beim Seiten-Sectionaltor (HST) öffnet sich das Tor wie eine Schiebetür zur Seite und verschwindet entlang der Innenwand. Die Decke bleibt komplett frei — ideal für Garagen, die auch als Hobbyraum, Werkstatt oder Stauraum genutzt werden.',
+  },
+  {
+    question: 'Wann ist ein Seiten-Sectionaltor die richtige Wahl?',
+    answer:
+      'Immer dann, wenn der Deckenraum genutzt werden soll (Dachboden-Zugang, Beleuchtung, Sportgeräte) oder eine Schlupftür ohne Stolperschwelle gewünscht ist. Auch in besonders breiten Garagen ist das HST elegant.',
+  },
+  {
+    question: 'Gibt es eine integrierte Schlupftür?',
+    answer:
+      'Ja. Das HST lässt sich serienmäßig mit einer Schlupftür ohne Stolperschwelle konfigurieren — so betreten Sie die Garage bequem, ohne das ganze Tor zu öffnen.',
+  },
+  {
+    question: 'Kann das HST teilweise geöffnet werden?',
+    answer:
+      'Ja. Über die Komfort-Teilöffnung lässt sich das Tor z. B. nur einen Meter öffnen — perfekt für die Müllabfuhr oder beim Lüften der Garage.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} schema={productSchema}>
+  <Breadcrumbs items={[
+    { label: 'Produkte', href: '/produkte/' },
+    { label: 'Garagentore', href: '/produkte/garagentore/' },
+    { label: 'Seiten-Sectionaltore' },
+  ]} />
+
+  <Hero
+    eyebrow="Hörmann HST"
+    title="Seiten-Sectionaltore — Decke bleibt frei."
+    subtitle="Das Hörmann HST öffnet seitwärts und verschwindet entlang der Wand. Sie behalten den vollen Deckenraum und können das Tor außerdem teilöffnen — z. B. nur für den Fußgänger-Zugang."
+    image={product.image}
+    imageAlt={product.imageAlt}
+  />
+
+  <TrustBar />
+
+  <section class="section">
+    <div class="container-wrap prose-content">
+      <h2>Eigenschaften des HST</h2>
+      <ul>
+        <li>Wärmegedämmte 42-mm-Lamellen</li>
+        <li>Schlupftür ohne Stolperschwelle möglich</li>
+        <li>Komfort-Teilöffnung (z. B. nur 1 m)</li>
+        <li>Sehr leiser Lauf durch laufrollengeführte Mechanik</li>
+        <li>Antrieb HDO/SE für seitliche Tore</li>
+        <li>Über 200 Farben, Decograin-Oberflächen und RAL-Farben verfügbar</li>
+      </ul>
+
+      <h2>Typische Anwendungen</h2>
+      <ul>
+        <li>Garagen, die zusätzlich als Werkstatt oder Hobbyraum dienen</li>
+        <li>Garagen mit Dachluken, Beleuchtung oder Speicherzugang an der Decke</li>
+        <li>Sehr breite Garagen, in denen ein normales Sectionaltor zu viel Deckengewicht produziert</li>
+        <li>Vielfahrer, die täglich zu Fuß ein- und ausgehen — die Schlupftür spart Zeit</li>
+      </ul>
+
+      <h2>Schlupftür ohne Stolperschwelle</h2>
+      <p>
+        Ein besonderes Highlight ist die Hörmann Schlupftür ohne Stolperschwelle: Ein
+        ergonomischer Übergang verhindert Stolperfallen und ermöglicht den bequemen Zugang zur
+        Garage — auch mit Fahrrad, Rollator oder Kinderwagen. Das ist insbesondere bei doppelt
+        genutzten Garagen ein großer Komfortgewinn.
+      </p>
+    </div>
+  </section>
+
+  <ProductGallery product={product} heading="Seiten-Sectionaltor-Varianten" />
+
+  <FAQ items={faqs} />
+
+  <CtaBlock />
+</BaseLayout>

@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import ProductCard from '../../../components/ProductCard.astro';
+import CtaBlock from '../../../components/CtaBlock.astro';
+import FAQ from '../../../components/FAQ.astro';
+import TrustBar from '../../../components/TrustBar.astro';
+import { productsByCategory } from '../../../data/products';
+
+const items = productsByCategory('garagentore');
+
+const title = 'Hörmann Garagentore in Gladbeck & Umgebung | Tor-Kaiser';
+const description =
+  'Hörmann Garagentore vom Fachhändler in Gladbeck: Sectional-, Schwing-, Roll- und Seiten-Sectionaltore. Beratung, Aufmaß, Lieferung, Montage und Wartung im Ruhrgebiet.';
+
+const faqs = [
+  {
+    question: 'Welches Hörmann Garagentor passt zu mir?',
+    answer:
+      'Das hängt von Ihrer Garage, dem Platzbedarf und Ihren Designwünschen ab. Sectionaltore (z. B. LPU 67 Thermo) sind die meistverkaufte Lösung — wärmegedämmt, sicher, platzsparend. Schwingtore (Berry N 80) sind die günstige Klassik-Variante. Rolltore (RollMatic) sparen maximalen Platz oberhalb. Wir beraten Sie konkret vor Ort.',
+  },
+  {
+    question: 'Was kostet ein neues Hörmann Garagentor inkl. Montage?',
+    answer:
+      'Ein Schwingtor Berry N 80 ohne Antrieb beginnt im niedrigen vierstelligen Bereich, ein wärmegedämmtes Sectionaltor mit SupraMatic-Antrieb liegt in der Regel zwischen ca. 2.500 und 4.500 €. Genaue Preise bekommen Sie nach einem kostenlosen Aufmaß.',
+  },
+  {
+    question: 'Wie lange dauert die Lieferzeit?',
+    answer:
+      'Lagerware wie das RenoMatic Sectionaltor ist meist innerhalb von 1–3 Wochen verfügbar. Sonderfarben oder Sonderabmessungen 4–8 Wochen. Aktuelle Termine nennen wir Ihnen telefonisch.',
+  },
+  {
+    question: 'Kann mein bestehender Antrieb behalten werden?',
+    answer:
+      'Bei einem reinen Torblatt-Tausch oft ja — sofern der Antrieb noch in gutem Zustand ist. Wir prüfen das beim Aufmaß und sagen Ihnen ehrlich, ob ein Tausch oder eine Modernisierung sinnvoll ist.',
+  },
+  {
+    question: 'Gibt es Garantie auf Tor und Montage?',
+    answer:
+      'Hörmann gibt Werksgarantien (je nach Produkt 5–10 Jahre auf das Torblatt, mindestens 2 Jahre auf Mechanik und Antrieb). Auf unsere Montageleistung gewähren wir die gesetzliche Gewährleistung von 2 Jahren.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Breadcrumbs items={[
+    { label: 'Produkte', href: '/produkte/' },
+    { label: 'Garagentore' },
+  ]} />
+
+  <section class="section">
+    <div class="container-wrap">
+      <span class="eyebrow">Garagentore</span>
+      <h1>Hörmann Garagentore — vom Fachhändler in Gladbeck</h1>
+      <p class="lead">
+        Hörmann ist seit Jahrzehnten Europas führende Marke für Garagentore. Wir führen das
+        gesamte Programm und beraten Sie zur perfekten Lösung für Ihre Garage — egal ob Neubau,
+        Sanierung oder Antriebs-Modernisierung.
+      </p>
+    </div>
+  </section>
+
+  <TrustBar />
+
+  <section class="section">
+    <div class="container-wrap">
+      <h2>Welche Garagentor-Bauarten gibt es?</h2>
+      <p>
+        Hörmann unterscheidet vier wesentliche Garagentor-Bauarten. Jede hat ihre eigenen
+        Stärken — und die richtige Wahl hängt vor allem von Platzverhältnissen, Wärmedämmung,
+        Sicherheit und Optik ab:
+      </p>
+      <div class="grid">
+        {items.map((p) => <ProductCard product={p} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container-wrap prose-content">
+      <h2>Warum Hörmann?</h2>
+      <p>
+        Hörmann ist nicht ohne Grund Marktführer: Die Tore werden in Deutschland gefertigt
+        (u. a. in Werne, Steinhagen, Bottrop), erfüllen die anspruchsvollen Normen
+        EN&nbsp;13241 und ASR&nbsp;A1.7 und bieten Schutz-Features wie den Fingerklemmschutz
+        bereits in der Standardausstattung.
+      </p>
+      <ul>
+        <li>Bis zu 50&nbsp;mm wärmegedämmte Lamellen (LPU&nbsp;67 Thermo)</li>
+        <li>Fingerklemmschutz serienmäßig auf der Innen- und Außenseite</li>
+        <li>Hörmann ThermoFrame: dichteres Anschlagprofil mit Wärmedämmung</li>
+        <li>BiSecur Funktechnik mit AES&nbsp;128-Bit Verschlüsselung</li>
+        <li>Smart-Home-Anbindung über Hörmann homee oder direkt per App</li>
+      </ul>
+
+      <h2>Beratung & Aufmaß — wie wir vorgehen</h2>
+      <ol>
+        <li><strong>Telefonische Erstberatung.</strong> Wir klären die Eckdaten: bestehendes Tor, Maße, Wünsche, Budgetrahmen.</li>
+        <li><strong>Aufmaß vor Ort.</strong> Kostenlos und unverbindlich in Gladbeck und Umgebung. Wir prüfen Sturzhöhe, Seitenraum, Bodenanschluss.</li>
+        <li><strong>Angebot.</strong> Verbindliche Festpreis-Kalkulation inkl. Anlieferung und Montage.</li>
+        <li><strong>Montage.</strong> Durch unser eigenes, festangestelltes Hörmann-Montageteam.</li>
+        <li><strong>Einweisung & Service.</strong> Wir erklären Ihnen die Bedienung und bieten Ihnen einen Wartungsvertrag an.</li>
+      </ol>
+    </div>
+  </section>
+
+  <FAQ
+    intro="Die häufigsten Fragen rund um Hörmann Garagentore — wenn Ihre Frage nicht dabei ist, rufen Sie uns gerne an."
+    items={faqs}
+  />
+
+  <CtaBlock
+    title="Lassen Sie sich beraten"
+    subtitle="Vereinbaren Sie einen kostenlosen Aufmaß-Termin in Gladbeck und Umgebung. Wir kommen, messen aus und erstellen Ihr individuelles Angebot."
+  />
+</BaseLayout>
+
+<style>
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+</style>

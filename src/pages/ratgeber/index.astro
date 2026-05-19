@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+
+const title = 'Ratgeber rund um Hörmann Tore & Türen | Tor-Kaiser';
+const description =
+  'Praxiswissen aus 50+ Jahren Hörmann-Erfahrung: Wartungs-Checklisten, Kauftipps, Sicherheit, Kosten. Ratgeber von Bauprojekt Kaiser GmbH aus Gladbeck.';
+
+const articles = [
+  {
+    href: '/ratgeber/garagentor-wartung-checkliste/',
+    title: 'Garagentor-Wartung — die jährliche Checkliste',
+    intro:
+      'Was Sie selbst prüfen können, was der Fachmann macht und wann ein Wartungsvertrag sich lohnt.',
+    readTime: '7 Min.',
+  },
+  {
+    href: '/ratgeber/welches-garagentor-passt/',
+    title: 'Welches Garagentor passt zu mir?',
+    intro:
+      'Sectional, Schwing, Roll oder Seiten-Sectional? Eine Entscheidungshilfe für Bauherren und Sanierer.',
+    readTime: '9 Min.',
+  },
+  {
+    href: '/ratgeber/haustuer-sicherheit/',
+    title: 'Haustür-Sicherheit: RC 2, RC 3 und Smart-Lock',
+    intro:
+      'Wie viel Sicherheit braucht meine Haustür wirklich? Polizei-Empfehlungen, KfW-Förderung, technische Details.',
+    readTime: '8 Min.',
+  },
+  {
+    href: '/ratgeber/kosten-garagentor/',
+    title: 'Was kostet ein neues Garagentor 2026?',
+    intro:
+      'Aktuelle Preise für Hörmann Garagentore inklusive Antrieb und Montage — Privatkunden-Realbeispiele.',
+    readTime: '6 Min.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Breadcrumbs items={[{ label: 'Ratgeber' }]} />
+
+  <section class="section">
+    <div class="container-wrap">
+      <span class="eyebrow">Ratgeber</span>
+      <h1>Wissen aus über 50 Jahren Praxis</h1>
+      <p class="lead">
+        Praktische Artikel rund um Garagentore, Haustüren, Antriebe und Wartung — ehrlich und
+        ohne Marketing-Geschwafel, aus der Sicht eines Fachbetriebs in vierter Generation.
+      </p>
+
+      <div class="article-grid">
+        {
+          articles.map((a) => (
+            <a href={a.href} class="card card-interactive article-card">
+              <span class="pill">{a.readTime} Lesezeit</span>
+              <h2>{a.title}</h2>
+              <p>{a.intro}</p>
+              <span class="article-link">Artikel lesen →</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <CtaBlock />
+</BaseLayout>
+
+<style>
+  .article-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .article-card {
+    color: var(--color-ink);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .article-card h2 {
+    font-size: 1.2rem;
+    margin: 1rem 0 0.5rem;
+    color: var(--color-brand);
+  }
+
+  .article-card p {
+    flex: 1;
+    margin-bottom: 1rem;
+  }
+
+  .article-link {
+    color: var(--color-brand);
+    font-weight: 700;
+  }
+</style>

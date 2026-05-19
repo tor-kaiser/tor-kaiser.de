@@ -1,0 +1,102 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+import FAQ from '../../components/FAQ.astro';
+
+const title = 'Reparatur Hörmann Tore — Garagentor, Antrieb, Federbruch | Tor-Kaiser Gladbeck';
+const description =
+  'Schnelle, fachgerechte Reparatur Ihres Hörmann-Tores oder -Antriebs. Federbruch, defekter Antrieb, klemmendes Tor, defekte Lichtschranke — wir helfen im Ruhrgebiet.';
+
+const faqs = [
+  {
+    question: 'Mein Tor klemmt — was tun?',
+    answer:
+      'Häufige Ursachen: verschobenes Laufrollen-Lager, gerissene Feder, Bowdenzug ausgefädelt. Im Zweifel das Tor nicht weiter belasten — die Federspannung kann zu Verletzungen führen. Rufen Sie uns an, wir kommen und beheben das Problem fachgerecht.',
+  },
+  {
+    question: 'Mein Antrieb reagiert nicht mehr — Defekt oder nur Reset?',
+    answer:
+      'Oft hilft ein Reset (Antrieb stromlos schalten und neu starten). Wenn das nicht hilft, kommen Defekte am Empfangsmodul, der Steuerplatine oder am Motor in Frage. Wir diagnostizieren und reparieren oder tauschen — fast immer am selben Tag.',
+  },
+  {
+    question: 'Was kostet eine Reparatur?',
+    answer:
+      'Eine typische Reparatur (Anfahrt, Diagnose, einfaches Verschleißteil tauschen) kostet zwischen 150 und 400 €. Aufwendige Reparaturen (Federpaket, Antriebstausch) entsprechend mehr. Wir kalkulieren transparent — keine versteckten Kosten.',
+  },
+  {
+    question: 'Kann jedes alte Tor repariert werden?',
+    answer:
+      'Fast immer ja. Hörmann hält Ersatzteile bis zu ~30 Jahre vor. Bei sehr alten Antrieben oder sicherheitskritischen Defekten beraten wir aber ehrlich: manchmal ist ein neues Tor wirtschaftlicher als die Reparatur.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Breadcrumbs items={[
+    { label: 'Service', href: '/service/montage/' },
+    { label: 'Reparatur' },
+  ]} />
+
+  <Hero
+    eyebrow="Service"
+    title="Reparatur — schnell, transparent, fachgerecht."
+    subtitle="Defektes Tor, gerissene Feder, Antrieb ohne Funktion? Wir diagnostizieren, reparieren und tauschen — im gesamten Ruhrgebiet."
+    image="/img/montage.png"
+    imageAlt="Hörmann Reparatur durch Tor-Kaiser"
+  />
+
+  <TrustBar />
+
+  <section class="section">
+    <div class="container-wrap prose-content">
+      <h2>Typische Reparaturen</h2>
+      <ul>
+        <li><strong>Federbruch</strong> — Federpaket inkl. Federwellen tauschen (sicherheitsrelevant!)</li>
+        <li><strong>Antrieb defekt</strong> — Diagnose, Reparatur oder Austausch</li>
+        <li><strong>Funk-Empfangsmodul defekt</strong> — Tausch auf BiSecur-Standard</li>
+        <li><strong>Lichtschranke defekt</strong> — Tausch oder Justierung</li>
+        <li><strong>Verriegelung klemmt</strong> — Schloss/Zylinder erneuern, Schließblech justieren</li>
+        <li><strong>Torblatt verbogen / beschädigt</strong> — einzelne Lamelle tauschen</li>
+        <li><strong>Seilbruch</strong> — Seil tauschen, Trommel prüfen</li>
+        <li><strong>Notentriegelung defekt</strong> — Bowdenzug erneuern</li>
+        <li><strong>Sturm- / Auffahrschaden</strong> — Komplette Reparatur inkl. Versicherungsabwicklung</li>
+      </ul>
+
+      <h2>Versicherungsschäden</h2>
+      <p>
+        Bei Sturmschäden, Einbruchsschäden oder Auffahrunfällen helfen wir Ihnen bei der
+        Abwicklung mit der Versicherung. Wir erstellen einen detaillierten Kostenvoranschlag mit
+        Foto-Dokumentation — den Sie an Ihre Versicherung weiterleiten können. Nach Freigabe
+        führen wir die Reparatur durch.
+      </p>
+
+      <h2>Ablauf einer Reparatur</h2>
+      <ol>
+        <li>Anruf oder E-Mail mit Problemschilderung (gerne Foto)</li>
+        <li>Wir nennen Ihnen telefonisch eine erste Einschätzung und Termin</li>
+        <li>Anfahrt mit Service-Fahrzeug — Standardteile haben wir dabei</li>
+        <li>Diagnose vor Ort, transparente Kostenangabe</li>
+        <li>Reparatur — in den meisten Fällen sofort</li>
+        <li>Funktionstest und Übergabe</li>
+      </ol>
+
+      <h2>Sicherheits-Hinweis Federbruch</h2>
+      <p>
+        Eine gebrochene Torsionsfeder steht unter sehr hoher Spannung — Reparaturversuche durch
+        Laien führen regelmäßig zu schweren Verletzungen. Bitte versuchen Sie niemals, das Tor
+        bei Federbruch manuell zu öffnen, und greifen Sie nicht in die Federwelle. Rufen Sie uns
+        an — wir haben das passende Werkzeug und die Erfahrung für einen sicheren Tausch.
+      </p>
+    </div>
+  </section>
+
+  <FAQ items={faqs} />
+
+  <CtaBlock
+    title="Reparatur anfragen — meist noch heute"
+    subtitle="Beschreiben Sie uns kurz das Problem (gerne mit Foto), wir melden uns schnell zurück und vereinbaren einen Termin."
+  />
+</BaseLayout>

@@ -1,0 +1,177 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TrustBar from '../components/TrustBar.astro';
+import ProductGrid from '../components/ProductGrid.astro';
+import ReferenceGrid from '../components/ReferenceGrid.astro';
+import CityServiceArea from '../components/CityServiceArea.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import FAQ from '../components/FAQ.astro';
+import { company } from '../data/company';
+
+const title = 'Hörmann Fachhändler Gladbeck | Garagentore, Industrietore & Service — Tor-Kaiser';
+const description =
+  'Bauprojekt Kaiser GmbH — Ihr Hörmann Fachhändler in Gladbeck. Verkauf, Montage, Wartung und 24/7 Notdienst für Garagentore, Industrietore, Haustüren & Antriebe im gesamten nördlichen Ruhrgebiet.';
+
+const faqs = [
+  {
+    question: 'Sind Sie offizieller Hörmann-Partner?',
+    answer:
+      'Ja. Die Bauprojekt Kaiser GmbH ist seit über 50 Jahren autorisierter Hörmann-Fachhändler für Gladbeck und das nördliche Ruhrgebiet. Wir vertreiben ausschließlich Original-Hörmann-Produkte und nutzen ausschließlich Original-Ersatzteile.',
+  },
+  {
+    question: 'In welcher Region sind Sie tätig?',
+    answer:
+      'Unser Servicegebiet umfasst Gladbeck (Sitz), Bottrop, Gelsenkirchen, Essen, Recklinghausen, Dorsten, Herten, Marl und weitere Orte im nördlichen Ruhrgebiet. Notdienst-Einsätze fahren wir bei Bedarf auch in angrenzenden Städten.',
+  },
+  {
+    question: 'Wie schnell ist der Notdienst vor Ort?',
+    answer:
+      `Innerhalb von Gladbeck und den direkten Nachbarstädten (Bottrop, Herten, Gelsenkirchen) sind wir in der Regel innerhalb von 60 Minuten beim Kunden. ${company.emergency.daytimeHours} unter <a href="tel:${company.emergency.daytimePhoneE164}">${company.emergency.daytimePhone}</a> erreichbar; ${company.emergency.nightHours.toLowerCase()} unter <a href="tel:${company.emergency.nightPhoneE164}">${company.emergency.nightPhone}</a>.`,
+  },
+  {
+    question: 'Berate ich mich zuerst telefonisch oder vor Ort?',
+    answer:
+      'Beides ist möglich. Eine kostenlose Erstberatung am Telefon klärt die wichtigsten Eckdaten. Anschließend führen wir ein Aufmaß vor Ort durch und erstellen Ihnen ein verbindliches Angebot — kostenlos und unverbindlich.',
+  },
+  {
+    question: 'Übernehmen Sie auch die Wartung älterer Hörmann-Tore?',
+    answer:
+      'Ja. Wir warten und reparieren Hörmann-Tore und -Antriebe bis zu rund 30 Jahre zurück. Ersatzteile sind dank des umfassenden Hörmann-Service-Sortiments fast immer verfügbar.',
+  },
+  {
+    question: 'Bieten Sie auch UVV-Prüfungen für Industrietore an?',
+    answer:
+      'Ja. Unsere Sachkundigen prüfen kraftbetätigte Tore gemäß ASR A1.7 und der Berufsgenossenschaftlichen Regel — jährlich, mit Prüfprotokoll für Ihren Versicherer.',
+  },
+];
+
+const homeSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  url: 'https://tor-kaiser.de/',
+  name: 'Tor-Kaiser — Bauprojekt Kaiser GmbH',
+  inLanguage: 'de-DE',
+  publisher: { '@id': 'https://tor-kaiser.de/#organization' },
+};
+---
+
+<BaseLayout title={title} description={description} schema={homeSchema}>
+  <Hero
+    eyebrow={`Seit ${company.yearsLabel} Jahren · ${company.generation}. Generation in Gladbeck`}
+    title="Hörmann Tore, Türen & Antriebe — vom Fachbetrieb aus Gladbeck."
+    subtitle="Beratung, Verkauf, Montage, Wartung und Notdienst. Wir liefern und montieren Garagentore, Industrietore, Haustüren und Antriebe von Hörmann in Gladbeck, Bottrop, Gelsenkirchen, Essen, Recklinghausen und im gesamten nördlichen Ruhrgebiet."
+    image="/img/produkte/start/hero.jpg"
+    imageAlt="Hörmann Garagen-Sectionaltor D-Sicke Silkgrain in Anthrazitgrau RAL 7016 mit ThermoSafe Haustür"
+  />
+
+  <TrustBar />
+
+  <ProductGrid
+    title="Unser Hörmann-Sortiment"
+    intro="Vom klassischen Schwingtor bis zum Schnelllauftor für die Logistik — wir führen das komplette Hörmann-Programm und beraten Sie zu der passenden Lösung für Ihr Projekt."
+  />
+
+  <section class="usp section section-alt">
+    <div class="container-wrap usp-grid">
+      <div>
+        <span class="eyebrow">Warum Tor-Kaiser?</span>
+        <h2>Familienbetrieb in vierter Generation — mit Hörmann-DNA</h2>
+        <p class="lead">
+          Seit den 70er-Jahren tragen wir den Namen Hörmann in das nördliche Ruhrgebiet. Was klein
+          begann, ist heute ein eingespieltes Team aus Beratern und Monteuren mit über
+          50&nbsp;Jahren Praxiserfahrung — und genau das Mindset, das man von einem
+          Familienunternehmen erwartet: persönlich, zuverlässig, langfristig.
+        </p>
+      </div>
+
+      <div class="usp-cards">
+        <div class="card">
+          <h3>🛠 Beratung & Aufmaß</h3>
+          <p>
+            Persönliche Beratung in unserem Verkaufsbüro in Gladbeck oder direkt bei Ihnen vor
+            Ort. Wir messen exakt aus und entwickeln eine Lösung, die optisch und technisch zu
+            Ihrem Haus oder Betrieb passt.
+          </p>
+        </div>
+        <div class="card">
+          <h3>📐 Montage durch eigenes Team</h3>
+          <p>
+            Wir arbeiten mit festangestellten Hörmann-geschulten Monteuren — keine Subunternehmer.
+            Das spürt man im Ergebnis: passgenau, sauber, mit Gewährleistung.
+          </p>
+        </div>
+        <div class="card">
+          <h3>🔧 Wartung & Reparatur</h3>
+          <p>
+            Wir warten jedes Hörmann-Tor — auch ältere Modelle. Mit UVV-Prüfung für gewerbliche
+            Anlagen und Inspektions-Verträgen für Privatkunden, damit Ihr Tor jahrzehntelang
+            sicher läuft.
+          </p>
+        </div>
+        <div class="card">
+          <h3>🚨 24/7 Notdienst</h3>
+          <p>
+            Tor klemmt? Antrieb defekt? Einbruchschaden? Wir sind rund um die Uhr erreichbar und
+            kommen schnellstmöglich zu Ihnen. Im Regelfall innerhalb einer Stunde im Raum
+            Gladbeck.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <CityServiceArea />
+
+  <ReferenceGrid />
+
+  <FAQ
+    title="Antworten auf Ihre wichtigsten Fragen"
+    intro="Damit Sie sich vor dem ersten Anruf orientieren können — die häufigsten Fragen unserer Kundinnen und Kunden."
+    items={faqs}
+  />
+
+  <CtaBlock
+    title="Lassen Sie uns über Ihr Tor sprechen."
+    subtitle={`Wir freuen uns auf Ihren Anruf oder Ihre Mail. Unser Verkaufsbüro in der Bülser Straße ist Mo–Fr von 9:00 bis 14:00 für Sie geöffnet — Beratung darüber hinaus selbstverständlich nach Vereinbarung.`}
+  />
+</BaseLayout>
+
+<style>
+  .usp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.4fr;
+    gap: 3rem;
+    align-items: start;
+  }
+
+  @media (max-width: 960px) {
+    .usp-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  .usp-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 640px) {
+    .usp-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .usp-cards h3 {
+    margin: 0 0 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  .usp-cards p {
+    font-size: 0.95rem;
+    line-height: 1.55;
+    margin: 0;
+  }
+</style>

@@ -1,0 +1,73 @@
+---
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  title?: string;
+  intro?: string;
+  items: FAQItem[];
+  emitSchema?: boolean;
+}
+
+const { title = 'Häufige Fragen', intro, items, emitSchema = true } = Astro.props;
+
+const faqSchema = emitSchema
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: items.map((item) => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer,
+        },
+      })),
+    }
+  : null;
+---
+
+<section class="faq-section">
+  <div class="container-narrow">
+    <h2>{title}</h2>
+    {intro && <p class="lead faq-intro">{intro}</p>}
+    <div class="faq-list">
+      {
+        items.map((item) => (
+          <details class="faq-item">
+            <summary>{item.question}</summary>
+            <div class="faq-answer" set:html={item.answer} />
+          </details>
+        ))
+      }
+    </div>
+  </div>
+  {
+    faqSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    )
+  }
+</section>
+
+<style>
+  .faq-section {
+    padding-block: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .faq-section h2 {
+    text-align: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .faq-intro {
+    text-align: center;
+    margin-inline: auto;
+    margin-bottom: 2rem;
+  }
+
+  .faq-list {
+    margin-top: 1.5rem;
+  }
+</style>

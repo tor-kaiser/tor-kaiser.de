@@ -1,0 +1,133 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+import FAQ from '../../components/FAQ.astro';
+
+const title = 'Was kostet ein neues Hörmann Garagentor? Preise 2026 | Tor-Kaiser';
+const description =
+  'Aktuelle Preise für Hörmann Garagentore inklusive Antrieb und Montage. Konkrete Beispiele aus dem Privatkundenbereich, Faktoren die den Preis beeinflussen.';
+
+const faqs = [
+  {
+    question: 'Sind die Preise verbindlich?',
+    answer:
+      'Nein — die Preise hier sind Richtwerte basierend auf typischen Projekten 2026. Ein verbindliches Angebot bekommen Sie nach einem kostenlosen Aufmaß bei Ihnen vor Ort.',
+  },
+  {
+    question: 'Was kostet die Demontage des alten Tores?',
+    answer:
+      'Demontage und Entsorgung des Bestandstores berechnen wir typischerweise 150–350 € — abhängig von Größe und Aufwand. Bei vielen Aufträgen ist dies bereits im Festpreis enthalten.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Breadcrumbs items={[
+    { label: 'Ratgeber', href: '/ratgeber/' },
+    { label: 'Kosten Garagentor' },
+  ]} />
+
+  <article class="section">
+    <div class="container-narrow prose-content">
+      <span class="eyebrow">Ratgeber · Kosten</span>
+      <h1>Was kostet ein neues Hörmann Garagentor 2026?</h1>
+      <p class="lead">
+        Ein neues Garagentor ist eine Investition für 20–30 Jahre. Hier finden Sie aktuelle
+        Preise — vom günstigen Schwingtor bis zur Premium-Haustür-Kombination — inklusive
+        Anlieferung und Standardmontage in Gladbeck und Umgebung.
+      </p>
+
+      <h2>Schwingtor Berry N 80 — die preisgünstige Variante</h2>
+      <ul>
+        <li><strong>Tor ohne Antrieb</strong> (2.500 × 2.125 mm, Verkehrsweiß): ab ca. 900 €</li>
+        <li><strong>Tor mit ProMatic Antrieb</strong>: ab ca. 1.450 €</li>
+        <li><strong>Inkl. Demontage + Montage</strong>: ca. 1.800–2.400 €</li>
+        <li>Aufpreis Sonderfarbe (RAL): + 200–400 €</li>
+        <li>Aufpreis Aluminium-Applikation: + 250 €</li>
+      </ul>
+
+      <h2>Sectionaltor RenoMatic — der Standard im Sanierungsbereich</h2>
+      <ul>
+        <li><strong>RenoMatic 2500 × 2125 inkl. SupraMatic E 4</strong>: ab ca. 1.700 €</li>
+        <li><strong>Inkl. Montage und Demontage</strong>: ca. 2.500–3.200 €</li>
+        <li>Aufpreis Decograin Night Oak / Golden Oak: + 350–450 €</li>
+        <li>Aufpreis ThermoFrame Zarge: + 250 €</li>
+      </ul>
+
+      <h2>Sectionaltor LPU 42 — die Klassik-Variante</h2>
+      <ul>
+        <li><strong>LPU 42 2500 × 2125 inkl. SupraMatic</strong>: ab ca. 2.400 €</li>
+        <li><strong>Inkl. Montage</strong>: ca. 3.300–4.200 €</li>
+        <li>Sondersicken (Kassette, Sicke L, M-Sicke): + 100–250 €</li>
+        <li>Verglasung (Acrylglas oder DURATEC): + 350–650 €</li>
+      </ul>
+
+      <h2>Sectionaltor LPU 67 Thermo — die Premium-Lösung</h2>
+      <ul>
+        <li><strong>LPU 67 Thermo inkl. SupraMatic + ThermoFrame</strong>: ab ca. 3.500 €</li>
+        <li><strong>Inkl. Montage</strong>: ca. 4.500–5.500 €</li>
+        <li>Decograin Night Oak: + 450 €</li>
+        <li>Smart-Home-Modul homee: + 350 €</li>
+      </ul>
+
+      <h2>Rolltor RollMatic</h2>
+      <ul>
+        <li><strong>RollMatic 2500 × 2125 inkl. integriertem Antrieb</strong>: ab ca. 2.300 €</li>
+        <li><strong>Inkl. Montage</strong>: ca. 3.200–4.000 €</li>
+        <li>Sonderfarbe Aluminium: + 200–500 €</li>
+      </ul>
+
+      <h2>Seiten-Sectionaltor HST</h2>
+      <ul>
+        <li><strong>HST 2500 × 2125 inkl. Antrieb + Schlupftür</strong>: ab ca. 4.500 €</li>
+        <li><strong>Inkl. Montage</strong>: ca. 6.000–7.500 €</li>
+        <li>Decograin-Oberfläche: + 500 €</li>
+      </ul>
+
+      <h2>Faktoren, die den Preis beeinflussen</h2>
+      <ol>
+        <li><strong>Größe</strong>: Doppelgarage (ca. 5 m breit) deutlich teurer als Einzelgarage</li>
+        <li><strong>Lamellenstärke / Wärmedämmung</strong>: 42 mm → 67 mm = +30–40 % Preis</li>
+        <li><strong>Farbe / Oberfläche</strong>: Standardweiß günstiger als RAL-Sonderfarben oder Decograin</li>
+        <li><strong>Antrieb</strong>: ProMatic ~ 350 €, SupraMatic E 4 ~ 550 €, SupraMatic P 4 ~ 750 €</li>
+        <li><strong>Verglasung</strong>: Echte Verglasung mit Aluminium-Rahmen deutlich teurer</li>
+        <li><strong>Sondersituationen</strong>: Sehr alter Sturz, neue Verkabelung, statische Anpassungen</li>
+      </ol>
+
+      <h2>Wie spare ich beim Garagentor-Kauf?</h2>
+      <ul>
+        <li><strong>RenoMatic statt LPU</strong> — das Lager-Programm ist 20–30 % günstiger</li>
+        <li><strong>Standardgröße</strong> wählen, wenn möglich (2.500 × 2.125 / 2.500 × 2.250)</li>
+        <li><strong>Standardfarbe Weiß / Anthrazit</strong> ohne Decograin</li>
+        <li><strong>ProMatic statt SupraMatic</strong>, wenn 14 cm/s Geschwindigkeit reichen</li>
+        <li><strong>Mehrere Tore gleichzeitig</strong> bestellen — bessere Konditionen</li>
+      </ul>
+
+      <h2>Realbeispiele aus 2025/2026</h2>
+      <p>
+        Ein typisches Beispiel aus Gladbeck (3 Tore in einer Reihenhausanlage, alle gleiches
+        Modell):
+      </p>
+      <ul>
+        <li>3 × RenoMatic 2500 × 2125 Anthrazit inkl. SupraMatic — Gesamtbetrag inkl. Demontage und Montage: ca. 6.500 €.</li>
+        <li>1 × LPU 67 Thermo 3000 × 2125 in Decograin Night Oak inkl. SupraMatic P 4 — Privathaus in Bottrop: ca. 5.800 € inkl. Montage und ThermoFrame.</li>
+        <li>1 × HST 4500 × 2250 inkl. Schlupftür für Privathaus in Marl: ca. 9.200 € inkl. Montage.</li>
+      </ul>
+
+      <h2>So bekommen Sie Ihr verbindliches Angebot</h2>
+      <p>
+        Rufen Sie uns an oder schreiben Sie uns über das <a href="/anfrage/">Anfrage-Formular</a>.
+        Wir vereinbaren ein kostenloses Aufmaß bei Ihnen vor Ort und erstellen Ihnen ein
+        Festpreis-Angebot — gültig 8 Wochen, inkl. aller Nebenkosten.
+      </p>
+    </div>
+  </article>
+
+  <FAQ items={faqs} />
+
+  <CtaBlock
+    title="Konkretes Angebot anfragen"
+    subtitle="Sie haben ungefähre Maße und eine Idee, welches Tor passen könnte? Schicken Sie uns Ihre Eckdaten — wir geben Ihnen eine erste preisliche Orientierung."
+  />
+</BaseLayout>
