@@ -1,0 +1,168 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import TrustBar from '../../../components/TrustBar.astro';
+import CtaBlock from '../../../components/CtaBlock.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ProductGallery from '../../../components/ProductGallery.astro';
+import { productBySlug } from '../../../data/products';
+
+const product = productBySlug('schwingtore')!;
+
+const title = 'Hörmann Schwingtor Berry N 80 — Garagen-Schwingtore Gladbeck | Tor-Kaiser';
+const description =
+  'Hörmann Schwingtor Berry N 80 — der Klassiker mit einteiligem Stahl-Torblatt. Robust, preiswert, langlebig. Lieferung und Montage in Gladbeck und im Ruhrgebiet.';
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Hörmann Garagen-Schwingtor Berry N 80',
+  brand: { '@type': 'Brand', name: 'Hörmann' },
+  category: 'Garagentor',
+  description,
+  offers: {
+    '@type': 'AggregateOffer',
+    priceCurrency: 'EUR',
+    lowPrice: '900',
+    highPrice: '2200',
+    availability: 'https://schema.org/InStock',
+    seller: { '@id': 'https://tor-kaiser.de/#organization' },
+  },
+};
+
+const ralFarben = [
+  { code: 'RAL 9016', name: 'Verkehrsweiß' },
+  { code: 'RAL 7016', name: 'Anthrazitgrau' },
+  { code: 'RAL 8003', name: 'Lehmbraun' },
+  { code: 'RAL 8014', name: 'Sepiabraun' },
+  { code: 'RAL 6005', name: 'Moosgrün' },
+  { code: 'RAL 5014', name: 'Taubenblau' },
+  { code: 'RAL 9006', name: 'Weißaluminium' },
+  { code: 'RAL 3000', name: 'Feuerrot' },
+];
+
+const faqs = [
+  {
+    question: 'Was ist ein Schwingtor?',
+    answer:
+      'Ein Schwingtor besteht aus einem einteiligen Torblatt, das sich beim Öffnen erst nach vorn schwingt und dann waagerecht unter die Garagendecke gleitet. Vor der Garage benötigen Sie deshalb einen freien Schwenkbereich von etwa 1 m.',
+  },
+  {
+    question: 'Schwingtor oder Sectionaltor — was ist besser?',
+    answer:
+      'Das Sectionaltor ist platzsparender und besser wärmegedämmt. Das Schwingtor ist günstiger, einfach in der Mechanik und sehr langlebig. Wenn vor der Garage genug Platz ist und Sie ein preiswertes, robustes Tor möchten, ist das Schwingtor eine sehr gute Wahl.',
+  },
+  {
+    question: 'Welche Größen sind erhältlich?',
+    answer:
+      'Standard-Schwingtore reichen von 2.000 bis 3.000 mm Breite und 1.875 bis 2.250 mm Höhe. Sondermaße sind teilweise möglich.',
+  },
+  {
+    question: 'Welche Farben sind möglich?',
+    answer:
+      'Standardmäßig in Verkehrsweiß RAL 9016. Alle RAL-Klassik-Farben sowie strukturierte Oberflächen (z. B. Stucco) gegen Aufpreis verfügbar.',
+  },
+  {
+    question: 'Kann ein Antrieb nachgerüstet werden?',
+    answer:
+      'Ja. Für das Berry N 80 eignet sich der Hörmann ProMatic oder SupraMatic mit BiSecur-Funk. Wir rüsten Bestandstore problemlos nach.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} schema={productSchema}>
+  <Breadcrumbs items={[
+    { label: 'Produkte', href: '/produkte/' },
+    { label: 'Garagentore', href: '/produkte/garagentore/' },
+    { label: 'Schwingtore' },
+  ]} />
+
+  <Hero
+    eyebrow="Hörmann Schwingtor"
+    title="Berry N 80 — der robuste Klassiker."
+    subtitle="Einteiliges Stahl-Torblatt, bewährte Mechanik mit Federzugsystem und unschlagbares Preis-Leistungs-Verhältnis. Seit Jahrzehnten das verlässliche Hörmann-Schwingtor."
+    image={product.image}
+    imageAlt={product.imageAlt}
+  />
+
+  <TrustBar />
+
+  <section class="section">
+    <div class="container-wrap prose-content">
+      <h2>Berry N 80 — Technik und Eigenschaften</h2>
+      <p>
+        Das Hörmann Schwingtor Berry N&nbsp;80 ist seit Jahrzehnten der meistverkaufte
+        Schwingtor-Klassiker. Es kombiniert einfache, langlebige Federzug-Technik mit einem
+        massiven, einteiligen Stahl-Torblatt — verzinkt oder zusätzlich feuerverzinkt für
+        besonders hohe Korrosionsbeständigkeit.
+      </p>
+
+      <table class="data-table">
+        <tbody>
+          <tr><th>Torblatt</th><td>Einteilig, Stahl 0,7 mm verzinkt</td></tr>
+          <tr><th>Sicke</th><td>Hochsicke (Standard), Mittelsicke, Kassette</td></tr>
+          <tr><th>Standard-Farbe</th><td>Verkehrsweiß RAL 9016</td></tr>
+          <tr><th>Gewicht</th><td>ca. 50–95 kg je nach Größe</td></tr>
+          <tr><th>Federzug</th><td>Wartungsarme Federpakete</td></tr>
+          <tr><th>Verriegelung</th><td>2-Punkt-Verriegelung serienmäßig</td></tr>
+          <tr><th>Antrieb optional</th><td>ProMatic / SupraMatic mit BiSecur</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Vorteile</h2>
+      <ul>
+        <li>Bewährte, mechanisch einfache Technik — sehr langlebig</li>
+        <li>Hochwertige Pulverbeschichtung, korrosionsgeschützt</li>
+        <li>Über 100 Designs (Sicken, Kassetten, Aluminium-Applikationen) wählbar</li>
+        <li>Optionale Belüftungsschlitze für unbeheizte Garagen</li>
+        <li>Einbruchhemmung bei Bedarf nachrüstbar</li>
+        <li>Garagendurchfahrt nutzbar, da das Torblatt nahezu unter die Decke gleitet</li>
+      </ul>
+
+      <h2>Designs & Oberflächen</h2>
+      <p>
+        Standardmäßig ist die Oberfläche „Stucco“ — eine fein gemusterte Pulverbeschichtung, die
+        Kratzer und Schmutz weniger sichtbar macht. Alternativ glatte Lackierung in allen
+        RAL-Klassik-Farben. Beliebte Designs:
+      </p>
+      <ul>
+        <li><strong>Mittelsicke</strong> — die klassische Hörmann-Optik</li>
+        <li><strong>Großsicke</strong> — moderne, ruhige Linienführung</li>
+        <li><strong>Kassetten-Design</strong> — passend zu klassischen Häusern</li>
+        <li><strong>Aluminium-Applikationen</strong> — zeitgemäße Akzente</li>
+      </ul>
+
+      <h2>RAL-Farben (Auswahl)</h2>
+      <table class="data-table">
+        <thead><tr><th>RAL-Code</th><th>Farbe</th></tr></thead>
+        <tbody>
+          {ralFarben.map((f) => <tr><td>{f.code}</td><td>{f.name}</td></tr>)}
+        </tbody>
+      </table>
+      <p><small>Alle weiteren RAL-Klassik-Farben auf Anfrage. Bei Sonderfarben kann sich die Lieferzeit verlängern.</small></p>
+
+      <h2>Wann lohnt sich ein Schwingtor?</h2>
+      <p>
+        Das Schwingtor ist ideal, wenn vor der Garage rund einen Meter Platz für den
+        Schwenkbereich vorhanden ist und Wärmedämmung keine zentrale Rolle spielt (z. B. bei
+        Garagen ohne Heizung, bei unbeheizten Carport-Anbauten oder bei Sanierungen mit knappem
+        Budget). In allen anderen Fällen empfehlen wir oft ein <a href="/produkte/garagentore/sectionaltore/">Sectionaltor</a>.
+      </p>
+
+      <h2>Antrieb für das Schwingtor</h2>
+      <p>
+        Hörmann bietet für das Berry N 80 spezielle Antriebssätze. Die häufigste Lösung ist der
+        <strong>ProMatic Akku</strong> oder <strong>SupraMatic E&nbsp;4</strong> mit
+        BiSecur-Handsender. Beide lassen sich mit Smartphone-App und Smart-Home-Systemen
+        koppeln.
+      </p>
+    </div>
+  </section>
+
+  <ProductGallery product={product} heading="Schwingtor-Motive und Oberflächen" />
+
+  <FAQ items={faqs} />
+
+  <CtaBlock />
+</BaseLayout>

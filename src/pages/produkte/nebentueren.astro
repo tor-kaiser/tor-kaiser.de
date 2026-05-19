@@ -1,0 +1,97 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+import FAQ from '../../components/FAQ.astro';
+import ProductGallery from '../../components/ProductGallery.astro';
+import { productBySlug } from '../../data/products';
+
+const product = productBySlug('nebentueren')!;
+
+const title = 'Hörmann Nebentüren NT 60 & Multifunktion MZ Thermo | Tor-Kaiser Gladbeck';
+const description =
+  'Hörmann Nebentüren NT 60 und Multifunktion MZ Thermo aus verzinktem Stahl. Robuste Lösungen für Keller, Werkstatt, Lager und Nebeneingänge. Inkl. Brand- und Rauchschutz-Varianten.';
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Hörmann Nebentür',
+  brand: { '@type': 'Brand', name: 'Hörmann' },
+  category: 'Nebentür',
+  description,
+};
+
+const faqs = [
+  {
+    question: 'Was ist eine Nebentür?',
+    answer:
+      'Nebentüren werden überall dort eingebaut, wo eine vollwertige Haustür nicht nötig ist — Keller, Lager, Werkstatt, Nebeneingänge zu Gewerbeflächen. Sie sind robust, kostengünstig und funktional.',
+  },
+  {
+    question: 'Welche Materialien gibt es?',
+    answer:
+      'Standard sind verzinkter Stahl oder Aluminium-Stahl-Verbund. Beide korrosionsgeschützt und in vielen Größen erhältlich. Pulverbeschichtung in vielen RAL-Farben.',
+  },
+  {
+    question: 'Gibt es Brandschutz-Varianten?',
+    answer:
+      'Ja. T30, T90 Brandschutztüren sowie RS Rauchschutztüren sind in vielen Größen verfügbar — auch in Kombination mit Schlupftüren und Sicherheitsanforderungen.',
+  },
+  {
+    question: 'Welche Größen sind möglich?',
+    answer:
+      'Standard-Maße bis 1.250 × 2.500 mm. Sondermaße auf Anfrage.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} schema={productSchema}>
+  <Breadcrumbs items={[
+    { label: 'Produkte', href: '/produkte/' },
+    { label: 'Nebentüren' },
+  ]} />
+
+  <Hero
+    eyebrow="Hörmann Nebentüren"
+    title="NT 60 und MZ Thermo — robust, funktional, langlebig."
+    subtitle="Nebentüren für Keller, Werkstatt, Lager und Nebeneingänge. Aus verzinktem Stahl, mit zahlreichen Brand- und Rauchschutzvarianten."
+    image={product.image}
+    imageAlt={product.imageAlt}
+  />
+
+  <TrustBar />
+
+  <section class="section">
+    <div class="container-wrap prose-content">
+      <h2>Baureihen</h2>
+      <table class="data-table">
+        <thead><tr><th>Modell</th><th>Aufbau</th><th>Hauptanwendung</th></tr></thead>
+        <tbody>
+          <tr><td><strong>NT 60</strong></td><td>Stahl-Türblatt, ausgeschäumt</td><td>Funktions- und Nebentüren in Gewerbe und Privat</td></tr>
+          <tr><td><strong>MZ Thermo</strong></td><td>Multifunktions-Tür, wärmegedämmt</td><td>Eingang Keller, Werkstatt, Lager — auch beheizt</td></tr>
+          <tr><td><strong>T30 / T90</strong></td><td>Stahl-Brandschutztür</td><td>Brandabschnittstrennung in Gewerbe und Wohnbau</td></tr>
+          <tr><td><strong>RS</strong></td><td>Rauchschutz-Tür</td><td>Flucht- und Rettungswege</td></tr>
+          <tr><td><strong>MZ Thermo Pro</strong></td><td>Wärmegedämmt mit thermischer Trennung</td><td>Energetische Anforderungen GEG</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Ausstattung & Optionen</h2>
+      <ul>
+        <li>3-Punkt-Verriegelung serienmäßig</li>
+        <li>Profilzylinder mit Schließbart</li>
+        <li>Lüftungs-Schlitze (auf Wunsch — z. B. für Heizungs- oder Hauswirtschaftsraum)</li>
+        <li>Pulverbeschichtung in vielen Farben</li>
+        <li>Türschließer mit Feststellanlage (optional)</li>
+        <li>Verglasung mit Drahtglas oder ESG</li>
+      </ul>
+    </div>
+  </section>
+
+  <ProductGallery product={product} heading="Nebentüren in der Übersicht" />
+
+  <FAQ items={faqs} />
+
+  <CtaBlock />
+</BaseLayout>

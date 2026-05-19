@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import TrustBar from '../../../components/TrustBar.astro';
+import CtaBlock from '../../../components/CtaBlock.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ProductGallery from '../../../components/ProductGallery.astro';
+import { productBySlug } from '../../../data/products';
+
+const product = productBySlug('schnelllauftore')!;
+
+const title = 'Hörmann Schnelllauftore V-Serie & HS Speed | Tor-Kaiser Gladbeck';
+const description =
+  'Hörmann Schnelllauftore: V-Serie, HS Speed bis 4 m/s, HS 5015 für Reinraum & Lebensmittel. Reduzierte Zugluft, kürzere Zykluszeiten — Lieferung und Montage im Ruhrgebiet.';
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Hörmann Schnelllauftor',
+  brand: { '@type': 'Brand', name: 'Hörmann' },
+  category: 'Industrietor',
+  description,
+};
+
+const faqs = [
+  {
+    question: 'Wofür braucht man ein Schnelllauftor?',
+    answer:
+      'Überall, wo ein normales Industrietor zum Engpass wird — durch Wartezeiten von Staplern, durch Zugluft, durch Energieverlust beim Öffnen/Schließen. Schnelllauftore öffnen mit bis zu 4 m/s und reduzieren die Öffnungszeit auf einen Bruchteil.',
+  },
+  {
+    question: 'Welche Modelle gibt es?',
+    answer:
+      'Die V-Serie (V 2515, V 2515 Iso, V 4015 SEL, V 6030) ist die häufigste Wahl. HS Speed eignet sich für besonders hohe Zykluszahlen. HS 5015 ist die Lösung für Reinraum, Pharma und Lebensmittel.',
+  },
+  {
+    question: 'Was ist „Soft Edge“?',
+    answer:
+      'Hörmann Schnelllauftore haben keine harte Bodenkante, sondern eine flexible Soft-Edge-Profilkante. Bei Berührung gibt sie nach und reversiert das Tor — kein Verletzungsrisiko, kein Sachschaden.',
+  },
+  {
+    question: 'Lohnen sich Schnelllauftore wirtschaftlich?',
+    answer:
+      'In den meisten Fällen ja — durch Energieeinsparung (weniger Zugluft, geringere Heiz/Klima-Kosten), reduzierte Wartezeiten in der Logistik und längere Lebensdauer der bestehenden Halle. Wir rechnen Ihnen das gerne vor.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} schema={productSchema}>
+  <Breadcrumbs items={[
+    { label: 'Produkte', href: '/produkte/' },
+    { label: 'Industrietore', href: '/produkte/industrietore/' },
+    { label: 'Schnelllauftore' },
+  ]} />
+
+  <Hero
+    eyebrow="Hörmann Schnelllauftor"
+    title="Bis 4 m/s öffnen — Wartezeit raus, Effizienz rein."
+    subtitle="Schnelllauftore senken Zugluft, Energieverluste und Stapler-Wartezeiten. Wir liefern und installieren die komplette Hörmann V-Serie und HS Speed im Ruhrgebiet."
+    image={product.image}
+    imageAlt={product.imageAlt}
+  />
+
+  <TrustBar />
+
+  <section class="section">
+    <div class="container-wrap prose-content">
+      <h2>Modell-Übersicht</h2>
+      <table class="data-table">
+        <thead><tr><th>Modell</th><th>Geschwindigkeit</th><th>Anwendung</th></tr></thead>
+        <tbody>
+          <tr><td><strong>V 2515</strong></td><td>2,5 m/s</td><td>Standardlogistik, mittelgroße Tore</td></tr>
+          <tr><td><strong>V 2515 Iso</strong></td><td>2,5 m/s</td><td>Wärmegedämmt für Kühlhallen-Vorräume</td></tr>
+          <tr><td><strong>V 4015 SEL</strong></td><td>2,5 m/s</td><td>Selbstreparierende Bodenkante bei Auffahrunfall</td></tr>
+          <tr><td><strong>V 6030</strong></td><td>2,0 m/s</td><td>Sehr große Tore bis 60 m²</td></tr>
+          <tr><td><strong>HS Speed</strong></td><td>bis 4 m/s</td><td>Hochfrequenz-Anwendungen mit > 200.000 Zyklen/Jahr</td></tr>
+          <tr><td><strong>HS 5015</strong></td><td>2,0 m/s</td><td>Reinraum, Pharma, Lebensmittel — glatte Oberflächen</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Anwendungen, in denen sich Schnelllauftore lohnen</h2>
+      <ul>
+        <li>Logistik-Hubs und Speditionen — kürzere Be- und Entladezeiten</li>
+        <li>Kühlhallen-Vorräume — Iso-Variante schützt vor Energieverlust</li>
+        <li>Fertigungsstraßen mit häufigem Materialwechsel</li>
+        <li>Tankstellen-/Werkstattzufahrten mit hohem Durchgangsvolumen</li>
+        <li>Lebensmittel- und Pharma-Produktion (HS 5015 hygienetauglich)</li>
+        <li>Reinräume mit Druckdifferenz und Hygieneanforderungen</li>
+      </ul>
+
+      <h2>Sicherheits-Features</h2>
+      <ul>
+        <li><strong>Soft Edge</strong> — flexible, verletzungssichere Bodenkante</li>
+        <li>Lichtgitter über die volle Höhe der Toröffnung</li>
+        <li>Selbstreparierendes Behangsystem (SEL-Modelle): nach Anfahrunfall fädelt sich der Behang selbstständig ein</li>
+        <li>Wartung über Hörmann-Service-Diagnose; Frequenzumrichter für sanftes Anfahren</li>
+        <li>Optional: Steuerung mit Verkehrs- und Ampelmanagement</li>
+      </ul>
+
+      <h2>Beratung — wann lohnt es sich?</h2>
+      <p>
+        Schnelllauftore amortisieren sich in vielen Anwendungen bereits nach 1–3 Jahren —
+        insbesondere bei beheizten Hallen mit hohem Durchgangsvolumen. Wir nehmen Ihre
+        Frequenzen, Energiekosten und Hallenkonzepte auf und kalkulieren eine
+        Wirtschaftlichkeits-Vergleichsrechnung gegen Ihr bestehendes Tor.
+      </p>
+    </div>
+  </section>
+
+  <ProductGallery product={product} heading="Schnelllauftore in der Anwendung" />
+
+  <FAQ items={faqs} />
+
+  <CtaBlock />
+</BaseLayout>

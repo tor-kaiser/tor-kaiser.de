@@ -1,0 +1,112 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+import FAQ from '../../components/FAQ.astro';
+import ProductGallery from '../../components/ProductGallery.astro';
+import { productBySlug } from '../../data/products';
+
+const product = productBySlug('ersatzteile')!;
+
+const title = 'Hörmann Original-Ersatzteile & Handsender | Tor-Kaiser Gladbeck';
+const description =
+  'Hörmann Original-Ersatzteile: Torsionsfedern, Laufrollen, Seilbruchsicherungen, Bowdenzüge, Handsender HSE / HS BiSecur. Verfügbar auch für ältere Modelle bis ~30 Jahre zurück.';
+
+const faqs = [
+  {
+    question: 'Welche Ersatzteile sind besonders gefragt?',
+    answer:
+      'Am häufigsten benötigen Kunden: Handsender (HSE 2 BS, HSE 4 BS, HS 5 BS BiSecur), Torsionsfedern, Laufrollen, Seilbruchsicherungen, Bowdenzüge, Lichtschranken (EL 51), Empfangsmodule für Antriebe und Schließzylinder.',
+  },
+  {
+    question: 'Gibt es Ersatzteile auch für alte Hörmann-Tore?',
+    answer:
+      'Ja. Hörmann hält Ersatzteile für nahezu alle Tor- und Antriebsbaureihen der letzten ~30 Jahre vor. Wir helfen Ihnen bei der Identifikation Ihres Tor-Modells — eine Foto-Mail mit dem Typenschild reicht meist aus.',
+  },
+  {
+    question: 'Wie schnell sind Ersatzteile verfügbar?',
+    answer:
+      'Verbrauchsteile (Federn, Seile, Lichtschranken, Standard-Handsender) sind in der Regel innerhalb von 1–3 Werktagen verfügbar. Sonderteile aus dem Hörmann-Werkservice 1–2 Wochen.',
+  },
+  {
+    question: 'Programmieren Sie auch neue Handsender?',
+    answer:
+      'Ja. Wir programmieren BiSecur-Handsender direkt an Ihren Antrieb — entweder bei einem Termin vor Ort oder bei Ihnen Zuhause. Bei alten Hörmann Funkstandards (26.995 MHz / 40 MHz / Codetaster Multibit BS) prüfen wir die Möglichkeit einer Modernisierung.',
+  },
+  {
+    question: 'Was tun bei defektem Torsionsfederbruch?',
+    answer:
+      'Eine gebrochene Torsionsfeder ist gefährlich — das Tor lässt sich kaum noch öffnen, und unsachgemäße Reparatur kann zu schweren Verletzungen führen. Rufen Sie uns an: Wir kommen zeitnah und tauschen das komplette Federpaket fachgerecht aus.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Breadcrumbs items={[
+    { label: 'Produkte', href: '/produkte/' },
+    { label: 'Ersatzteile' },
+  ]} />
+
+  <Hero
+    eyebrow="Hörmann Original-Ersatzteile"
+    title="Ersatzteile, Handsender und Verschleißteile."
+    subtitle="Verfügbar für nahezu alle Hörmann-Tore und -Antriebe der letzten 30 Jahre. Mit Beratung, Programmierung und Montage."
+    image={product.image}
+    imageAlt={product.imageAlt}
+  />
+
+  <TrustBar />
+
+  <section class="section">
+    <div class="container-wrap prose-content">
+      <h2>Was wir auf Lager / kurzfristig verfügbar haben</h2>
+      <ul>
+        <li><strong>Handsender</strong> — HSE 2/4 BS, HS 5 BS BiSecur, FIT 4 BS Wandtaster</li>
+        <li><strong>Funk-Empfangsmodule</strong> — für Nachrüstung älterer Antriebe</li>
+        <li><strong>Torsionsfedern und Federpakete</strong> — für Sectional- und Schwingtore</li>
+        <li><strong>Laufrollen / Laufrollenhalter</strong> — Standardmaße</li>
+        <li><strong>Seilbruchsicherungen / Drahtseile</strong></li>
+        <li><strong>Bowdenzüge und Antriebs-Schienen</strong></li>
+        <li><strong>Lichtschranken EL 51, Sicherheits-Lichtgitter</strong></li>
+        <li><strong>Profilzylinder, Schließzylinder, Schlossfallen</strong></li>
+        <li><strong>Dichtungen</strong> — Boden- und Seitendichtungen</li>
+        <li><strong>Antriebe komplett</strong> — als Service-Austausch</li>
+      </ul>
+
+      <h2>Modellidentifikation</h2>
+      <p>
+        Sie wissen nicht genau, welches Hörmann-Tor Sie haben? Kein Problem — schicken Sie uns
+        bitte folgende Informationen an <a href="mailto:info@tor-kaiser.de">info@tor-kaiser.de</a>:
+      </p>
+      <ul>
+        <li>Foto vom Tor (innen und außen)</li>
+        <li>Foto vom Typenschild (meist innen am seitlichen Rahmen oder auf der Bodenkante)</li>
+        <li>Foto vom Antrieb (mit Modellaufdruck)</li>
+        <li>Foto vom defekten Teil — sofern möglich</li>
+      </ul>
+      <p>
+        Wir identifizieren das passende Ersatzteil und melden uns mit Preis und Lieferzeit.
+      </p>
+
+      <h2>Warum Original-Ersatzteile?</h2>
+      <ul>
+        <li>Passen exakt — keine Nacharbeit, keine Toleranzen</li>
+        <li>Erhalten die Hörmann-Werksgarantie</li>
+        <li>Gleiche Sicherheitsstandards wie das Neutor</li>
+        <li>Verfügbarkeit für sehr alte Modelle gewährleistet</li>
+        <li>Wir verwenden ausschließlich Original-Hörmann-Teile — keine Nachbauten</li>
+      </ul>
+    </div>
+  </section>
+
+  <ProductGallery product={product} heading="Original-Ersatzteile und Handsender" />
+
+  <FAQ items={faqs} />
+
+  <CtaBlock
+    title="Ersatzteil oder Reparatur benötigt?"
+    subtitle="Rufen Sie uns an oder schicken Sie uns ein Foto Ihres Tores — wir finden das passende Ersatzteil und kümmern uns um Lieferung und Einbau."
+  />
+</BaseLayout>

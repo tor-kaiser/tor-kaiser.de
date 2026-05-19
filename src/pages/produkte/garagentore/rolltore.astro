@@ -1,0 +1,129 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Hero from '../../../components/Hero.astro';
+import TrustBar from '../../../components/TrustBar.astro';
+import CtaBlock from '../../../components/CtaBlock.astro';
+import FAQ from '../../../components/FAQ.astro';
+import ProductGallery from '../../../components/ProductGallery.astro';
+import { productBySlug } from '../../../data/products';
+
+const product = productBySlug('rolltore')!;
+
+const title = 'Hörmann RollMatic — Garagen-Rolltore Gladbeck | Tor-Kaiser';
+const description =
+  'Hörmann RollMatic Garagen-Rolltore mit kompakter Aufwicklung. Volle Durchfahrtshöhe, integrierter Antrieb. Lieferung und Montage in Gladbeck und Umgebung.';
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Hörmann RollMatic Garagen-Rolltor',
+  brand: { '@type': 'Brand', name: 'Hörmann' },
+  category: 'Garagentor',
+  description,
+};
+
+const faqs = [
+  {
+    question: 'Wann lohnt sich ein Rolltor?',
+    answer:
+      'Immer dann, wenn der Bereich oberhalb der Tor-Öffnung knapp ist oder die volle Garagenhöhe genutzt werden soll. Auch in Garagen mit Dachschrägen ist das RollMatic häufig die einzig saubere Lösung.',
+  },
+  {
+    question: 'Wie ist das Rolltor wärmegedämmt?',
+    answer:
+      'Das RollMatic Rolltor hat einen ausgeschäumten, doppelwandigen Aluminium-Behang. Die Wärmedämmung ist gut, erreicht aber nicht die Werte eines LPU 67 Sectionaltors. Für unbeheizte Garagen ist es vollkommen ausreichend.',
+  },
+  {
+    question: 'Welche Maße sind möglich?',
+    answer:
+      'Das RollMatic ist von 2.000 bis ca. 5.500 mm Breite und bis 3.000 mm Höhe erhältlich. Sondermaße auf Anfrage.',
+  },
+  {
+    question: 'Kann das Rolltor manuell geöffnet werden?',
+    answer:
+      'Ja. Bei Stromausfall gibt es eine Notentriegelung von außen (über einen Schlüssel) und innen (Bowdenzug). Das Tor wird dann mit einer Handkurbel betätigt.',
+  },
+  {
+    question: 'Wo wird das Tor montiert — vor oder hinter dem Sturz?',
+    answer:
+      'Das RollMatic kann sowohl vor als auch hinter dem Sturz montiert werden. Beide Varianten sind beim Aufmaß möglich; wir empfehlen je nach Garagenhöhe und Sturzhöhe die optimale Lösung.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} schema={productSchema}>
+  <Breadcrumbs items={[
+    { label: 'Produkte', href: '/produkte/' },
+    { label: 'Garagentore', href: '/produkte/garagentore/' },
+    { label: 'Rolltore' },
+  ]} />
+
+  <Hero
+    eyebrow="Hörmann RollMatic"
+    title="Rolltore — maximale Raumausnutzung in der Garage"
+    subtitle="Der Behang wickelt sich kompakt unter der Decke auf. Sie gewinnen die volle Garagenhöhe und können bis dicht an das Tor heranfahren — ideal bei knappem Platz."
+    image={product.image}
+    imageAlt={product.imageAlt}
+  />
+
+  <TrustBar />
+
+  <section class="section">
+    <div class="container-wrap prose-content">
+      <h2>Wie funktioniert das Rolltor?</h2>
+      <p>
+        Ein Rolltor besteht aus einem doppelwandigen Aluminium-Behang, der sich beim Öffnen in
+        eine kompakte Welle oberhalb des Sturzes aufwickelt. Im Gegensatz zum Sectionaltor
+        verschwindet das Torblatt nicht unter der Decke, sondern komplett im Sturzbereich — die
+        gesamte Garage bleibt frei.
+      </p>
+
+      <h2>Modell-Übersicht</h2>
+      <table class="data-table">
+        <tbody>
+          <tr><th>Modell</th><td>Hörmann RollMatic</td></tr>
+          <tr><th>Behang</th><td>Aluminium, doppelwandig, ausgeschäumt</td></tr>
+          <tr><th>Behangdicke</th><td>17 mm</td></tr>
+          <tr><th>Antrieb</th><td>Integriert in die Aufwicklungswelle</td></tr>
+          <tr><th>Funk</th><td>BiSecur (AES 128-Bit)</td></tr>
+          <tr><th>Notentriegelung</th><td>Außen über Schlüssel, innen Bowdenzug + Kurbel</td></tr>
+          <tr><th>Verfügbare Größen</th><td>bis ca. 5.500 × 3.000 mm</td></tr>
+          <tr><th>Farben</th><td>Weiß, Braun, Anthrazit, alle RAL-Farben gegen Aufpreis</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Wann ist ein Rolltor die richtige Wahl?</h2>
+      <ul>
+        <li>Wenn der Bereich oberhalb der Tor-Öffnung weniger als 30 cm beträgt</li>
+        <li>Bei Garagen mit Dachschrägen, an denen ein Sectionaltor nicht voll öffnen könnte</li>
+        <li>Wenn die volle Garagenhöhe nutzbar bleiben soll (z. B. für SUV mit Dachgepäck)</li>
+        <li>In Reihengaragen, in denen kein Schwenkraum vor dem Tor verfügbar ist</li>
+        <li>Bei Sanierungen, in denen ein Sectionaltor strukturell nicht passt</li>
+      </ul>
+
+      <h2>Sicherheits- und Komfortausstattung</h2>
+      <ul>
+        <li>Sicherheitskontaktleiste an der Schließkante</li>
+        <li>Sanftlauf — leiser und schonender Betrieb</li>
+        <li>Integrierte Beleuchtung (LED) optional</li>
+        <li>BiSecur-Funk mit Sende-/Empfangs-Modul für bidirektionale Statusabfrage</li>
+        <li>Smart-Home-Anbindung über Hörmann homee</li>
+      </ul>
+
+      <h2>Beratung in Gladbeck und Umgebung</h2>
+      <p>
+        Ob ein Rolltor in Ihrer Garage technisch besser passt als ein Sectionaltor, klären wir
+        beim kostenlosen Aufmaß. Wir prüfen Sturzhöhe, Behangraum und ob die volle
+        Garagenhöhe wichtig ist. Beim Aufmaß-Termin in Gladbeck und Umgebung beraten wir
+        ehrlich — auch wenn am Ende ein Sectionaltor die bessere Wahl ist.
+      </p>
+    </div>
+  </section>
+
+  <ProductGallery product={product} heading="RollMatic im Einsatz" />
+
+  <FAQ items={faqs} />
+
+  <CtaBlock />
+</BaseLayout>

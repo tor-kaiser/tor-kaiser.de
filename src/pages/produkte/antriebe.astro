@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+import FAQ from '../../components/FAQ.astro';
+import ProductGallery from '../../components/ProductGallery.astro';
+import { productBySlug } from '../../data/products';
+
+const product = productBySlug('antriebe')!;
+
+const title = 'Hörmann Antriebe SupraMatic, ProMatic, RotaMatic | Tor-Kaiser Gladbeck';
+const description =
+  'Hörmann Antriebe für Garagentore, Drehflügel- und Schiebetore. SupraMatic, ProMatic, RotaMatic — alle mit BiSecur Funktechnik. Auch zur Nachrüstung. Lieferung und Montage in Gladbeck.';
+
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: 'Hörmann SupraMatic Garagentor-Antrieb',
+  brand: { '@type': 'Brand', name: 'Hörmann' },
+  category: 'Garagentor-Antrieb',
+  description,
+};
+
+const faqs = [
+  {
+    question: 'SupraMatic oder ProMatic?',
+    answer:
+      'SupraMatic ist schneller (bis 22 cm/s Öffnungsgeschwindigkeit), leiser, kraftvoller und Smart-Home-fähig. ProMatic ist die preisbewusste Standardlösung — leise und zuverlässig, mit BiSecur-Funk. Für die meisten Privathaushalte ist ProMatic 4 völlig ausreichend.',
+  },
+  {
+    question: 'Was ist BiSecur?',
+    answer:
+      'BiSecur ist Hörmanns Funkverschlüsselung (AES 128-Bit, bidirektional). Sie ist abhörsicher und ermöglicht Statusabfragen — z. B. „Ist die Garage zu?“ direkt am Handsender. Auch über Smartphone-App nutzbar.',
+  },
+  {
+    question: 'Kann ich den Antrieb mit Alexa / Google Home steuern?',
+    answer:
+      'Ja. Über das Hörmann homee Gateway oder das BiSecur Internet-Gateway lassen sich Antriebe in Smart-Home-Systeme einbinden — inkl. Alexa, Google Home und Apple HomeKit (über die App).',
+  },
+  {
+    question: 'Kann ich den Antrieb am bestehenden Tor nachrüsten?',
+    answer:
+      'In den meisten Fällen ja. Hörmann hat für nahezu alle Sectional- und Schwingtore passende Antriebs-Kits. Wir prüfen die Eignung beim Aufmaß.',
+  },
+  {
+    question: 'Was kostet ein Garagentor-Antrieb?',
+    answer:
+      'Ein ProMatic 4 inkl. Schiene und 2 Handsendern beginnt bei rund 600 €. SupraMatic E 4 ab ca. 850 €. Einbau und Programmierung berechnen wir nach Aufwand.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} schema={productSchema}>
+  <Breadcrumbs items={[
+    { label: 'Produkte', href: '/produkte/' },
+    { label: 'Antriebe' },
+  ]} />
+
+  <Hero
+    eyebrow="Hörmann Antriebstechnik"
+    title="SupraMatic, ProMatic, RotaMatic."
+    subtitle="Hörmann Antriebe für Garagentore, Drehflügel- und Schiebetore — alle mit BiSecur-Funk (AES-128-Bit), Smart-Home-fähig und auf Wunsch komfortabel per App steuerbar."
+    image={product.image}
+    imageAlt={product.imageAlt}
+  />
+
+  <TrustBar />
+
+  <section class="section">
+    <div class="container-wrap prose-content">
+      <h2>Garagentor-Antriebe</h2>
+      <table class="data-table">
+        <thead><tr><th>Modell</th><th>Zugkraft</th><th>Geschw.</th><th>Empfohlen für</th></tr></thead>
+        <tbody>
+          <tr><td><strong>ProMatic 4</strong></td><td>650 N</td><td>14 cm/s</td><td>Standard-Garagentore (Privatbereich)</td></tr>
+          <tr><td><strong>ProMatic Akku</strong></td><td>650 N</td><td>13 cm/s</td><td>Garagen ohne Stromanschluss — Akku-betrieben</td></tr>
+          <tr><td><strong>SupraMatic E 4</strong></td><td>750 N</td><td>22 cm/s</td><td>Größere Tore, schnelle Öffnung, leiser Lauf</td></tr>
+          <tr><td><strong>SupraMatic P 4</strong></td><td>1000 N</td><td>22 cm/s</td><td>Sehr große oder schwere Tore</td></tr>
+          <tr><td><strong>HDO / SE</strong></td><td>—</td><td>—</td><td>Speziell für Seiten-Sectionaltore</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Drehflügel- und Schiebetor-Antriebe</h2>
+      <ul>
+        <li><strong>RotaMatic</strong> — Drehflügeltor-Antrieb, ein- oder zweiflügelig</li>
+        <li><strong>LineaMatic</strong> — Schiebetor-Antrieb für Hofeinfahrten</li>
+        <li><strong>STA 400 / 401</strong> — Industrielle Schiebetorantriebe</li>
+        <li><strong>VersaMatic</strong> — Drehflügeltor mit besonders schmalen Säulen</li>
+      </ul>
+
+      <h2>Steuerung & Smart Home</h2>
+      <ul>
+        <li><strong>BiSecur-Funktechnik</strong> (AES 128-Bit) — abhörsicher und bidirektional</li>
+        <li>Handsender HSE 2/4 BS, HS 5 BS, FIT 4 BS — Wand- und Schlüsselschalter</li>
+        <li>App-Steuerung über Hörmann BiSecur App / Smart Door App</li>
+        <li>Hörmann homee Gateway — Smart-Home-Hub für Alexa, Google, HomeKit</li>
+        <li>Statusabfrage am Handsender oder Smartphone (offen/geschlossen)</li>
+        <li>Fingerprint, Code-Tastatur oder Bluetooth-Schalter (FCT 3-1 BS, FCT 10 BS)</li>
+      </ul>
+
+      <h2>Nachrüstung am Bestandstor</h2>
+      <p>
+        In den meisten Fällen lässt sich ein vorhandenes Hörmann Sectional- oder Schwingtor mit
+        einem modernen Antrieb nachrüsten. Wir prüfen die mechanische Eignung des Torblatts
+        (Federvorspannung, Lauffrequenz) und installieren den Antrieb mit allen nötigen
+        Sicherheits-Features (Kraftbegrenzung, Notentriegelung, ggf. Lichtschranke).
+      </p>
+
+      <h2>Ersatz alter Handsender</h2>
+      <p>
+        Wenn Sie noch einen alten Hörmann-Handsender besitzen (z. B. die orange Variante mit
+        einer Frequenz von 26.995 MHz oder die früheren BS-Generationen), prüfen wir, ob ein
+        Tausch gegen aktuelle BiSecur-Sender möglich ist. Häufig reicht der Austausch des
+        Empfangsmoduls — Sie behalten Ihren Antrieb und bekommen moderne Funktechnik.
+      </p>
+    </div>
+  </section>
+
+  <ProductGallery product={product} heading="Antriebe und Funk im Überblick" />
+
+  <FAQ items={faqs} />
+
+  <CtaBlock />
+</BaseLayout>
