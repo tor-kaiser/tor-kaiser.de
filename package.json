@@ -1,0 +1,23 @@
+{
+  "name": "tor-kaiser-de",
+  "type": "module",
+  "version": "2.0.0",
+  "description": "Webseite der Bauprojekt Kaiser GmbH — Hörmann Fachhändler in Gladbeck",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview --host",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
+    "astro": "^5.1.1",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "tailwindcss": "^4.0.0",
+    "typescript": "^5.7.2"
+  }
+}
