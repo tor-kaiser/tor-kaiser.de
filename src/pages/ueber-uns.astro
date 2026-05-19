@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import TrustBar from '../components/TrustBar.astro';
+import CtaBlock from '../components/CtaBlock.astro';
+import { company } from '../data/company';
+
+const title = `Über uns — ${company.yearsLabel} Jahre Hörmann in Gladbeck | Bauprojekt Kaiser GmbH`;
+const description = `Familienbetrieb in 4. Generation: Die Bauprojekt Kaiser GmbH ist seit ${company.yearsLabel} Jahren Hörmann-Fachhändler in Gladbeck. Erfahren Sie mehr über Geschichte, Team und Werte hinter Tor-Kaiser.`;
+---
+
+<BaseLayout title={title} description={description}>
+  <Breadcrumbs items={[{ label: 'Über uns' }]} />
+
+  <section class="section">
+    <div class="container-narrow prose-content">
+      <span class="eyebrow">Über uns</span>
+      <h1>Hörmann in Gladbeck — Familie Kaiser seit {company.yearsLabel} Jahren</h1>
+      <p class="lead">
+        Vier Generationen, ein Auftrag: Hochwertige Hörmann-Tore und -Türen ins Ruhrgebiet
+        bringen. Was in den 1970er-Jahren mit dem Großvater begann, führt Paul Kaiser heute mit
+        einem eingespielten Team aus Beraterinnen, Beratern und Monteuren fort.
+      </p>
+
+      <h2>Vier Generationen — eine Spezialisierung</h2>
+      <p>
+        Bereits in den 1970er-Jahren beschloss die Familie Kaiser, sich auf Hörmann-Produkte zu
+        konzentrieren — eine Entscheidung, die sich bis heute bewährt hat. Hörmann ist mit
+        Stammsitz in Steinhagen und Werken im Ruhrgebiet (u.&nbsp;a. in Werne und Bottrop) der
+        führende europäische Hersteller von Toren, Türen und Antriebstechnik. Diese Nähe zum
+        Hersteller ermöglicht uns kurze Lieferzeiten, schnelle Verfügbarkeit von Ersatzteilen und
+        einen direkten Draht zur Hörmann-Technik.
+      </p>
+
+      <h2>Was uns ausmacht</h2>
+      <ul>
+        <li>
+          <strong>Persönlich.</strong> Sie sprechen direkt mit der Geschäftsführung oder mit
+          erfahrenen Fachkräften — keine Callcenter, keine Standardisierung.
+        </li>
+        <li>
+          <strong>Vor Ort.</strong> Verkauf, Beratung und Werkstatt sitzen am gleichen Standort
+          in der Bülser Straße 19 in Gladbeck.
+        </li>
+        <li>
+          <strong>Komplettlösung.</strong> Beratung, Aufmaß, Lieferung, Montage, Wartung,
+          Reparatur, Notdienst — alles aus einer Hand.
+        </li>
+        <li>
+          <strong>Original-Hörmann.</strong> Wir vertreiben ausschließlich Hörmann-Produkte und
+          verwenden ausschließlich Original-Hörmann-Ersatzteile — keine Nachbauten.
+        </li>
+        <li>
+          <strong>Eigenes Montage-Team.</strong> Festangestellt, Hörmann-geschult, mit Erfahrung
+          aus tausenden Montagen.
+        </li>
+      </ul>
+
+      <h2>Eckdaten</h2>
+      <table class="data-table">
+        <tbody>
+          <tr><th>Firmenname</th><td>{company.legalName}</td></tr>
+          <tr><th>Gegründet</th><td>{company.founded}</td></tr>
+          <tr><th>Geschäftsführer</th><td>{company.managingDirector}</td></tr>
+          <tr><th>Generation</th><td>{company.generation}. Generation</td></tr>
+          <tr><th>Hörmann-Partnerstatus</th><td>{company.partnerStatus}</td></tr>
+          <tr><th>Sitz</th><td>{company.address.street}, {company.address.postalCode} {company.address.city}</td></tr>
+          <tr><th>Handelsregister</th><td>{company.registration.hrb}, {company.registration.court}</td></tr>
+        </tbody>
+      </table>
+
+      <h2>Was wir gut können — und was nicht</h2>
+      <p>
+        Wir sind Spezialisten — keine Generalisten. Unser Sortiment und unsere Leistungen
+        konzentrieren sich auf das Hörmann-Programm: Garagentore, Industrietore, Haustüren,
+        Nebentüren, Antriebstechnik, Ersatzteile sowie Service (Montage, Wartung, Reparatur,
+        UVV-Prüfung, Notdienst). Fenster, Markisen, Rollläden oder andere Bauelemente führen wir
+        bewusst nicht — diese überlassen wir den Spezialisten anderer Marken.
+      </p>
+
+      <h2>Unser Servicegebiet</h2>
+      <p>
+        Wir bedienen aus Gladbeck heraus das gesamte nördliche Ruhrgebiet — vor allem Gladbeck,
+        Bottrop, Gelsenkirchen, Essen, Recklinghausen, Dorsten, Herten und Marl. Auf den
+        jeweiligen <a href="/standorte/gladbeck/">Standort-Seiten</a> finden Sie Details zur
+        Anfahrt, Reaktionszeit und typischen Projekten in Ihrer Stadt.
+      </p>
+    </div>
+  </section>
+
+  <TrustBar />
+
+  <CtaBlock />
+</BaseLayout>
