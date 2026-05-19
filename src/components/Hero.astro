@@ -1,0 +1,135 @@
+---
+import { phoneHref } from '../data/company';
+
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  image?: string;
+  imageAlt?: string;
+  primaryCta?: { label: string; href: string };
+  secondaryCta?: { label: string; href: string };
+  size?: 'default' | 'large' | 'compact';
+}
+
+const {
+  eyebrow,
+  title,
+  subtitle,
+  image = '/img/produkte/start/hero.jpg',
+  imageAlt = 'Hörmann Garagentor Sectionaltor in Anthrazitgrau RAL 7016',
+  primaryCta = { label: 'Anfrage senden', href: '/anfrage/' },
+  secondaryCta = { label: 'Anrufen', href: phoneHref },
+  size = 'default',
+} = Astro.props;
+
+function webpFromJpg(src: string): string {
+  return src.replace(/\.jpe?g$/i, '.webp');
+}
+
+const hasWebpVariant = /\.jpe?g$/i.test(image);
+const webpSrc = hasWebpVariant ? webpFromJpg(image) : null;
+---
+
+<section class={`hero hero-${size}`}>
+  <div class="container-wrap hero-grid">
+    <div class="hero-text">
+      {eyebrow && <span class="eyebrow">{eyebrow}</span>}
+      <h1>{title}</h1>
+      {subtitle && <p class="lead">{subtitle}</p>}
+      <div class="hero-cta">
+        <a href={primaryCta.href} class="btn btn-primary">{primaryCta.label}</a>
+        <a href={secondaryCta.href} class="btn btn-outline">{secondaryCta.label}</a>
+      </div>
+      <ul class="hero-bullets">
+        <li>✓ Über 50 Jahre Erfahrung — 4. Generation</li>
+        <li>✓ Original Hörmann-Produkte und -Ersatzteile</li>
+        <li>✓ Fachgerechte Montage durch eigenes Team</li>
+        <li>✓ 24/7 Notdienst für Gladbeck und Umgebung</li>
+      </ul>
+    </div>
+    <div class="hero-image">
+      <picture>
+        {webpSrc && <source srcset={webpSrc} type="image/webp" />}
+        <img src={image} alt={imageAlt} width="640" height="480" loading="eager" fetchpriority="high" />
+      </picture>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background: linear-gradient(
+      135deg,
+      var(--color-surface) 0%,
+      var(--color-surface-alt) 100%
+    );
+    padding-block: clamp(2.5rem, 6vw, 5rem);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 50%;
+    height: 140%;
+    background: radial-gradient(
+      circle,
+      rgba(0, 58, 125, 0.07) 0%,
+      transparent 70%
+    );
+    pointer-events: none;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 3rem;
+    align-items: center;
+    position: relative;
+  }
+
+  @media (max-width: 960px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+
+  .hero-text h1 {
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 0.75rem;
+    margin-block: 1.75rem 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .hero-bullets {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.45rem;
+    font-size: 0.95rem;
+    color: var(--color-ink-soft);
+  }
+
+  .hero-image picture {
+    display: block;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-card-hover);
+    overflow: hidden;
+  }
+
+  .hero-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>

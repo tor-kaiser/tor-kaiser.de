@@ -1,0 +1,438 @@
+---
+import { company, phoneHref } from '../data/company';
+
+const nav = [
+  {
+    label: 'Produkte',
+    href: '/produkte/',
+    children: [
+      { label: 'Garagen-Sectionaltore', href: '/produkte/garagentore/sectionaltore/' },
+      { label: 'Garagen-Schwingtore', href: '/produkte/garagentore/schwingtore/' },
+      { label: 'Garagen-Rolltore', href: '/produkte/garagentore/rolltore/' },
+      { label: 'Seiten-Sectionaltore', href: '/produkte/garagentore/seitensectionaltore/' },
+      { label: 'Industrie-Sectionaltore', href: '/produkte/industrietore/sectionaltore/' },
+      { label: 'Industrie-Rolltore', href: '/produkte/industrietore/rolltore/' },
+      { label: 'Schnelllauftore', href: '/produkte/industrietore/schnelllauftore/' },
+      { label: 'Haustüren', href: '/produkte/haustueren/' },
+      { label: 'Nebentüren', href: '/produkte/nebentueren/' },
+      { label: 'Tor-Antriebe', href: '/produkte/antriebe/' },
+      { label: 'Ersatzteile', href: '/produkte/ersatzteile/' },
+    ],
+  },
+  {
+    label: 'Service',
+    href: '/service/montage/',
+    children: [
+      { label: 'Montage', href: '/service/montage/' },
+      { label: 'Wartung', href: '/service/wartung/' },
+      { label: 'Reparatur', href: '/service/reparatur/' },
+      { label: 'Notdienst', href: '/service/notdienst/' },
+    ],
+  },
+  {
+    label: 'Standorte',
+    href: '/standorte/gladbeck/',
+    children: [
+      { label: 'Gladbeck', href: '/standorte/gladbeck/' },
+      { label: 'Bottrop', href: '/standorte/bottrop/' },
+      { label: 'Gelsenkirchen', href: '/standorte/gelsenkirchen/' },
+      { label: 'Essen', href: '/standorte/essen/' },
+      { label: 'Recklinghausen', href: '/standorte/recklinghausen/' },
+      { label: 'Dorsten', href: '/standorte/dorsten/' },
+      { label: 'Herten', href: '/standorte/herten/' },
+      { label: 'Marl', href: '/standorte/marl/' },
+    ],
+  },
+  { label: 'Referenzen', href: '/referenzen/' },
+  { label: 'Über uns', href: '/ueber-uns/' },
+  { label: 'Ratgeber', href: '/ratgeber/' },
+  { label: 'Kontakt', href: '/kontakt/' },
+];
+---
+
+<header class="site-header">
+  <div class="topbar">
+    <div class="container-wrap topbar-inner">
+      <span class="topbar-info">
+        <strong>{company.partnerStatus}</strong> · seit {company.yearsLabel} Jahren in Gladbeck
+      </span>
+      <span class="topbar-contact">
+        <a href={phoneHref}>📞 {company.contact.phone}</a>
+        <a href="/service/notdienst/" class="emergency-pill">Notdienst</a>
+      </span>
+    </div>
+  </div>
+
+  <nav class="mainbar" aria-label="Hauptnavigation">
+    <div class="container-wrap mainbar-inner">
+      <a href="/" class="logo" aria-label="Tor-Kaiser Startseite">
+        <img src="/img/logo.svg" alt="Bauprojekt Kaiser GmbH Logo" width="60" height="60" />
+        <span class="logo-text">
+          <strong>Tor-Kaiser</strong>
+          <small>Hörmann Fachhändler Gladbeck</small>
+        </span>
+      </a>
+
+      <details class="mobile-toggle" id="mobile-menu">
+        <summary aria-label="Menü öffnen">
+          <span class="hamburger-icon" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </span>
+          <span class="hamburger-label">Menü</span>
+        </summary>
+        <div class="mobile-panel">
+          <ul class="mobile-list">
+            {
+              nav.map((item) => (
+                <li>
+                  {item.children ? (
+                    <details>
+                      <summary>{item.label}</summary>
+                      <ul>
+                        <li><a href={item.href}><strong>Übersicht {item.label}</strong></a></li>
+                        {item.children.map((c) => <li><a href={c.href}>{c.label}</a></li>)}
+                      </ul>
+                    </details>
+                  ) : (
+                    <a href={item.href}>{item.label}</a>
+                  )}
+                </li>
+              ))
+            }
+          </ul>
+          <div class="mobile-cta">
+            <a href={phoneHref} class="btn btn-primary">Jetzt anrufen</a>
+            <a href="/anfrage/" class="btn btn-outline">Anfrage senden</a>
+          </div>
+        </div>
+      </details>
+
+      <ul class="desktop-nav" role="menubar">
+        {
+          nav.map((item) => (
+            <li class="nav-item" role="none">
+              {item.children ? (
+                <details class="nav-dropdown">
+                  <summary role="menuitem">
+                    {item.label}
+                    <svg width="10" height="6" viewBox="0 0 10 6" aria-hidden="true">
+                      <path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.5" />
+                    </svg>
+                  </summary>
+                  <ul class="dropdown-list">
+                    <li><a href={item.href}><strong>Alle {item.label}</strong></a></li>
+                    {item.children.map((c) => <li><a href={c.href}>{c.label}</a></li>)}
+                  </ul>
+                </details>
+              ) : (
+                <a href={item.href} role="menuitem">{item.label}</a>
+              )}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<script is:inline>
+  // Close other dropdown details when one opens (desktop)
+  document.querySelectorAll('.nav-dropdown').forEach((d) => {
+    d.addEventListener('toggle', () => {
+      if (d.open) {
+        document.querySelectorAll('.nav-dropdown').forEach((o) => {
+          if (o !== d) o.open = false;
+        });
+      }
+    });
+  });
+  // Close on outside click
+  document.addEventListener('click', (e) => {
+    document.querySelectorAll('.nav-dropdown[open]').forEach((d) => {
+      if (!d.contains(e.target)) d.open = false;
+    });
+  });
+</script>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--color-surface);
+    box-shadow: 0 1px 0 var(--color-border);
+  }
+
+  .topbar {
+    background: var(--color-surface-deep);
+    color: #fff;
+    font-size: 0.85rem;
+  }
+
+  .topbar-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding-block: 0.45rem;
+    flex-wrap: wrap;
+  }
+
+  .topbar-info {
+    color: #c8d2e0;
+  }
+  .topbar-info strong {
+    color: #fff;
+  }
+
+  .topbar-contact {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .topbar-contact a {
+    color: #fff;
+    font-weight: 600;
+  }
+  .topbar-contact a:hover {
+    color: var(--color-accent);
+  }
+
+  .emergency-pill {
+    background: var(--color-danger);
+    padding: 0.2rem 0.7rem;
+    border-radius: 999px;
+    font-size: 0.78rem;
+  }
+
+  @media (max-width: 640px) {
+    .topbar-info { display: none; }
+  }
+
+  .mainbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 0.8rem;
+    gap: 1.5rem;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--color-ink);
+  }
+
+  .logo img {
+    height: 56px;
+    width: auto;
+  }
+
+  .logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+
+  .logo-text strong {
+    font-size: 1.35rem;
+    color: var(--color-brand);
+    letter-spacing: -0.01em;
+  }
+
+  .logo-text small {
+    color: var(--color-ink-muted);
+    font-size: 0.78rem;
+  }
+
+  /* Desktop nav */
+  .desktop-nav {
+    list-style: none;
+    display: flex;
+    gap: 0.25rem;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+  }
+
+  .nav-item > a,
+  .nav-dropdown > summary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.65rem 0.85rem;
+    color: var(--color-ink);
+    font-weight: 600;
+    font-size: 0.95rem;
+    border-radius: 8px;
+    cursor: pointer;
+    list-style: none;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .nav-dropdown > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .nav-item > a:hover,
+  .nav-dropdown > summary:hover,
+  .nav-dropdown[open] > summary {
+    background: var(--color-surface-alt);
+    color: var(--color-brand);
+  }
+
+  .nav-dropdown {
+    position: relative;
+  }
+
+  .dropdown-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: var(--color-surface);
+    box-shadow: var(--shadow-card-hover);
+    border-radius: var(--radius-card);
+    border: 1px solid var(--color-border);
+    padding: 0.5rem;
+    list-style: none;
+    margin: 0;
+    min-width: 250px;
+    z-index: 10;
+  }
+
+  .dropdown-list li a {
+    display: block;
+    padding: 0.55rem 0.85rem;
+    color: var(--color-ink);
+    border-radius: 6px;
+    font-size: 0.92rem;
+    font-weight: 500;
+  }
+
+  .dropdown-list li a:hover {
+    background: var(--color-surface-alt);
+    color: var(--color-brand);
+  }
+
+  /* Mobile toggle button */
+  .mobile-toggle {
+    display: none;
+  }
+
+  .mobile-toggle > summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.9rem;
+    background: var(--color-brand);
+    color: #fff;
+    border-radius: 8px;
+    font-weight: 600;
+  }
+
+  .mobile-toggle > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .hamburger-icon {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .hamburger-icon span {
+    width: 22px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 1px;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+  }
+
+  .mobile-toggle[open] .hamburger-icon span:nth-child(1) {
+    transform: translateY(6px) rotate(45deg);
+  }
+  .mobile-toggle[open] .hamburger-icon span:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-toggle[open] .hamburger-icon span:nth-child(3) {
+    transform: translateY(-6px) rotate(-45deg);
+  }
+
+  .mobile-panel {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: min(90vw, 360px);
+    background: var(--color-surface);
+    box-shadow: -8px 0 32px rgba(15, 27, 45, 0.18);
+    padding: 5rem 1.25rem 1.25rem;
+    overflow-y: auto;
+    z-index: 99;
+  }
+
+  .mobile-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .mobile-list > li {
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .mobile-list a,
+  .mobile-list summary {
+    display: block;
+    padding: 0.95rem 0.5rem;
+    color: var(--color-ink);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .mobile-list summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-list summary::after {
+    content: '+';
+    float: right;
+    font-size: 1.4rem;
+    color: var(--color-brand);
+    line-height: 1;
+  }
+
+  .mobile-list details[open] summary::after {
+    content: '−';
+  }
+
+  .mobile-list details ul {
+    list-style: none;
+    padding-left: 1rem;
+    margin: 0 0 0.5rem;
+  }
+
+  .mobile-list details li a {
+    font-weight: 500;
+    color: var(--color-ink-soft);
+    padding: 0.55rem 0.5rem;
+    font-size: 0.95rem;
+  }
+
+  .mobile-cta {
+    display: grid;
+    gap: 0.6rem;
+    margin-top: 1.25rem;
+  }
+
+  @media (max-width: 1024px) {
+    .desktop-nav { display: none; }
+    .mobile-toggle { display: block; }
+  }
+</style>

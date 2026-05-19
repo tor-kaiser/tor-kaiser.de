@@ -1,0 +1,103 @@
+---
+---
+
+<div class="cookie-banner" id="cookie-banner" hidden>
+  <div class="cookie-inner">
+    <div class="cookie-text">
+      <strong>Wir respektieren Ihre Privatsphäre.</strong>
+      <p>
+        Wir verwenden ausschließlich technisch notwendige Cookies. Optional helfen anonyme
+        Statistiken (Google Analytics 4) dabei, unser Angebot zu verbessern. Details finden Sie
+        in unserer <a href="/datenschutz/">Datenschutzerklärung</a>.
+      </p>
+    </div>
+    <div class="cookie-actions">
+      <button type="button" class="btn btn-outline" data-cookie="declined">Nur notwendige</button>
+      <button type="button" class="btn btn-primary" data-cookie="accepted">Akzeptieren</button>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  (function () {
+    const KEY = 'tk-consent';
+    const banner = document.getElementById('cookie-banner');
+    if (!banner) return;
+    if (!window.localStorage.getItem(KEY)) {
+      banner.hidden = false;
+    }
+    banner.querySelectorAll('[data-cookie]').forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const v = btn.getAttribute('data-cookie');
+        window.localStorage.setItem(KEY, v);
+        banner.hidden = true;
+        if (v === 'accepted') location.reload();
+      });
+    });
+  })();
+</script>
+
+<style>
+  .cookie-banner {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-surface);
+    border-top: 2px solid var(--color-brand);
+    box-shadow: 0 -8px 32px rgba(15, 27, 45, 0.18);
+    z-index: 60;
+    padding: 1rem 0;
+  }
+
+  @media (max-width: 768px) {
+    .cookie-banner {
+      bottom: 70px;
+    }
+  }
+
+  .cookie-inner {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .cookie-inner {
+      grid-template-columns: 1fr;
+      gap: 0.85rem;
+    }
+  }
+
+  .cookie-text strong {
+    display: block;
+    margin-bottom: 0.25rem;
+    color: var(--color-ink);
+  }
+
+  .cookie-text p {
+    margin: 0;
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--color-ink-soft);
+  }
+
+  .cookie-actions {
+    display: flex;
+    gap: 0.6rem;
+  }
+
+  @media (max-width: 500px) {
+    .cookie-actions {
+      flex-direction: column;
+    }
+
+    .cookie-actions .btn {
+      width: 100%;
+    }
+  }
+</style>

@@ -1,0 +1,88 @@
+---
+import { company, phoneHref, buildMailto } from '../data/company';
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  emailSubject?: string;
+  variant?: 'default' | 'compact';
+}
+
+const {
+  title = 'Jetzt unverbindlich beraten lassen',
+  subtitle = `Rufen Sie uns an oder schreiben Sie uns — wir melden uns innerhalb eines Werktags zurück. Persönliche Beratung in unserem Verkaufsbüro in ${company.address.city} jederzeit möglich.`,
+  emailSubject = 'Anfrage Tor-Kaiser',
+  variant = 'default',
+} = Astro.props;
+
+const mailtoHref = buildMailto(emailSubject);
+---
+
+<section class={`cta ${variant === 'compact' ? 'cta-compact' : ''}`}>
+  <div class="container-wrap cta-inner">
+    <div class="cta-text">
+      <h2>{title}</h2>
+      <p class="lead">{subtitle}</p>
+    </div>
+    <div class="cta-actions">
+      <a href={phoneHref} class="btn btn-accent">📞 {company.contact.phone}</a>
+      <a href={mailtoHref} class="btn btn-ghost">✉ Anfrage per E-Mail</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta {
+    background:
+      linear-gradient(135deg, var(--color-brand) 0%, var(--color-brand-dark) 100%);
+    color: #fff;
+    padding-block: clamp(2.5rem, 6vw, 4.5rem);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 60%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 209, 0, 0.15) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .cta-compact {
+    padding-block: clamp(1.75rem, 4vw, 3rem);
+  }
+
+  .cta-inner {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 2rem;
+    align-items: center;
+    position: relative;
+  }
+
+  @media (max-width: 768px) {
+    .cta-inner {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+  }
+
+  .cta h2 {
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+
+  .cta .lead {
+    color: #c8d2e0;
+    max-width: none;
+  }
+
+  .cta-actions {
+    display: grid;
+    gap: 0.6rem;
+  }
+</style>
