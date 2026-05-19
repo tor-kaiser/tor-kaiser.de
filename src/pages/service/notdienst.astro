@@ -1,0 +1,191 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+import FAQ from '../../components/FAQ.astro';
+import { company } from '../../data/company';
+
+const title = '24/7 Notdienst für Hörmann-Tore | Tor-Kaiser Gladbeck';
+const description = `Tor klemmt? Antrieb defekt? Wir sind rund um die Uhr für Sie da. ${company.emergency.daytimeHours}: ${company.emergency.daytimePhone}. ${company.emergency.nightHours}: ${company.emergency.nightPhone}. Schnellste Reaktionszeiten im Ruhrgebiet.`;
+
+const faqs = [
+  {
+    question: 'Was kostet ein Notdienst-Einsatz?',
+    answer:
+      'Eine Notdienst-Anfahrt mit Erstdiagnose berechnen wir mit einem transparenten Pauschalbetrag. Hinzu kommen Reparaturkosten je nach Aufwand und Material. Wir nennen den Preis vor Beginn der Arbeiten — keine versteckten Kosten.',
+  },
+  {
+    question: 'Wie schnell sind Sie da?',
+    answer:
+      'Im Raum Gladbeck typischerweise innerhalb von 60 Minuten. In den umliegenden Städten (Bottrop, Herten, Gelsenkirchen) zwischen 60 und 90 Minuten. Bei größerer Entfernung entsprechend länger.',
+  },
+  {
+    question: 'Reparieren Sie auch nicht-Hörmann-Tore im Notfall?',
+    answer:
+      'Im Notdienst priorisieren wir Hörmann-Tore — dort haben wir die Ersatzteile direkt im Service-Fahrzeug. Bei anderen Marken können wir oft eine Sofortmaßnahme zur Sicherung der Garage anbieten, die eigentliche Reparatur erfolgt dann durch den jeweiligen Hersteller-Service.',
+  },
+  {
+    question: 'Sind Wochenenden teurer?',
+    answer:
+      'Ja, nachts und an Sonn- und Feiertagen fallen branchenübliche Zuschläge an. Im Notfall (Einbruch, Auffahrschaden, blockierte Einfahrt) sind wir aber auch dann für Sie da.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description}>
+  <Breadcrumbs items={[
+    { label: 'Service', href: '/service/montage/' },
+    { label: 'Notdienst' },
+  ]} />
+
+  <section class="emergency-hero">
+    <div class="container-wrap">
+      <span class="pill pill-danger">24/7 Notdienst</span>
+      <h1>Wenn das Tor klemmt, helfen wir sofort.</h1>
+      <p class="lead">
+        Eingeklemmt? Auffahrschaden? Einbruchsversuch? Federbruch? Wir sind rund um die Uhr für
+        Sie da — mit Sofort-Hotline und Service-Fahrzeug, das die wichtigsten Hörmann-Ersatzteile
+        direkt dabei hat.
+      </p>
+
+      <div class="emergency-numbers">
+        <a href={`tel:${company.emergency.daytimePhoneE164}`} class="emergency-block">
+          <span class="time-tag">{company.emergency.daytimeHours}</span>
+          <strong>{company.emergency.daytimePhone}</strong>
+          <small>Tag-Notdienst — direkt mit unserem Service-Team</small>
+        </a>
+
+        <a href={`tel:${company.emergency.nightPhoneE164}`} class="emergency-block muted">
+          <span class="time-tag">{company.emergency.nightHours}</span>
+          <strong>{company.emergency.nightPhone}</strong>
+          <small>{company.emergency.nightNote}</small>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <TrustBar />
+
+  <section class="section">
+    <div class="container-wrap prose-content">
+      <h2>Wann ist ein Notdienst-Einsatz sinnvoll?</h2>
+      <ul>
+        <li>Tor klemmt — Garage nicht mehr erreichbar / Auto eingeschlossen</li>
+        <li>Federbruch — Tor lässt sich nicht öffnen, sicherheitskritisch</li>
+        <li>Einbruchschaden — Tor muss kurzfristig gesichert werden</li>
+        <li>Auffahrschaden — Tor blockiert die Einfahrt</li>
+        <li>Antrieb komplett ohne Funktion (Strom geprüft)</li>
+        <li>Industrietor blockiert den Betriebsablauf</li>
+        <li>Brand- oder Rauchschutztor löst Alarm aus</li>
+      </ul>
+
+      <h2>So läuft ein Notdienst-Einsatz ab</h2>
+      <ol>
+        <li><strong>Anruf</strong> — Sie schildern uns das Problem kurz. Wir geben eine erste Einschätzung und nennen die Anfahrtszeit.</li>
+        <li><strong>Anfahrt</strong> — mit Service-Fahrzeug, das viele Standardteile bereits dabei hat.</li>
+        <li><strong>Diagnose & Festpreis-Aussage</strong> — bevor wir loslegen.</li>
+        <li><strong>Reparatur / Sicherung</strong> — entweder Sofort-Reparatur oder Sicherung des Tores, falls Spezialteile bestellt werden müssen.</li>
+        <li><strong>Übergabe & Dokumentation</strong> — wir hinterlassen Ihnen eine Rechnung mit allen Positionen und einen Hinweis für die Versicherung, falls nötig.</li>
+      </ol>
+
+      <h2>Service-Gebiet</h2>
+      <p>
+        Notdienst bieten wir in Gladbeck, Bottrop, Gelsenkirchen, Essen, Recklinghausen,
+        Dorsten, Herten und Marl mit den kürzesten Reaktionszeiten an. Auf Wunsch fahren wir
+        auch über das Kerngebiet hinaus — sprechen Sie uns an. Auf den
+        <a href="/standorte/gladbeck/">Standort-Seiten</a> finden Sie typische Reaktionszeiten
+        je Stadt.
+      </p>
+
+      <h2>Vermeiden statt heilen — Wartungsvertrag</h2>
+      <p>
+        Die meisten Notfälle lassen sich durch eine jährliche <a href="/service/wartung/">Wartung</a>
+        vermeiden. Wir bieten Wartungsverträge mit Festpreisen und Vorrang im Notfall — für
+        Privatkunden, Gewerbe und Industriebetriebe.
+      </p>
+    </div>
+  </section>
+
+  <FAQ items={faqs} />
+
+  <CtaBlock
+    title="Nicht akut? Schreiben Sie uns."
+    subtitle="Für nicht-akute Anliegen reicht meist eine E-Mail oder ein Anruf während unserer regulären Sprechzeit (Mo–Fr 9–14 Uhr)."
+    variant="compact"
+  />
+</BaseLayout>
+
+<style>
+  .emergency-hero {
+    background: linear-gradient(135deg, var(--color-danger) 0%, #8a1d1d 100%);
+    color: #fff;
+    padding-block: clamp(2.5rem, 6vw, 4.5rem);
+  }
+
+  .emergency-hero h1 {
+    color: #fff;
+    margin: 0.5rem 0 1rem;
+  }
+
+  .emergency-hero .lead {
+    color: rgba(255, 255, 255, 0.92);
+    max-width: 70ch;
+  }
+
+  .emergency-hero .pill-danger {
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+  }
+
+  .emergency-numbers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    margin-top: 2rem;
+  }
+
+  @media (max-width: 768px) {
+    .emergency-numbers {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .emergency-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.5rem 1.75rem;
+    background: rgba(0, 0, 0, 0.22);
+    border-radius: var(--radius-card);
+    color: #fff;
+    transition: transform 0.18s ease, background 0.18s ease;
+  }
+
+  a.emergency-block:hover {
+    transform: translateY(-2px);
+    background: rgba(0, 0, 0, 0.32);
+    color: #fff;
+  }
+
+  .emergency-block.muted {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .emergency-block .time-tag {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.78rem;
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .emergency-block strong {
+    font-size: 1.75rem;
+    line-height: 1.15;
+  }
+
+  .emergency-block small {
+    font-size: 0.88rem;
+    color: rgba(255, 255, 255, 0.78);
+  }
+</style>

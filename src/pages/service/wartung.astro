@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Hero from '../../components/Hero.astro';
+import TrustBar from '../../components/TrustBar.astro';
+import CtaBlock from '../../components/CtaBlock.astro';
+import FAQ from '../../components/FAQ.astro';
+
+const title = 'Wartung & UVV-Prüfung für Hörmann-Tore | Tor-Kaiser Gladbeck';
+const description =
+  'Wartung und UVV-Prüfung gemäß ASR A1.7 für Hörmann Tore — privat und gewerblich. Im Ruhrgebiet. Mit Prüfprotokoll und langer Lebensdauer für Ihre Anlage.';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Wartung und UVV-Prüfung für Tore',
+  provider: { '@id': 'https://tor-kaiser.de/#organization' },
+  areaServed: 'Nördliches Ruhrgebiet',
+};
+
+const faqs = [
+  {
+    question: 'Warum ist eine regelmäßige Wartung wichtig?',
+    answer:
+      'Tore und Antriebe sind tausende Male pro Jahr in Bewegung. Verschleiß an Federn, Seilen, Lagern und Sicherheits-Sensoren ist normal. Regelmäßige Wartung verlängert die Lebensdauer deutlich und verhindert plötzliche Ausfälle.',
+  },
+  {
+    question: 'Was ist eine UVV-Prüfung?',
+    answer:
+      'Die UVV-Prüfung (Unfallverhütungsvorschrift, heute ASR A1.7) ist die jährlich vorgeschriebene Sicherheitsprüfung kraftbetätigter Tore in Arbeitsstätten. Sie wird von einem Sachkundigen durchgeführt und muss dokumentiert werden — wir liefern das Prüfprotokoll mit.',
+  },
+  {
+    question: 'Wer ist verpflichtet, eine UVV-Prüfung machen zu lassen?',
+    answer:
+      'Jeder Betreiber eines kraftbetätigten Tores in einer Arbeitsstätte (also Gewerbe, Verwaltung, öffentliche Einrichtungen). Versicherungs- und berufsgenossenschaftliche Anforderungen verlangen das Prüfprotokoll.',
+  },
+  {
+    question: 'Was kostet ein Wartungsvertrag?',
+    answer:
+      'Für ein Privattor mit Antrieb kalkulieren wir typischerweise 90–150 € pro Wartung. Im Wartungsvertrag mit jährlicher Pauschale gibt es Rabatt. Industrieanlagen kalkulieren wir individuell — je nach Anzahl Tore, Zykluszahl, UVV-Pflicht.',
+  },
+  {
+    question: 'Wartet ihr auch andere Marken?',
+    answer:
+      'Unser Fokus liegt auf Hörmann — daher führen wir Wartungen ausschließlich an Hörmann-Toren und -Antrieben durch.',
+  },
+];
+---
+
+<BaseLayout title={title} description={description} schema={serviceSchema}>
+  <Breadcrumbs items={[
+    { label: 'Service', href: '/service/montage/' },
+    { label: 'Wartung' },
+  ]} />
+
+  <Hero
+    eyebrow="Service"
+    title="Wartung & UVV-Prüfung."
+    subtitle="Damit Ihr Tor 30 Jahre lang läuft — und damit gewerbliche Anlagen die UVV-Pflicht erfüllen. Wir warten Hörmann-Tore im gesamten Ruhrgebiet."
+    image="/img/montage.png"
+    imageAlt="Hörmann Wartung durch zertifizierte Sachkundige"
+  />
+
+  <TrustBar />
+
+  <section class="section">
+    <div class="container-wrap prose-content">
+      <h2>Was wir bei einer Wartung machen</h2>
+      <ul>
+        <li>Sichtprüfung des Torblatts auf Verformungen, Korrosion, Risse</li>
+        <li>Funktionsprüfung der Federpakete und Seilzüge</li>
+        <li>Schmierung beweglicher Teile (Lager, Laufrollen, Gelenke)</li>
+        <li>Prüfung der Sicherheits-Einrichtungen (Lichtschranke, Kraftbegrenzung, Notentriegelung)</li>
+        <li>Bandsicherungen, Schließbleche und Verriegelungen auf Festsitz prüfen</li>
+        <li>Antriebs-Diagnose, Software-Update sofern verfügbar</li>
+        <li>Handsender-Batterien tauschen (Aufpreis)</li>
+        <li>Prüfprotokoll mit Mängelliste und Empfehlung erstellen</li>
+      </ul>
+
+      <h2>UVV-Prüfung — der gesetzliche Pflichtteil</h2>
+      <p>
+        Gemäß ASR A1.7 und der DGUV Vorschriften muss jedes kraftbetätigte Tor in einer
+        Arbeitsstätte mindestens einmal jährlich durch einen <strong>Sachkundigen</strong>
+        geprüft werden. Geprüft werden u. a.:
+      </p>
+      <ul>
+        <li>Tragende Bauteile (Stahlbleche, Schweißnähte, Schraubverbindungen)</li>
+        <li>Bewegliche mechanische Bauteile (Federn, Seile, Laufrollen)</li>
+        <li>Elektrische Sicherheits-Einrichtungen (Lichtschranke, Lichtgitter, Kontaktleisten)</li>
+        <li>Kraftbegrenzung des Antriebs</li>
+        <li>Notentriegelung (von außen und innen)</li>
+        <li>Beschilderung und Bedienungsanleitung am Tor</li>
+      </ul>
+      <p>
+        Das Prüfprotokoll wird der Anlage als „Prüfbuch“ beigelegt — Versicherungen und
+        Berufsgenossenschaften können Einsicht verlangen.
+      </p>
+
+      <h2>Wartungsverträge — was lohnt sich?</h2>
+      <ul>
+        <li><strong>Privatkunden</strong>: Jahreswartung mit Festpreis und Vorrang im Notfall</li>
+        <li><strong>Kleingewerbe</strong>: Wartung inkl. UVV-Prüfung, Prüfprotokoll, Vorzugskonditionen für Ersatzteile</li>
+        <li><strong>Großbetriebe</strong>: Individuelle Verträge — Wartungsintervalle nach Zyklen, Notdienst-SLA, definierte Ansprechpartner</li>
+      </ul>
+
+      <h2>Werthaltigkeit erhalten</h2>
+      <p>
+        Ein gewartetes Hörmann-Tor läuft problemlos 20–30 Jahre. Ein vernachlässigtes Tor zeigt
+        oft schon nach 8–12 Jahren ernsthafte Probleme (Federbruch, Federzug-Spannung,
+        Antriebsausfall). Die Wartung kostet einen Bruchteil eines neuen Tores — und vermeidet
+        teure Notdienst-Einsätze.
+      </p>
+    </div>
+  </section>
+
+  <FAQ items={faqs} />
+
+  <CtaBlock
+    title="Wartungstermin anfragen"
+    subtitle="Ob Privattor oder Industrieanlage — wir kommen vorbei und prüfen Ihr Tor fachgerecht. Inkl. UVV-Protokoll und Empfehlungs-Liste."
+  />
+</BaseLayout>
