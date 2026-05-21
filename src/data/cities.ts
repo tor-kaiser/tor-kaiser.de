@@ -28,7 +28,7 @@ export const cities: City[] = [
     districts: ['Mitte', 'Brauck', 'Butendorf', 'Ellinghorst', 'Rentfort', 'Zweckel', 'Schultendorf'],
     industrialAreas: ['Gewerbegebiet Brauck', 'Wittringer Industriegebiet', 'Zweckel-Süd'],
     description:
-      'Unser Heimatstandort im nördlichen Ruhrgebiet — seit über 50 Jahren in Gladbeck verwurzelt.',
+      'Unser Heimatstandort im nördlichen Ruhrgebiet — als Familienbetrieb seit 1950 in Gladbeck verwurzelt.',
     localContext:
       'Gladbeck zählt rund 75.500 Einwohner und liegt zentral im Nordwesten des Ruhrgebiets. Die historischen Stadtteile Brauck, Butendorf, Rentfort und Zweckel sind geprägt von Reihenhäusern, freistehenden Einfamilienhäusern und kleineren Mehrfamilienhäusern — alle typisch mit Einzel- oder Doppelgaragen, die mit Sectional- oder Schwingtoren von Hörmann ausgestattet werden. Im Gewerbegebiet Brauck und im Industriegebiet Wittringen finden sich Logistik-, Handwerks- und Produktionsbetriebe, die auf Industrie-Sectionaltore, Schnelllauftore und Rolltore angewiesen sind.',
     serviceNote:

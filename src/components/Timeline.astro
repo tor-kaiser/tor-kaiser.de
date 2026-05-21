@@ -1,0 +1,111 @@
+---
+// Visuelle Firmengeschichte — vier Generationen Familie Kaiser.
+// Datenquelle: `history` aus src/data/company.ts (Single Source of Truth).
+import { history } from '../data/company';
+---
+
+<ol class="timeline">
+  {
+    history.map((entry) => (
+      <li class="timeline-item">
+        <span class="timeline-marker" aria-hidden="true" />
+        <div class="timeline-body">
+          <span class="timeline-year">{entry.year}</span>
+          <h3 class="timeline-title">{entry.title}</h3>
+          <span class="timeline-person">{entry.person}</span>
+          <p class="timeline-text">{entry.text}</p>
+        </div>
+      </li>
+    ))
+  }
+</ol>
+
+<style>
+  .timeline {
+    list-style: none;
+    margin: 1.75rem 0 0;
+    padding: 0;
+  }
+
+  .timeline-item {
+    position: relative;
+    margin: 0;
+    padding-left: 2.75rem;
+    padding-bottom: 2rem;
+  }
+
+  .timeline-item:last-child {
+    padding-bottom: 0;
+  }
+
+  /* durchgehende vertikale Linie — jedes Element zeichnet sein Segment */
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 9px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--color-border);
+  }
+
+  .timeline-item:first-child::before {
+    top: 1rem;
+  }
+
+  .timeline-item:last-child::before {
+    bottom: auto;
+    height: 1rem;
+  }
+
+  /* Punkt auf der Linie */
+  .timeline-marker {
+    position: absolute;
+    left: 0;
+    top: 0.45rem;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-surface);
+    border: 3px solid var(--color-brand);
+    box-sizing: border-box;
+  }
+
+  /* aktuelle Generation hervorheben */
+  .timeline-item:last-child .timeline-marker {
+    background: var(--color-brand);
+    box-shadow: 0 0 0 4px rgba(0, 58, 125, 0.12);
+  }
+
+  .timeline-year {
+    display: inline-block;
+    background: var(--color-brand);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+    padding: 0.2rem 0.7rem;
+    border-radius: 999px;
+  }
+
+  .timeline-title {
+    margin: 0.55rem 0 0.1rem;
+    font-size: 1.15rem;
+    color: var(--color-brand);
+  }
+
+  .timeline-person {
+    display: block;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--color-ink-muted);
+    margin-bottom: 0.45rem;
+  }
+
+  .timeline-text {
+    margin: 0;
+    color: var(--color-ink-soft);
+    line-height: 1.6;
+  }
+</style>

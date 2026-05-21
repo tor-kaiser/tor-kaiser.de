@@ -5,13 +5,24 @@ export const company = {
   legalName: 'Bauprojekt Kaiser GmbH',
   tradeName: 'Tor-Kaiser',
   managingDirector: 'Paul Kaiser',
-  founded: 1975,
+
+  // --- Firmengeschichte · vier Generationen Familienbetrieb ---
+  // 1950  Kaiser Bau — der Urgroßvater gründet den Familienbetrieb im Bauhandwerk
+  // 1972  Kaiser Baubedarfartikel GmbH — der Großvater, Beginn der Hörmann-Spezialisierung
+  // 2000  Bauprojekt Kaiser GmbH — der Vater, gegründet am 01.04.2000 (heutige Firma)
+  // heute Paul Kaiser führt das Unternehmen in 4. Generation fort
+  familyBusinessSince: 1950,
+  hoermannSince: 1972,
+  founded: 2000,
+  foundingDate: '2000-04-01',
   generation: 4,
-  // Marketing-Anker: bewusst statisch, NICHT dynamisch aus `founded` berechnen.
-  // "50+ Jahre" ist eine Brand-Story (50 = halbes Jahrhundert), kein Counter.
-  // Erst in ~2030/2035 manuell auf "55+" / "60" wechseln.
-  yearsLabel: '50+',
-  yearsLabelLong: 'über 50',
+
+  // Marketing-Anker: bewusst statisch, NICHT dynamisch berechnen.
+  // Bezieht sich auf die Familientradition seit 1950 (über 75 Jahre / drei Viertel
+  // Jahrhundert). Die Hörmann-Tätigkeit (seit den 1970ern) steht im Text als Phrase.
+  // Erst in ~2030 manuell prüfen.
+  yearsLabel: '75+',
+
   partnerStatus: 'Hörmann Fachhändler',
 
   address: {
@@ -111,3 +122,41 @@ export const socialLinks: SocialLink[] = (Object.entries(company.social) as [Soc
   }));
 
 export const socialSameAs: string[] = socialLinks.map((s) => s.url);
+
+// --- Firmengeschichte ------------------------------------------------------
+// Datenquelle für die Zeitleiste auf der Über-uns-Seite (Timeline.astro).
+// Vier Generationen Familie Kaiser — eine durchgehende Linie von 1950 bis heute.
+
+export interface HistoryEntry {
+  year: string;
+  title: string;
+  person: string;
+  text: string;
+}
+
+export const history: HistoryEntry[] = [
+  {
+    year: '1950',
+    title: 'Kaiser Bau',
+    person: 'Urgroßvater',
+    text: 'Der Urgroßvater legt mit der Kaiser Bau den Grundstein — der Beginn von vier Generationen Bauhandwerk im Ruhrgebiet.',
+  },
+  {
+    year: '1972',
+    title: 'Kaiser Baubedarfartikel GmbH',
+    person: 'Großvater',
+    text: 'Der Großvater eröffnet am Bahnhof Gladbeck-West einen Baumarkt, wie es ihn damals noch selten gab — lange vor den großen Ketten von heute und in der Stadt bestens bekannt. Hier beginnt die Spezialisierung der Familie auf Hörmann.',
+  },
+  {
+    year: '2000',
+    title: 'Bauprojekt Kaiser GmbH',
+    person: 'Vater',
+    text: 'Am 1. April gründet der Vater die heutige Bauprojekt Kaiser GmbH und vereint Beratung, Verkauf, Montage und Service unter einem Dach in Gladbeck.',
+  },
+  {
+    year: 'Heute',
+    title: 'Vierte Generation',
+    person: 'Paul Kaiser',
+    text: 'Paul Kaiser führt das Unternehmen in vierter Generation fort — mit eingespieltem Team, eigenem Montageservice und unverändertem Anspruch an Hörmann-Qualität und persönliche Verlässlichkeit.',
+  },
+];
