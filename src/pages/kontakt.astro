@@ -4,7 +4,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import { company, phoneHref, emailHref } from '../data/company';
 
 const title = `Kontakt — Tor-Kaiser Gladbeck | Bauprojekt Kaiser GmbH`;
-const description = `Verkaufsbüro und Service in der Bülser Straße 19, 45964 Gladbeck. Telefon ${company.contact.phone}, E-Mail ${company.contact.email}. Mo–Fr 9–14 Uhr.`;
+const description = `Bauprojekt Kaiser GmbH in Gladbeck — Telefon ${company.contact.phone}, E-Mail ${company.contact.email}. Mo–Fr 9–14 Uhr. Beratung und Aufmaß direkt bei Ihnen vor Ort.`;
 
 const mapEmbedUrl = `https://www.openstreetmap.org/export/embed.html?bbox=6.97%2C51.56%2C7.00%2C51.58&layer=mapnik&marker=${company.address.latitude}%2C${company.address.longitude}`;
 const mapsLink = `https://www.google.com/maps/place/${encodeURIComponent(
@@ -39,12 +39,13 @@ const mapsLink = `https://www.google.com/maps/place/${encodeURIComponent(
           </div>
 
           <div class="card">
-            <h2>🏢 Verkaufsbüro</h2>
+            <h2>🏢 Verwaltung & Postanschrift</h2>
             <p>
               <strong>{company.legalName}</strong><br />
               {company.address.street}<br />
               {company.address.postalCode} {company.address.city}
             </p>
+            <p class="muted">Verwaltungssitz — kein Ausstellungsraum. Beratungstermine vereinbaren wir gerne bei Ihnen vor Ort.</p>
             <p><a href={mapsLink} target="_blank" rel="noopener">In Google Maps öffnen ↗</a></p>
           </div>
 
@@ -63,14 +64,12 @@ const mapsLink = `https://www.google.com/maps/place/${encodeURIComponent(
         </div>
 
         <div class="kontakt-extra">
-          <h2>So erreichen Sie uns</h2>
+          <h2>Beratung bei Ihnen vor Ort</h2>
           <p>
-            Mit dem PKW: Ausfahrt Gladbeck-Mitte (B&nbsp;224) oder Gladbeck-Süd (A&nbsp;2). Vor
-            unserem Verkaufsbüro stehen Parkplätze zur Verfügung.
-          </p>
-          <p>
-            Mit dem ÖPNV: Mehrere Linien der Vestischen Straßenbahnen halten in fußläufiger
-            Entfernung an der Bülser Straße.
+            Als Hörmann-Fachhändler kommen wir mit unserem Außendienst direkt zu Ihnen — mit
+            Tormustern, RAL-Farbfächer und allen Unterlagen. So sehen Sie Material und Farben
+            in Ruhe an Ihrem Gebäude, und wir nehmen gleich Maß. Vereinbaren Sie dazu einfach
+            telefonisch oder per E-Mail einen Termin.
           </p>
           <p>
             Fax: {company.contact.fax}<br />

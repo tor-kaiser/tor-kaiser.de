@@ -139,7 +139,7 @@ export const history: HistoryEntry[] = [
     year: '1950',
     title: 'Kaiser Bau',
     person: 'Urgroßvater',
-    text: 'Der Urgroßvater legt mit der Kaiser Bau den Grundstein — der Beginn von vier Generationen Bauhandwerk im Ruhrgebiet.',
+    text: 'Der Urgroßvater legt mit der Kaiser Bau den Grundstein — der Beginn einer Familientradition, die bis heute über vier Generationen reicht.',
   },
   {
     year: '1972',
@@ -151,12 +151,12 @@ export const history: HistoryEntry[] = [
     year: '2000',
     title: 'Bauprojekt Kaiser GmbH',
     person: 'Vater',
-    text: 'Am 1. April gründet der Vater die heutige Bauprojekt Kaiser GmbH und vereint Beratung, Verkauf, Montage und Service unter einem Dach in Gladbeck.',
+    text: 'Am 1. April gründet der Vater die heutige Bauprojekt Kaiser GmbH und vereint Beratung, Verkauf und Service an einem Standort in Gladbeck.',
   },
   {
     year: 'Heute',
     title: 'Vierte Generation',
     person: 'Paul Kaiser',
-    text: 'Paul Kaiser führt das Unternehmen in vierter Generation fort — mit eingespieltem Team, eigenem Montageservice und unverändertem Anspruch an Hörmann-Qualität und persönliche Verlässlichkeit.',
+    text: 'Paul Kaiser führt das Unternehmen in vierter Generation fort — mit eingespieltem Team, einem festen Netz an Partnerbetrieben und unverändertem Anspruch an Hörmann-Qualität und persönliche Verlässlichkeit.',
   },
 ];
