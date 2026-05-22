@@ -17,7 +17,7 @@ const faqs = [
   {
     question: 'Sind Sie offizieller Hörmann-Partner?',
     answer:
-      'Ja. Die Bauprojekt Kaiser GmbH ist seit über 50 Jahren autorisierter Hörmann-Fachhändler für Gladbeck und das nördliche Ruhrgebiet. Wir vertreiben ausschließlich Original-Hörmann-Produkte und nutzen ausschließlich Original-Ersatzteile.',
+      'Ja. Als Familienbetrieb sind wir bereits seit den 1970er-Jahren autorisierter Hörmann-Fachhändler für Gladbeck und das nördliche Ruhrgebiet — heute in vierter Generation durch die Bauprojekt Kaiser GmbH fortgeführt. Wir vertreiben ausschließlich Original-Hörmann-Produkte und nutzen ausschließlich Original-Ersatzteile.',
   },
   {
     question: 'In welcher Region sind Sie tätig?',
@@ -58,8 +58,8 @@ const homeSchema = {
 
 <BaseLayout title={title} description={description} schema={homeSchema}>
   <Hero
-    eyebrow={`Seit ${company.yearsLabel} Jahren · ${company.generation}. Generation in Gladbeck`}
-    title="Hörmann Tore, Türen & Antriebe — vom Fachbetrieb aus Gladbeck."
+    eyebrow={`Familienbetrieb seit ${company.familyBusinessSince} · ${company.generation}. Generation in Gladbeck`}
+    title="Hörmann Tore, Türen & Antriebe — vom Hörmann-Fachhändler aus Gladbeck."
     subtitle="Beratung, Verkauf, Montage, Wartung und Notdienst. Wir liefern und montieren Garagentore, Industrietore, Haustüren und Antriebe von Hörmann in Gladbeck, Bottrop, Gelsenkirchen, Essen, Recklinghausen und im gesamten nördlichen Ruhrgebiet."
     image="/img/produkte/start/hero.jpg"
     imageAlt="Hörmann Garagen-Sectionaltor D-Sicke Silkgrain in Anthrazitgrau RAL 7016 mit ThermoSafe Haustür"
@@ -78,10 +78,12 @@ const homeSchema = {
         <span class="eyebrow">Warum Tor-Kaiser?</span>
         <h2>Familienbetrieb in vierter Generation — mit Hörmann-DNA</h2>
         <p class="lead">
-          Seit den 70er-Jahren tragen wir den Namen Hörmann in das nördliche Ruhrgebiet. Was klein
-          begann, ist heute ein eingespieltes Team aus Beratern und Monteuren mit über
-          50&nbsp;Jahren Praxiserfahrung — und genau das Mindset, das man von einem
-          Familienunternehmen erwartet: persönlich, zuverlässig, langfristig.
+          Seit den 1970er-Jahren tragen wir den Namen Hörmann ins nördliche Ruhrgebiet — die
+          Wurzeln unseres Familienbetriebs reichen bis 1950 zurück. Was damals klein begann, ist
+          heute ein eingespieltes Team aus erfahrenen Beraterinnen und Beratern — mit einem
+          festen Netz Hörmann-geschulter Montagepartner an unserer Seite und der Praxiserfahrung
+          aus vier Generationen. Genau das Mindset, das man von einem Familienunternehmen
+          erwartet: persönlich, zuverlässig, langfristig.
         </p>
       </div>
 
@@ -89,16 +91,17 @@ const homeSchema = {
         <div class="card">
           <h3>🛠 Beratung & Aufmaß</h3>
           <p>
-            Persönliche Beratung in unserem Verkaufsbüro in Gladbeck oder direkt bei Ihnen vor
-            Ort. Wir messen exakt aus und entwickeln eine Lösung, die optisch und technisch zu
-            Ihrem Haus oder Betrieb passt.
+            Persönliche Beratung am Telefon, per E-Mail oder direkt bei Ihnen vor Ort — wir
+            bringen Tormuster und RAL-Farbfächer mit. Wir messen exakt aus und entwickeln eine
+            Lösung, die optisch und technisch zu Ihrem Haus oder Betrieb passt.
           </p>
         </div>
         <div class="card">
-          <h3>📐 Montage durch eigenes Team</h3>
+          <h3>📐 Montage durch feste Partnerbetriebe</h3>
           <p>
-            Wir arbeiten mit festangestellten Hörmann-geschulten Monteuren — keine Subunternehmer.
-            Das spürt man im Ergebnis: passgenau, sauber, mit Gewährleistung.
+            Die Montage übernehmen Hörmann-geschulte Fachbetriebe, mit denen wir seit
+            Jahrzehnten zusammenarbeiten. Das spürt man im Ergebnis: passgenau, sauber,
+            mit Gewährleistung.
           </p>
         </div>
         <div class="card">
@@ -133,7 +136,7 @@ const homeSchema = {
 
   <CtaBlock
     title="Lassen Sie uns über Ihr Tor sprechen."
-    subtitle={`Wir freuen uns auf Ihren Anruf oder Ihre Mail. Unser Verkaufsbüro in der Bülser Straße ist Mo–Fr von 9:00 bis 14:00 für Sie geöffnet — Beratung darüber hinaus selbstverständlich nach Vereinbarung.`}
+    subtitle={`Wir freuen uns auf Ihren Anruf oder Ihre Mail. Telefonisch erreichen Sie uns Mo–Fr von 9:00 bis 14:00 Uhr; eine persönliche Beratung vereinbaren wir gerne direkt bei Ihnen vor Ort.`}
   />
 </BaseLayout>
 

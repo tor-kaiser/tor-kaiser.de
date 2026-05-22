@@ -1,12 +1,13 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
+import Timeline from '../components/Timeline.astro';
 import TrustBar from '../components/TrustBar.astro';
 import CtaBlock from '../components/CtaBlock.astro';
 import { company } from '../data/company';
 
-const title = `Über uns — ${company.yearsLabel} Jahre Hörmann in Gladbeck | Bauprojekt Kaiser GmbH`;
-const description = `Familienbetrieb in 4. Generation: Die Bauprojekt Kaiser GmbH ist seit ${company.yearsLabel} Jahren Hörmann-Fachhändler in Gladbeck. Erfahren Sie mehr über Geschichte, Team und Werte hinter Tor-Kaiser.`;
+const title = `Über uns: Familienbetrieb in 4. Generation seit 1950 — Tor-Kaiser`;
+const description = `Bauprojekt Kaiser GmbH — Familienbetrieb seit 1950, Hörmann-Fachhändler in Gladbeck seit den 1970er-Jahren. Vier Generationen Familie Kaiser: Geschichte, Team und Werte hinter Tor-Kaiser.`;
 ---
 
 <BaseLayout title={title} description={description}>
@@ -15,21 +16,31 @@ const description = `Familienbetrieb in 4. Generation: Die Bauprojekt Kaiser Gmb
   <section class="section">
     <div class="container-narrow prose-content">
       <span class="eyebrow">Über uns</span>
-      <h1>Hörmann in Gladbeck — Familie Kaiser seit {company.yearsLabel} Jahren</h1>
+      <h1>Vier Generationen Familie Kaiser — Ihr Hörmann-Fachhändler in Gladbeck</h1>
       <p class="lead">
-        Vier Generationen, ein Auftrag: Hochwertige Hörmann-Tore und -Türen ins Ruhrgebiet
-        bringen. Was in den 1970er-Jahren mit dem Großvater begann, führt Paul Kaiser heute mit
-        einem eingespielten Team aus Beraterinnen, Beratern und Monteuren fort.
+        Vier Generationen, ein Auftrag: hochwertige Tore und Türen ins Ruhrgebiet bringen.
+        Was 1950 mit der Kaiser Bau begann und sich über die Jahrzehnte zum spezialisierten
+        Hörmann-Fachhandel entwickelte, führt Paul Kaiser heute mit einem eingespielten Team
+        und einem festen Netz an Montagepartnern fort.
       </p>
 
-      <h2>Vier Generationen — eine Spezialisierung</h2>
+      <h2>Vier Generationen — eine Familie</h2>
       <p>
-        Bereits in den 1970er-Jahren beschloss die Familie Kaiser, sich auf Hörmann-Produkte zu
-        konzentrieren — eine Entscheidung, die sich bis heute bewährt hat. Hörmann ist mit
-        Stammsitz in Steinhagen und Werken im Ruhrgebiet (u.&nbsp;a. in Werne und Bottrop) der
-        führende europäische Hersteller von Toren, Türen und Antriebstechnik. Diese Nähe zum
-        Hersteller ermöglicht uns kurze Lieferzeiten, schnelle Verfügbarkeit von Ersatzteilen und
-        einen direkten Draht zur Hörmann-Technik.
+        Hinter Tor-Kaiser steht keine anonyme Kette, sondern eine Familie, die seit 1950
+        hochwertige Tore und Bauelemente ins Ruhrgebiet bringt — von Generation zu Generation,
+        jeweils mit eigener Firma, aber immer mit demselben Anspruch an Qualität und
+        Verlässlichkeit.
+      </p>
+      <Timeline />
+
+      <h2>Hörmann-Fachhandel aus Überzeugung</h2>
+      <p>
+        Bereits in den 1970er-Jahren entschied sich die Familie Kaiser, voll auf Hörmann zu
+        setzen — eine Entscheidung, die sich bis heute bewährt hat. Hörmann ist mit Stammsitz
+        in Steinhagen und Werken im Ruhrgebiet (u.&nbsp;a. in Werne und Bottrop) der führende
+        europäische Hersteller von Toren, Türen und Antriebstechnik. Diese Nähe zum Hersteller
+        ermöglicht uns kurze Lieferzeiten, schnelle Verfügbarkeit von Ersatzteilen und einen
+        direkten Draht zur Hörmann-Technik.
       </p>
 
       <h2>Was uns ausmacht</h2>
@@ -39,8 +50,8 @@ const description = `Familienbetrieb in 4. Generation: Die Bauprojekt Kaiser Gmb
           erfahrenen Fachkräften — keine Callcenter, keine Standardisierung.
         </li>
         <li>
-          <strong>Vor Ort.</strong> Verkauf, Beratung und Werkstatt sitzen am gleichen Standort
-          in der Bülser Straße 19 in Gladbeck.
+          <strong>Wir kommen zu Ihnen.</strong> Beratung, Aufmaß und Musteransicht direkt bei
+          Ihnen vor Ort — mit Tormustern, RAL-Farbfächer und allen Unterlagen im Gepäck.
         </li>
         <li>
           <strong>Komplettlösung.</strong> Beratung, Aufmaß, Lieferung, Montage, Wartung,
@@ -51,8 +62,8 @@ const description = `Familienbetrieb in 4. Generation: Die Bauprojekt Kaiser Gmb
           verwenden ausschließlich Original-Hörmann-Ersatzteile — keine Nachbauten.
         </li>
         <li>
-          <strong>Eigenes Montage-Team.</strong> Festangestellt, Hörmann-geschult, mit Erfahrung
-          aus tausenden Montagen.
+          <strong>Feste Montagepartner.</strong> Hörmann-geschulte Fachbetriebe, mit denen wir
+          seit Jahrzehnten zusammenarbeiten — mit Erfahrung aus tausenden Montagen.
         </li>
       </ul>
 
@@ -60,10 +71,10 @@ const description = `Familienbetrieb in 4. Generation: Die Bauprojekt Kaiser Gmb
       <table class="data-table">
         <tbody>
           <tr><th>Firmenname</th><td>{company.legalName}</td></tr>
-          <tr><th>Gegründet</th><td>{company.founded}</td></tr>
+          <tr><th>Familientradition</th><td>seit {company.familyBusinessSince} — vier Generationen Familie Kaiser</td></tr>
+          <tr><th>Heutige Firma gegründet</th><td>1. April {company.founded}</td></tr>
           <tr><th>Geschäftsführer</th><td>{company.managingDirector}</td></tr>
-          <tr><th>Generation</th><td>{company.generation}. Generation</td></tr>
-          <tr><th>Hörmann-Partnerstatus</th><td>{company.partnerStatus}</td></tr>
+          <tr><th>Hörmann-Partnerstatus</th><td>{company.partnerStatus} — seit den 1970er-Jahren</td></tr>
           <tr><th>Sitz</th><td>{company.address.street}, {company.address.postalCode} {company.address.city}</td></tr>
           <tr><th>Handelsregister</th><td>{company.registration.hrb}, {company.registration.court}</td></tr>
         </tbody>

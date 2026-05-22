@@ -28,11 +28,11 @@ export const cities: City[] = [
     districts: ['Mitte', 'Brauck', 'Butendorf', 'Ellinghorst', 'Rentfort', 'Zweckel', 'Schultendorf'],
     industrialAreas: ['Gewerbegebiet Brauck', 'Wittringer Industriegebiet', 'Zweckel-Süd'],
     description:
-      'Unser Heimatstandort im nördlichen Ruhrgebiet — seit über 50 Jahren in Gladbeck verwurzelt.',
+      'Unser Heimatstandort im nördlichen Ruhrgebiet — als Familienbetrieb seit 1950 in Gladbeck verwurzelt.',
     localContext:
       'Gladbeck zählt rund 75.500 Einwohner und liegt zentral im Nordwesten des Ruhrgebiets. Die historischen Stadtteile Brauck, Butendorf, Rentfort und Zweckel sind geprägt von Reihenhäusern, freistehenden Einfamilienhäusern und kleineren Mehrfamilienhäusern — alle typisch mit Einzel- oder Doppelgaragen, die mit Sectional- oder Schwingtoren von Hörmann ausgestattet werden. Im Gewerbegebiet Brauck und im Industriegebiet Wittringen finden sich Logistik-, Handwerks- und Produktionsbetriebe, die auf Industrie-Sectionaltore, Schnelllauftore und Rolltore angewiesen sind.',
     serviceNote:
-      'Da unser Sitz und Lager in der Bülser Straße in Gladbeck liegen, garantieren wir besonders kurze Reaktionszeiten — im Regelfall noch am selben Tag.',
+      'Mit unserem Firmensitz in Gladbeck garantieren wir besonders kurze Reaktionszeiten — im Regelfall noch am selben Tag.',
     heroImage: '/img/produkte/standorte/gladbeck.jpg',
     heroImageAlt: 'Hörmann Schwingtor Berry Motiv 985 in Anthrazitgrau RAL 7016 — montiert in Gladbeck',
   },
@@ -68,7 +68,7 @@ export const cities: City[] = [
     localContext:
       'Gelsenkirchen mit rund 260.000 Einwohnern ist die größte Nachbarstadt im Osten und ein traditioneller Industriestandort. Im südlichen Stadtgebiet (Ückendorf, Rotthausen, Schalke) bestehen viele Altbauten und Stadthäuser mit kleinformatigen Garagen — hier sind Hörmann Renomatic Sectionaltore und Schwingtore die beliebteste Wahl. Im Norden Buer, Resse und Hassel überwiegen Einfamilienhäuser. Die großen Industrieareale rund um den Schalker Verein, den Stadthafen und das Gewerbegebiet Bismarck setzen seit Jahrzehnten auf Hörmann Industrietore, Rolltore und Schnelllauftore aus unserer Hand.',
     serviceNote:
-      'In Gelsenkirchen erreichen wir Sie binnen 20 Minuten — Notdienst und Service-Termine bieten wir hier mit eigener Mannschaft an.',
+      'In Gelsenkirchen erreichen wir Sie binnen 20 Minuten — Notdienst und Service-Termine sind hier über unsere festen Partnerbetriebe besonders schnell verfügbar.',
     heroImage: '/img/produkte/standorte/gelsenkirchen.jpg',
     heroImageAlt: 'Hörmann Schwingtor Berry Motiv 984 in Verkehrsweiß RAL 9016 — Referenz Gelsenkirchen',
   },

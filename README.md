@@ -61,5 +61,7 @@ Siehe `../todo.txt` für die vollständige Liste (Bildmaterial, GA4-ID, Trustpil
 
 ## Lizenz
 
-Inhalte © Bauprojekt Kaiser GmbH (CC BY-NC-ND 4.0). Quellcode-Layout (Astro-Templates,
-Komponenten) für interne Verwendung.
+Alle Rechte vorbehalten. Copyright © 2026 Bauprojekt Kaiser GmbH, Gladbeck.
+Eine Vervielfältigung, Bearbeitung oder Verbreitung über das gesetzlich Erlaubte
+hinaus ist ohne schriftliche Zustimmung nicht gestattet. Vollständige Bedingungen
+und Ausnahmen (Dritt-Software, Hörmann-Markenmaterial): siehe [`LICENSE.md`](./LICENSE.md).
