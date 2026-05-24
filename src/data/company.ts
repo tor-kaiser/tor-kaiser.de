@@ -151,7 +151,7 @@ export const history: HistoryEntry[] = [
     year: '2000',
     title: 'Bauprojekt Kaiser GmbH',
     person: 'Vater',
-    text: 'Am 1. April gründet der Vater die heutige Bauprojekt Kaiser GmbH und vereint Beratung, Verkauf und Service an einem Standort in Gladbeck.',
+    text: 'Anfang des Jahres gründet der Vater die heutige Bauprojekt Kaiser GmbH und vereint Beratung, Verkauf und Service an einem Standort in Gladbeck.',
   },
   {
     year: 'Heute',
