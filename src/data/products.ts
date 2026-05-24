@@ -15,6 +15,9 @@ export interface Product {
   description: string;
   image?: string;
   imageAlt?: string;
+  imageFit?: 'cover' | 'contain';
+  imagePosition?: string;
+  imageBackground?: string;
   gallery?: ProductGalleryImage[];
   highlights: string[];
 }
@@ -31,7 +34,7 @@ export const products: Product[] = [
       'Sectionaltore öffnen senkrecht nach oben und liegen platzsparend unter der Decke — ideal, wenn vor der Garage jeder Zentimeter zählt.',
     image: '/img/produkte/sectionaltore/hero.jpg',
     imageAlt:
-      'Hörmann Garagen-Sectionaltor D-Sicke Silkgrain in Anthrazitgrau RAL 7016 mit Holzoptik-Inlay',
+      'Hörmann Garagen-Sectionaltor D-Sicke Silkgrain in Fenstergrau RAL 7040',
     gallery: [
       {
         src: '/img/produkte/sectionaltore/detail-1.jpg',
@@ -43,7 +46,7 @@ export const products: Product[] = [
       },
       {
         src: '/img/produkte/sectionaltore/detail-3.jpg',
-        alt: 'Hörmann Sectionaltor D-Sicke Silkgrain in Fenstergrau RAL 7040',
+        alt: 'Hörmann Sectionaltor D-Sicke Silkgrain in Anthrazitgrau RAL 7016, Motiv 500 mit Holzoptik-Inlay',
       },
     ],
     highlights: [
@@ -96,6 +99,7 @@ export const products: Product[] = [
       'Das RollMatic Rolltor wickelt sich kompakt unter die Decke und lässt die volle Garagentiefe und -höhe frei.',
     image: '/img/produkte/rolltore/hero.jpg',
     imageAlt: 'Hörmann RollMatic Garagen-Rolltor — Außenansicht',
+    imagePosition: 'center 70%',
     gallery: [
       {
         src: '/img/produkte/rolltore/detail-1.jpg',
@@ -335,6 +339,8 @@ export const products: Product[] = [
       'Original Hörmann Ersatzteile für alle Tor- und Antriebsbaureihen — Torsionsfedern, Laufrollen, Seilbruchsicherungen, Handsender HSE / HS bis 30 Jahre zurück.',
     image: '/img/produkte/ersatzteile/hero.jpg',
     imageAlt: 'Hörmann BiSecur Handsender HSE 4 BS in Anthrazitgrau',
+    imageFit: 'contain',
+    imageBackground: '#fff',
     gallery: [
       {
         src: '/img/produkte/ersatzteile/detail-1.jpg',
