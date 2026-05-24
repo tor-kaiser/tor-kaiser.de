@@ -15,6 +15,9 @@ export interface Product {
   description: string;
   image?: string;
   imageAlt?: string;
+  imageFit?: 'cover' | 'contain';
+  imagePosition?: string;
+  imageBackground?: string;
   gallery?: ProductGalleryImage[];
   highlights: string[];
 }
@@ -96,6 +99,7 @@ export const products: Product[] = [
       'Das RollMatic Rolltor wickelt sich kompakt unter die Decke und lässt die volle Garagentiefe und -höhe frei.',
     image: '/img/produkte/rolltore/hero.jpg',
     imageAlt: 'Hörmann RollMatic Garagen-Rolltor — Außenansicht',
+    imagePosition: 'center 70%',
     gallery: [
       {
         src: '/img/produkte/rolltore/detail-1.jpg',
@@ -335,6 +339,8 @@ export const products: Product[] = [
       'Original Hörmann Ersatzteile für alle Tor- und Antriebsbaureihen — Torsionsfedern, Laufrollen, Seilbruchsicherungen, Handsender HSE / HS bis 30 Jahre zurück.',
     image: '/img/produkte/ersatzteile/hero.jpg',
     imageAlt: 'Hörmann BiSecur Handsender HSE 4 BS in Anthrazitgrau',
+    imageFit: 'contain',
+    imageBackground: '#fff',
     gallery: [
       {
         src: '/img/produkte/ersatzteile/detail-1.jpg',
