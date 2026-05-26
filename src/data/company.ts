@@ -81,10 +81,9 @@ export const emergencyDaytimeHref = `tel:${company.emergency.daytimePhoneE164}`;
 export const emergencyNightHref = `tel:${company.emergency.nightPhoneE164.replace(/\s/g, '')}`;
 
 export function buildMailto(subject: string, body?: string): string {
-  const params = new URLSearchParams();
-  params.set('subject', subject);
-  if (body) params.set('body', body);
-  return `mailto:${company.contact.email}?${params.toString()}`;
+  const parts = [`subject=${encodeURIComponent(subject)}`];
+  if (body) parts.push(`body=${encodeURIComponent(body)}`);
+  return `mailto:${company.contact.email}?${parts.join('&')}`;
 }
 
 export const fullAddress = `${company.address.street}, ${company.address.postalCode} ${company.address.city}`;
