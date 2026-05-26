@@ -7,7 +7,7 @@ export const company = {
   managingDirector: 'Paul Kaiser',
 
   // --- Firmengeschichte · vier Generationen Familienbetrieb ---
-  // 1950  Kaiser Bau — der Urgroßvater gründet den Familienbetrieb im Bauhandwerk
+  // 1950  Bauunternehmen Bernhard Kaiser — der Urgroßvater gründet den Familienbetrieb im Bauhandwerk
   // 1972  Kaiser Baubedarfartikel GmbH — der Großvater, Beginn der Hörmann-Spezialisierung
   // 2000  Bauprojekt Kaiser GmbH — der Vater, gegründet am 01.04.2000 (heutige Firma)
   // heute Paul Kaiser führt das Unternehmen in 4. Generation fort
@@ -137,9 +137,9 @@ export interface HistoryEntry {
 export const history: HistoryEntry[] = [
   {
     year: '1950',
-    title: 'Kaiser Bau',
+    title: 'Bauunternehmen Bernhard Kaiser',
     person: 'Urgroßvater',
-    text: 'Der Urgroßvater legt mit der Kaiser Bau den Grundstein — der Beginn einer Familientradition, die bis heute über vier Generationen reicht.',
+    text: 'Der Urgroßvater legt mit dem Bauunternehmen Bernhard Kaiser den Grundstein — der Beginn einer Familientradition, die bis heute über vier Generationen reicht.',
   },
   {
     year: '1972',
