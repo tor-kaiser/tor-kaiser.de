@@ -81,6 +81,11 @@ const nav = [
           <span class="hamburger-label">Menü</span>
         </summary>
         <div class="mobile-panel">
+          <button type="button" class="mobile-close" aria-label="Menü schließen">
+            <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+              <path d="M6 6 L18 18 M6 18 L18 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none" />
+            </svg>
+          </button>
           <ul class="mobile-list">
             {
               nav.map((item) => (
@@ -151,6 +156,11 @@ const nav = [
     document.querySelectorAll('.nav-dropdown[open]').forEach((d) => {
       if (!d.contains(e.target)) d.open = false;
     });
+  });
+  // Mobile-Drawer per X-Button schließen
+  document.querySelector('.mobile-close')?.addEventListener('click', () => {
+    const m = document.getElementById('mobile-menu');
+    if (m) m.open = false;
   });
 </script>
 
@@ -429,6 +439,30 @@ const nav = [
     display: grid;
     gap: 0.6rem;
     margin-top: 1.25rem;
+  }
+
+  .mobile-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    border-radius: 8px;
+    color: var(--color-ink);
+    cursor: pointer;
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+
+  .mobile-close:hover,
+  .mobile-close:focus-visible {
+    background: var(--color-surface-alt);
+    color: var(--color-brand);
   }
 
   @media (max-width: 1024px) {
