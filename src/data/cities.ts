@@ -48,7 +48,7 @@ export const cities: City[] = [
     description:
       'Direkt benachbarte Großstadt im Süden — ein wichtiger Markt im Hörmann-Stammgebiet.',
     localContext:
-      'Bottrop ist mit rund 117.500 Einwohnern unsere direkte Nachbarstadt im Süden. Hier bedienen wir sowohl die dichten Wohngebiete in Stadtmitte, Eigen und Welheim als auch die Einfamilienhaussiedlungen in Kirchhellen und Grafenwald. Bottrop ist außerdem Sitz des Hörmann Stammwerks (Steinhagen lieferte das Werk, in Bottrop sind weitere Fertigungsstandorte angesiedelt), sodass eine besonders schnelle Verfügbarkeit von Ersatzteilen und Sonderbauten gegeben ist. Industriebetriebe im Welheimer Mark, im ProspectPark und Kirchhellener Heide setzen auf Industrietore, Schnelllauftore und Rollgitter von Hörmann.',
+      'Bottrop ist mit rund 117.500 Einwohnern unsere direkte Nachbarstadt im Süden. Hier bedienen wir sowohl die dichten Wohngebiete in Stadtmitte, Eigen und Welheim als auch die Einfamilienhaussiedlungen in Kirchhellen und Grafenwald. Industriebetriebe im Welheimer Mark, im ProspectPark und Kirchhellener Heide setzen auf Industrietore, Schnelllauftore und Rollgitter von Hörmann.',
     serviceNote:
       'Bottrop liegt nur 15 Minuten von unserem Hauptsitz in Gladbeck entfernt — Notdienst und Montage sind besonders schnell verfügbar.',
     heroImage: '/img/produkte/standorte/bottrop.jpg',

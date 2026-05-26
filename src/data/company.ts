@@ -7,7 +7,7 @@ export const company = {
   managingDirector: 'Paul Kaiser',
 
   // --- Firmengeschichte · vier Generationen Familienbetrieb ---
-  // 1950  Kaiser Bau — der Urgroßvater gründet den Familienbetrieb im Bauhandwerk
+  // 1950  Bauunternehmen Bernhard Kaiser — der Urgroßvater gründet den Familienbetrieb im Bauhandwerk
   // 1972  Kaiser Baubedarfartikel GmbH — der Großvater, Beginn der Hörmann-Spezialisierung
   // 2000  Bauprojekt Kaiser GmbH — der Vater, gegründet am 01.04.2000 (heutige Firma)
   // heute Paul Kaiser führt das Unternehmen in 4. Generation fort
@@ -81,10 +81,9 @@ export const emergencyDaytimeHref = `tel:${company.emergency.daytimePhoneE164}`;
 export const emergencyNightHref = `tel:${company.emergency.nightPhoneE164.replace(/\s/g, '')}`;
 
 export function buildMailto(subject: string, body?: string): string {
-  const params = new URLSearchParams();
-  params.set('subject', subject);
-  if (body) params.set('body', body);
-  return `mailto:${company.contact.email}?${params.toString()}`;
+  const parts = [`subject=${encodeURIComponent(subject)}`];
+  if (body) parts.push(`body=${encodeURIComponent(body)}`);
+  return `mailto:${company.contact.email}?${parts.join('&')}`;
 }
 
 export const fullAddress = `${company.address.street}, ${company.address.postalCode} ${company.address.city}`;
@@ -137,9 +136,9 @@ export interface HistoryEntry {
 export const history: HistoryEntry[] = [
   {
     year: '1950',
-    title: 'Kaiser Bau',
+    title: 'Bauunternehmen Bernhard Kaiser',
     person: 'Urgroßvater',
-    text: 'Der Urgroßvater legt mit der Kaiser Bau den Grundstein — der Beginn einer Familientradition, die bis heute über vier Generationen reicht.',
+    text: 'Der Urgroßvater legt mit dem Bauunternehmen Bernhard Kaiser den Grundstein — der Beginn einer Familientradition, die bis heute über vier Generationen reicht.',
   },
   {
     year: '1972',
