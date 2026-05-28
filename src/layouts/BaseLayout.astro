@@ -88,11 +88,29 @@ const localBusinessSchema = {
     'Hörmann, Garagentor, Industrietor, Haustür, Antrieb, Gladbeck, Bottrop, Gelsenkirchen, Essen, Notdienst',
 };
 
+const vacationText = company.vacationBanner.trim();
+const specialAnnouncementSchema = vacationText
+  ? {
+      '@context': 'https://schema.org',
+      '@type': 'SpecialAnnouncement',
+      name: `Betriebsferien ${company.legalName}`,
+      text: vacationText,
+      category: 'https://www.wikidata.org/wiki/Q831871',
+      datePosted: new Date().toISOString(),
+      announcementLocation: { '@id': `${siteUrl}/#organization` },
+      publisher: { '@id': `${siteUrl}/#organization` },
+    }
+  : null;
+
+const baseSchemas = specialAnnouncementSchema
+  ? [localBusinessSchema, specialAnnouncementSchema]
+  : [localBusinessSchema];
+
 const allSchemas = schema
   ? Array.isArray(schema)
-    ? [localBusinessSchema, ...schema]
-    : [localBusinessSchema, schema]
-  : [localBusinessSchema];
+    ? [...baseSchemas, ...schema]
+    : [...baseSchemas, schema]
+  : baseSchemas;
 ---
 
 <!doctype html>

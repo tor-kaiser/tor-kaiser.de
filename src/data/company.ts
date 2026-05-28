@@ -25,6 +25,13 @@ export const company = {
 
   partnerStatus: 'Hörmann Fachhändler',
 
+  // --- Betriebsferien-Banner -------------------------------------------------
+  // Leer lassen → kein Banner. Text eintragen → Banner erscheint als gelbe
+  // Zeile zwischen dunklem Topbar und Hauptnavigation, mit durchlaufender
+  // Schrift. Nach den Ferien wieder auf '' setzen.
+  vacationBanner:
+    'Betriebsferien vom 1. bis 19. Juni 2026 — ab Montag, 22. Juni sind wir wieder für Sie da. In Notfällen nutzen Sie bitte unseren Notdienst.',
+
   address: {
     street: 'Bülser Straße 19',
     postalCode: '45964',
