@@ -1,0 +1,79 @@
+---
+import { company } from '../data/company';
+
+const text = company.vacationBanner.trim();
+---
+
+{
+  text && (
+    <div
+      class="vacation-banner"
+      role="status"
+      aria-live="polite"
+      aria-label="Betriebsferien Hinweis"
+    >
+      <div class="vacation-banner-track">
+        <span class="vacation-banner-item">{text}</span>
+        <span class="vacation-banner-sep" aria-hidden="true">•</span>
+        <span class="vacation-banner-item" aria-hidden="true">{text}</span>
+        <span class="vacation-banner-sep" aria-hidden="true">•</span>
+        <span class="vacation-banner-item" aria-hidden="true">{text}</span>
+        <span class="vacation-banner-sep" aria-hidden="true">•</span>
+      </div>
+    </div>
+  )
+}
+
+<style>
+  .vacation-banner {
+    background: var(--color-accent);
+    color: var(--color-ink);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding-block: 0.45rem;
+    overflow: hidden;
+    border-block: 1px solid rgba(15, 27, 45, 0.08);
+  }
+
+  .vacation-banner-track {
+    display: flex;
+    width: max-content;
+    align-items: center;
+    animation: vacation-marquee 40s linear infinite;
+  }
+
+  .vacation-banner:hover .vacation-banner-track,
+  .vacation-banner:focus-within .vacation-banner-track {
+    animation-play-state: paused;
+  }
+
+  .vacation-banner-item {
+    padding-inline: 2rem;
+    white-space: nowrap;
+  }
+
+  .vacation-banner-sep {
+    opacity: 0.55;
+  }
+
+  @keyframes vacation-marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% / 3));
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .vacation-banner-track {
+      animation: none;
+      justify-content: center;
+      width: 100%;
+    }
+    .vacation-banner-item ~ .vacation-banner-item,
+    .vacation-banner-sep {
+      display: none;
+    }
+  }
+</style>

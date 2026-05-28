@@ -25,6 +25,12 @@ export const company = {
 
   partnerStatus: 'Hörmann Fachhändler',
 
+  // --- Betriebsferien-Banner -------------------------------------------------
+  // Leer lassen → kein Banner. Text eintragen → Banner erscheint als gelbe
+  // Zeile zwischen dunklem Topbar und Hauptnavigation, mit durchlaufender
+  // Schrift. Nach den Ferien wieder auf '' setzen.
+  vacationBanner: '',
+
   address: {
     street: 'Bülser Straße 19',
     postalCode: '45964',
